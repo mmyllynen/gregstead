@@ -14,7 +14,6 @@
 | BetterF3 | Client |
 | BetterThanMending | Client and server |
 | Biomes O' Plenty | Client and server |
-| BlueMap | Server |
 | Chat Heads | Client |
 | Chunk Loaders | Client and server |
 | Chunky | Client and server |
