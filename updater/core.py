@@ -203,6 +203,11 @@ def read_bundle(path):
             raise UpdateError('Game/loader changes require a full CurseForge installation')
         if spec.get('side') not in ('client', 'server'):
             raise UpdateError('Invalid update side')
+        transitions={}
+        for name in set(spec['base']['files'][spec['side']]) | set(spec['target']['files'][spec['side']]):
+            previous=transitions.setdefault(name.casefold(),name)
+            if previous!=name:
+                raise UpdateError('Case-only file renames require an explicit migration: '+name)
         expected = {'update-manifest.json'} | {'payload/' + n for n,r in spec['sources'].items() if 'member' in r}
         if set(archive.namelist()) != expected:
             raise UpdateError('Unexpected or missing update archive contents')

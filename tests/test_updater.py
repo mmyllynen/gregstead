@@ -145,6 +145,19 @@ class UpdaterTests(unittest.TestCase):
                 for name,data in self.target.items():z.writestr('payload/'+name,data)
             with self.assertRaises(core.UpdateError):core.read_bundle(archive)
 
+    def test_case_only_rename_blocks_before_windows_aliases_can_delete_a_file(self):
+        spec=copy.deepcopy(self.spec)
+        old='config/preferences.json';new='config/Preferences.json'
+        spec['target']['files']['client'][new]=spec['target']['files']['client'].pop(old)
+        spec['target']['fingerprint']=core.fingerprint(spec['target'])
+        spec['sources'][new]={'member':'payload/'+new};spec['sources'].pop(old)
+        archive=Path(self.tmp.name)/'case-rename.zip'
+        with zipfile.ZipFile(archive,'w') as z:
+            z.writestr('update-manifest.json',core.encoded(spec))
+            for name,data in self.target.items():z.writestr('payload/'+(new if name==old else name),data)
+        with self.assertRaisesRegex(core.UpdateError,'Case-only file renames'):
+            core.read_bundle(archive)
+
     def test_discovery_does_not_choose_unrelated_or_same_named_profile(self):
         unknown=self.root.parent/'Gregstead';unknown.mkdir()
         self.assertIsNone(identify(unknown,self.spec['base']))
