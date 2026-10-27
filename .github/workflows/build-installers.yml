@@ -23,6 +23,8 @@ jobs:
       matrix:
         os: [ubuntu-22.04, windows-2022]
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -80,6 +82,6 @@ jobs:
               atomic(p, encoded(report))
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: gregstead-update-${{ runner.os }}
+          name: gregstead-${{ inputs.bundle_url && 'update' || 'TEST-ONLY' }}-${{ runner.os }}
           path: dist/installers/*
           if-no-files-found: error

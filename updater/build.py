@@ -75,6 +75,7 @@ def main():
              'updateSha256':core.file_sha(a.bundle),'fromVersion':spec['base']['version'],
              'version':spec['target']['version'],'fingerprint':spec['target']['fingerprint'],
              'platform':'windows-x64' if sys.platform=='win32' else 'linux-x64','sourceHashes':files,
+             'testOnly':bool(spec.get('testOnly')),
              'packagedSelfTestPassed':True,'guiSmokePassed':False}
     if sys.platform!='win32':
         archive=a.output/(name+'.tar.gz')

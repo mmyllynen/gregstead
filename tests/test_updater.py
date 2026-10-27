@@ -15,7 +15,7 @@ class UpdaterTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.root = Path(self.tmp.name)/'Instances'/'Gregstead ää space'
+        self.root = (Path(self.tmp.name)/'Instances'/'Gregstead ää space').resolve()
         self.root.mkdir(parents=True)
         self.base,self.target,self.spec = fixture()
         for name,data in self.base.items():
@@ -81,6 +81,25 @@ class UpdaterTests(unittest.TestCase):
         core.recover(self.root,operation)
         self.assertEqual((self.root/name).read_bytes(),self.base[name])
         self.assertFalse((self.root/'mods/example-2.jar').exists())
+
+    def test_recovery_clears_only_the_matching_dead_prepared_operation(self):
+        operation='b'*32
+        backup=self.root/'.gregstead-backups'/operation
+        core.atomic(backup/'journal.json',core.encoded({'phase':'prepared','before':{}}))
+        core.atomic(self.root/core.LOCK,core.encoded({'operation':'c'*32,'host':__import__('socket').gethostname(),'pid':99999999}))
+        with self.assertRaisesRegex(core.UpdateError,'different operation'):core.recover(self.root,operation)
+        core.atomic(self.root/core.LOCK,core.encoded({'operation':operation,'host':__import__('socket').gethostname(),'pid':99999999}))
+        core.recover(self.root,operation)
+        self.assertFalse((self.root/core.LOCK).exists())
+
+    def test_recovery_refuses_to_overwrite_later_manual_changes(self):
+        operation='d'*32;name='mods/example-1.jar'
+        backup=self.root/'.gregstead-backups'/operation
+        core.atomic(backup/'files'/name,self.base[name])
+        core.atomic(backup/'journal.json',core.encoded({'phase':'applying','before':{name:{'sha256':core.sha(self.base[name]),'mode':0o644}},'after':{name:None}}))
+        core.atomic(self.root/name,b'later manual change')
+        with self.assertRaisesRegex(core.UpdateError,'changed after interruption'):core.recover(self.root,operation)
+        self.assertEqual((self.root/name).read_bytes(),b'later manual change')
 
     def test_modified_shared_config_cannot_be_hidden_by_matching_receipt(self):
         core.apply_update(self.root,self.spec,self.target)

@@ -400,6 +400,8 @@ def recover(root, operation):
         raise UpdateError('Invalid recovery operation')
     lock = root/LOCK
     owner = json.loads(lock.read_text()) if lock.exists() else None
+    if owner and owner.get('operation') != operation:
+        raise UpdateError('The profile lock belongs to a different operation')
     if owner and (owner.get('host') != socket.gethostname() or psutil.pid_exists(owner['pid'])):
         raise UpdateError('Another updater may still be active')
     backup = root/'.gregstead-backups'/operation
@@ -407,12 +409,26 @@ def recover(root, operation):
         raise UpdateError('Invalid backup location')
     journal_path = backup/'journal.json'
     journal = json.loads(journal_path.read_text())
-    if journal['phase'] not in ('applying','recovery-required'):
+    if journal['phase'] not in ('prepared','complete','applying','recovery-required'):
         raise UpdateError('This operation does not need recovery')
     if running_game(root):
         raise UpdateError('Close Minecraft before recovery')
-    _restore(root, backup, journal)
-    journal['phase'] = 'rolled-back'
+    if journal['phase'] in ('applying','recovery-required'):
+        for name,old in journal['before'].items():
+            dest = root/RECEIPT if name==RECEIPT else target_path(root,name)
+            present = file_sha(dest) if dest.is_file() else None
+            if name==RECEIPT:
+                if present is not None and (old is None or present!=old['sha256']):
+                    if json.loads(dest.read_text()).get('operation')!=operation:
+                        raise UpdateError('Profile receipt advanced after this interrupted operation')
+            elif 'after' in journal:
+                allowed={old['sha256'] if old else None,journal['after'].get(name)}
+                if present not in allowed:
+                    raise UpdateError('File changed after interruption; inspect recovery manually: '+name)
+        _restore(root, backup, journal)
+        journal['phase'] = 'rolled-back'
+    elif journal['phase']=='prepared':
+        journal['phase'] = 'rolled-back'
     atomic(journal_path, encoded(journal))
     lock.unlink(missing_ok=True)
     return {'recovered':operation}
@@ -458,6 +474,7 @@ def apply_update(root, spec, payload, progress=lambda message: None):
             else:
                 before[name] = None
         journal = {'operation':operation, 'phase':'prepared', 'before':before,
+                   'after':{**{n:sha(b) for n,b in plan['writes'].items()},**{n:None for n in plan['remove']}},
                    'fromVersion':plan['fromVersion'], 'toVersion':plan['toVersion']}
         atomic(backup/'journal.json', encoded(journal))
         for name, expected in plan['expected'].items():

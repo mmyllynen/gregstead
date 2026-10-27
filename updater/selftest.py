@@ -38,6 +38,10 @@ def fixture():
 
 def write_fixture(path):
     _,target,spec = fixture()
+    spec['testOnly']=True
+    for key,version in [('base','0.0.0-ci.1'),('target','0.0.0-ci.2')]:
+        spec[key]['version']=version
+        spec[key]['fingerprint']=core.fingerprint(spec[key])
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('update-manifest.json',core.encoded(spec))
         for name,data in target.items():
