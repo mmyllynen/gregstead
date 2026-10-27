@@ -68,7 +68,7 @@ jobs:
       - name: Native GUI smoke test
         shell: python
         run: |
-          import json, subprocess, sys
+          import json, subprocess, sys, os, tempfile
           from pathlib import Path
           from updater.core import atomic, encoded
           for p in Path('dist/installers').glob('*.build.json'):
@@ -77,7 +77,9 @@ jobs:
               command = [str(executable), '--gui-smoke']
               if sys.platform != 'win32':
                   command = ['xvfb-run', '-a', *command]
-              subprocess.run(command, check=True, timeout=90)
+              with tempfile.TemporaryDirectory(prefix='gregstead-packaged-gui-') as isolated:
+                  environment = {k:v for k,v in os.environ.items() if k != 'PYTHONPATH'}
+                  subprocess.run(command, check=True, timeout=90, cwd=isolated, env=environment)
               report['guiSmokePassed'] = True
               atomic(p, encoded(report))
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

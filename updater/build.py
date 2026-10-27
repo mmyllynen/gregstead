@@ -31,6 +31,13 @@ def collect_licenses(output):
     }
     for package,paths in candidates.items():
         source=next((p for p in paths if p.is_file()),None)
+        if source is None and sys.platform=='win32' and package in ('Tcl','Tk'):
+            import tkinter
+            patchlevel=str(tkinter.Tcl().call('info','patchlevel'))
+            provenance=__import__('json').loads((Path(__file__).parent/'licenses/provenance.json').read_text())[package]
+            source=Path(__file__).parent/'licenses'/(package+'-'+patchlevel+'.txt')
+            if patchlevel!=provenance['version'] or not source.is_file() or core.file_sha(source)!=provenance['sha256']:
+                raise RuntimeError('Missing reviewed Windows runtime notice for '+package+' '+patchlevel)
         if source is None:
             raise RuntimeError('Missing bundled runtime notice for '+package)
         shutil.copy2(source,output/(package+'-NOTICE.txt'))
@@ -65,7 +72,9 @@ def main():
         if sys.platform=='win32':command.append('--windowed')
         subprocess.run([*command,str(launch)],check=True)
     report=a.output/(name+'.selftest.json')
-    subprocess.run([str(executable.resolve()),'--self-test','--report',str(report.resolve())],check=True)
+    with tempfile.TemporaryDirectory(prefix='gregstead-packaged-test-') as isolated:
+        environment={k:v for k,v in __import__('os').environ.items() if k!='PYTHONPATH'}
+        subprocess.run([str(executable.resolve()),'--self-test','--report',str(report.resolve())],check=True,cwd=isolated,env=environment)
     if not __import__('json').loads(report.read_text()).get('passed'):
         raise RuntimeError('Packaged installer self-test failed')
     files={n:core.file_sha(Path(__file__).parent/n) for n in SOURCE_FILES}
