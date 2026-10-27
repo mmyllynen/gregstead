@@ -293,7 +293,7 @@ def inspect_profile(root, lock, side='client', allowed_extras=None):
                      and allowed_extras.get(n) == file_sha(root/'mods'/n))
     unknown = sorted(set(extras) - set(allowed))
     receipt = root / RECEIPT
-    installed = json.loads(receipt.read_text()) if receipt.is_file() else None
+    installed = json.loads(receipt.read_text(encoding='utf-8-sig')) if receipt.is_file() else None
     return {'version':lock['version'], 'fingerprint':lock['fingerprint'], 'differences':different,
             'personalOverrides':personal, 'extraMods':unknown, 'allowedHostExtras':allowed,
             'matches':not different and not unknown, 'managedMatches':not different,
@@ -309,12 +309,12 @@ def plan_update(root, spec, payload, observation=None, allowed_extras=None):
     side = spec['side']
     base, target = spec['base']['files'][side], spec['target']['files'][side]
     receipt = root / RECEIPT
-    current = observation.get('gregsteadReceipt') if observation is not None else (json.loads(receipt.read_text()) if receipt.is_file() else None)
+    current = observation.get('gregsteadReceipt') if observation is not None else (json.loads(receipt.read_text(encoding='utf-8-sig')) if receipt.is_file() else None)
     if current:
         if current.get('fingerprint') not in (spec['base']['fingerprint'], spec['target']['fingerprint']):
             raise UpdateError('This installer does not support the installed release')
     metadata = root/'minecraftinstance.json'
-    cf = observation.get('minecraft',{}) if observation is not None else (json.loads(metadata.read_text()) if metadata.is_file() else {})
+    cf = observation.get('minecraft',{}) if observation is not None else (json.loads(metadata.read_text(encoding='utf-8-sig')) if metadata.is_file() else {})
     if cf:
         if cf.get('gameVersion') not in (None, spec['target']['minecraft']):
             raise UpdateError('Minecraft version differs from this update')
@@ -404,7 +404,7 @@ def recover(root, operation):
     if not re.fullmatch('[a-f0-9]{32}', operation):
         raise UpdateError('Invalid recovery operation')
     lock = root/LOCK
-    owner = json.loads(lock.read_text()) if lock.exists() else None
+    owner = json.loads(lock.read_text(encoding='utf-8-sig')) if lock.exists() else None
     if owner and owner.get('operation') != operation:
         raise UpdateError('The profile lock belongs to a different operation')
     if owner and (owner.get('host') != socket.gethostname() or psutil.pid_exists(owner['pid'])):
@@ -413,7 +413,7 @@ def recover(root, operation):
     if backup.is_symlink() or not backup.resolve().is_relative_to(root):
         raise UpdateError('Invalid backup location')
     journal_path = backup/'journal.json'
-    journal = json.loads(journal_path.read_text())
+    journal = json.loads(journal_path.read_text(encoding='utf-8-sig'))
     if journal['phase'] not in ('prepared','complete','applying','recovery-required'):
         raise UpdateError('This operation does not need recovery')
     if running_game(root):
@@ -424,7 +424,7 @@ def recover(root, operation):
             present = file_sha(dest) if dest.is_file() else None
             if name==RECEIPT:
                 if present is not None and (old is None or present!=old['sha256']):
-                    if json.loads(dest.read_text()).get('operation')!=operation:
+                    if json.loads(dest.read_text(encoding='utf-8-sig')).get('operation')!=operation:
                         raise UpdateError('Profile receipt advanced after this interrupted operation')
             elif 'after' in journal:
                 allowed={old['sha256'] if old else None,journal['after'].get(name)}

@@ -1,0 +1,3 @@
+/updater/** text eol=lf
+/tests/test_updater.py text eol=lf
+/.github/workflows/build-installers.yml text eol=lf

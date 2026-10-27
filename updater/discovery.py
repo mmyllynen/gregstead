@@ -19,7 +19,7 @@ def roots(home=None, platform=None):
     # Only documented-by-observation installation paths; unrelated app data is ignored.
     for path in configs:
         try:
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding='utf-8-sig'))
             minecraft = data.get('minecraft-settings',data.get('minecraft', {}))
             if isinstance(minecraft,str):
                 minecraft = json.loads(minecraft)
@@ -40,11 +40,11 @@ def identify(path, base=None):
     receipt = path/core.RECEIPT
     try:
         if receipt.is_file() and not receipt.is_symlink():
-            d = json.loads(receipt.read_text())
+            d = json.loads(receipt.read_text(encoding='utf-8-sig'))
             if d.get('fingerprint') and d.get('version'):
                 return {'path':str(path.resolve()),'name':path.name,'version':d['version'],'via':'receipt'}
         cf_path = path/'minecraftinstance.json'
-        cf = json.loads(cf_path.read_text()) if cf_path.is_file() else {}
+        cf = json.loads(cf_path.read_text(encoding='utf-8-sig')) if cf_path.is_file() else {}
         pack = cf.get('installedModpack') or {}
         if isinstance(pack,dict) and pack.get('addonID') == core.PROJECT_ID:
             return {'path':str(path.resolve()),'name':cf.get('name',path.name),

@@ -35,7 +35,8 @@ libraries. Then run from the source repository root:
 python -m updater.build --bundle /path/to/update.zip --output dist/installers
 ```
 
-Build Windows executables on Windows and Linux executables on Linux. The build
+Build Windows executables on Windows and Linux executables on Linux. Keep the
+repository `.gitattributes` rules: source and license hashes use LF line endings. The build
 runs a synthetic packaged-engine self-test; native GUI smoke tests are a separate
 required check before publication. Supported targets are Windows 10/11 x64 and
 Ubuntu 22.04 or newer x64. No Python installation is needed on players' computers.

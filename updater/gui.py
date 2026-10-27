@@ -162,7 +162,7 @@ def main():
         popup=tk.Toplevel(window);popup.title('Licenses');popup.geometry('700x500')
         text=tk.Text(popup,wrap='word');text.pack(fill='both',expand=True)
         for path in sorted(base.glob('*.txt')) if base.is_dir() else []:
-            text.insert('end',path.name+'\n'+path.read_text(errors='replace')+'\n\n')
+            text.insert('end',path.name+'\n'+path.read_text(encoding='utf-8-sig',errors='replace')+'\n\n')
         text.configure(state='disabled')
     ttk.Button(frame,text='Licenses',command=licenses).pack(anchor='e')
     window.protocol('WM_DELETE_WINDOW',close)
