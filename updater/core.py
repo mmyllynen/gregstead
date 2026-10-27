@@ -196,6 +196,11 @@ def read_bundle(path):
             raise UpdateError('Unsupported update bundle')
         validate_lock(spec['base'])
         validate_lock(spec['target'])
+        from updater.versions import version_tuple
+        if version_tuple(spec['target']['version']) <= version_tuple(spec['base']['version']):
+            raise UpdateError('Update target must be newer than its base')
+        if any(spec['base'][k]!=spec['target'][k] for k in ('minecraft','neoforge')):
+            raise UpdateError('Game/loader changes require a full CurseForge installation')
         if spec.get('side') not in ('client', 'server'):
             raise UpdateError('Invalid update side')
         expected = {'update-manifest.json'} | {'payload/' + n for n,r in spec['sources'].items() if 'member' in r}

@@ -134,6 +134,17 @@ class UpdaterTests(unittest.TestCase):
         with self.assertRaisesRegex(core.UpdateError,'Unexpected'):
             core.read_bundle(path)
 
+    def test_bundle_cannot_downgrade_or_change_loader(self):
+        for change in ('version','neoforge'):
+            spec=copy.deepcopy(self.spec)
+            spec['target'][change]='1.0.25' if change=='version' else '26.3.0.78'
+            spec['target']['fingerprint']=core.fingerprint(spec['target'])
+            archive=Path(self.tmp.name)/(change+'.zip')
+            with zipfile.ZipFile(archive,'w') as z:
+                z.writestr('update-manifest.json',core.encoded(spec))
+                for name,data in self.target.items():z.writestr('payload/'+name,data)
+            with self.assertRaises(core.UpdateError):core.read_bundle(archive)
+
     def test_discovery_does_not_choose_unrelated_or_same_named_profile(self):
         unknown=self.root.parent/'Gregstead';unknown.mkdir()
         self.assertIsNone(identify(unknown,self.spec['base']))

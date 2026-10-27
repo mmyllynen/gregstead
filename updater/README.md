@@ -9,7 +9,8 @@ review the target folder and version, then click **Install update**. Windows use
 an `.exe`; on Linux extract the `.tar.gz` and open the executable. Your desktop
 may first require enabling its executable permission in the file properties.
 
-The installer requires an existing supported version. Personal settings, worlds,
+The installer requires an existing supported version. A Minecraft or NeoForge
+version change requires a new full installation through CurseForge. Personal settings, worlds,
 maps and the server list are preserved. Pack gameplay settings follow the selected
 release. If a required file has been changed unexpectedly, the installer stops
 before replacing it. It never deletes unknown extra mods. Use the main project's
