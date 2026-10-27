@@ -59,7 +59,7 @@
     },
     "emi-defaults": {
       "name": "Gregstead EMI Defaults",
-      "kind": "pack-addon",
+      "kind": "mod",
       "version": "0.1.1",
       "side": "client",
       "dependencies": [
