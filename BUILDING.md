@@ -18,3 +18,7 @@ tree. No private server files or accounts are needed.
 
 Component licenses and original author notices are retained. See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the component license files.
+
+## Update installers
+
+The portable updater and native build instructions are in [updater/README.md](updater/README.md). Each installer targets one exact version transition. Windows and Linux installers are built and tested separately.
