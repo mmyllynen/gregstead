@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.lowdragmc.lowdraglib.transfer.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "FluidIngredientCacheAccessor",
+    "ItemDescriptionMixin",
+    "BlockDescriptionMixin",
+    "ItemNameMixin",
+    "ClientItemTickMixin",
+    "ItemAttackMixin",
+    "ItemEnchantabilityMixin",
+    "EnchantmentSelectionMixin",
+    "ItemRepairMixin",
+    "BlockTooltipMixin",
+    "NeighborUpdateContextMixin",
+    "MultiNeighborSourceMixin",
+    "SimpleNeighborSourceMixin",
+    "BlockRemovalMixin",
+    "LegacySavedDataFileMixin",
+    "RegistryFreezeAccessor",
+    "NamedHolderSetListenersMixin",
+    "ItemPropertiesComponentsAccessor"
+  ],
+  "client": [
+    "GuiBufferBuilderMixin",
+    "GuiItemColorMixin",
+    "GuiOversizedColorMixin",
+    "GuiAtlasBlitColorMixin",
+    "GuiPipBlitColorMixin",
+    "GuiTextColorMixin",
+    "GuiRectColorMixin",
+    "GuiItemStateAccess",
+    "ItemModelTintAccess"
+  ]
+}

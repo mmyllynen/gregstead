@@ -1,0 +1,41 @@
+{
+  "Features": {
+    "enable_auto_refill": {
+      "value": true
+    },
+    "enable_profiles": {
+      "value": false
+    }
+  },
+  "ModSettings": {
+    "first_run": false,
+    "enable_profiles": {
+      "value": false
+    },
+    "enable_auto_refill": {
+      "value": true
+    }
+  },
+  "EditProfiles": {
+    "enable_profiles": {
+      "value": false
+    }
+  },
+  "AutoRefillSettings": {
+    "refill_armor": {
+      "value": false
+    },
+    "refill_before_tool_break": {
+      "value": false
+    },
+    "stackable_threshold": 0,
+    "disable_for_drop_item": {
+      "value": true
+    },
+    "ignore_locked_slots": false,
+    "auto_refill_match_custom_name": true,
+    "auto_refill_match_nbt": true,
+    "auto_refill_match_nbt_type": "EXACT",
+    "auto_refill_match_any_food": false
+  }
+}

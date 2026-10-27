@@ -1,0 +1,11 @@
+{
+  "model": {
+    "type": "neoforge:fluid_container",
+    "textures": {
+      "base": "gtceu:item/liquid_fuel_jetpack/base",
+      "fluid": "gtceu:item/liquid_fuel_jetpack/overlay",
+      "cover": "gtceu:item/liquid_fuel_jetpack/base"
+    },
+    "fluid": "minecraft:empty"
+  }
+}

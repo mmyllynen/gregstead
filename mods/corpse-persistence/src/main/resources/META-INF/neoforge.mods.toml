@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[12,)"
+license="MIT"
+[[mods]]
+modId="neogreg_corpse_persistence"
+version="1.0.1"
+displayName="Gregstead Corpse Persistence"
+description="Server-only persistent corpses and skeletons, including after looting."
+displayTest="IGNORE_ALL_VERSION"
+[[mixins]]
+config="neogreg-corpse-persistence.mixins.json"
+[[dependencies.neogreg_corpse_persistence]]
+modId="corpse"
+type="required"
+versionRange="[1.1.20+26.3]"
+side="SERVER"
+[[dependencies.neogreg_corpse_persistence]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77]"
+side="SERVER"
+[[dependencies.neogreg_corpse_persistence]]
+modId="minecraft"
+type="required"
+versionRange="[26.3]"
+side="SERVER"

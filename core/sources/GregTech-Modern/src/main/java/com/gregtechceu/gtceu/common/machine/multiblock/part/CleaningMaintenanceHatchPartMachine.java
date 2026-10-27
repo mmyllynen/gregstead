@@ -1,0 +1,48 @@
+package com.gregtechceu.gtceu.common.machine.multiblock.part;
+
+import com.gregtechceu.gtceu.api.blockentity.BlockEntityCreationInfo;
+import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
+import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
+import com.gregtechceu.gtceu.api.machine.trait.CleanroomProviderTrait;
+import com.gregtechceu.gtceu.api.machine.trait.CleanroomReceiverTrait;
+
+import lombok.Getter;
+
+import java.util.Set;
+
+import static com.gregtechceu.gtceu.api.GTValues.UHV;
+import static com.gregtechceu.gtceu.api.GTValues.UV;
+
+public class CleaningMaintenanceHatchPartMachine extends AutoMaintenanceHatchPartMachine {
+
+    private final CleanroomProviderTrait cleanroomProvider;
+
+    @Getter
+    private final CleanroomType cleanroomType;
+
+    public CleaningMaintenanceHatchPartMachine(BlockEntityCreationInfo info, CleanroomType cleanroomType) {
+        super(info);
+        this.cleanroomType = cleanroomType;
+        this.cleanroomProvider = new CleanroomProviderTrait(this, Set.of(cleanroomType));
+        cleanroomProvider.setActive(true);
+    }
+
+    @Override
+    public void addedToController(MultiblockControllerMachine controller) {
+        super.addedToController(controller);
+        controller.self().getTraitHolder().getTraitOptional(CleanroomReceiverTrait.TYPE)
+                .ifPresent(t -> t.setCleanroomProvider(cleanroomProvider));
+    }
+
+    @Override
+    public void removedFromController(MultiblockControllerMachine controller) {
+        super.removedFromController(controller);
+        controller.self().getTraitHolder().getTraitOptional(CleanroomReceiverTrait.TYPE)
+                .ifPresent(CleanroomReceiverTrait::removeCleanroom);
+    }
+
+    @Override
+    public int getTier() {
+        return cleanroomType == CleanroomType.CLEANROOM ? UV : UHV;
+    }
+}

@@ -1,0 +1,117 @@
+[versions]
+ldlib = "1.0.41"
+registrate = "MC1.21-1.3.0+67"
+configuration = "4.1.4+26.3"
+
+jei = "31.10.0.63"
+rei = "26.3.824"
+emi = "1.1.24+26.3-port"
+ae2 = "26.3.1-alpha"
+kubejs = "26.3-8.0.6+26.3-port"
+rhino = "2101.2.8-build.91"
+architectury = "13.0.8"
+clothconfig = "15.0.140"
+create = "6.0.8-168"
+ponder = "1.0.64"
+flywheel = "1.0.5"
+curios = "17.0.0-beta.3+26.3"
+kotlinforforge = "5.7.0"
+journeyMapApi = "26.3-2.0.0"
+ftblibrary = "2101.1.30"
+ftbteams = "2101.1.9"
+ftbquests = "2101.1.21"
+ftbchunks = "2101.1.14"
+ccTweaked = "1.116.0"
+resourcefullib = "3.0.12"
+gamestages = "17.0.1"
+bookshelf = "21.1.56"
+# TODO update these once there's 1.21 versions
+argonauts = "1.2.4"
+# FIXME for some reason their maven only has versions up to 1.1.10? latest on modrinth is 1.1.13
+heracles = "1.1.10"
+
+## modrinth maven ##
+jade = "26.3.5+neoforge"
+sodium = "mc1.21.1-0.6.13-neoforge"
+iris = "1.8.8+1.21.1-neoforge"
+modernfix = "4SPHwiDB" # 5.24.3+mc1.21.1
+
+## cursemaven ##
+worldStripper = "5592921"
+javd = "5711894"
+trenzalore = "5623160"
+xaerosWorldMap = "neoforge-26.3-1.47.0"
+xaerosMinimap = "neoforge-26.3-26.6.0"
+journeyMap = "6383889"
+spark = "1.10.187-neoforge"
+observable = "5733591"
+
+
+[libraries]
+ldlib               = { module = "com.lowdragmc.ldlib:ldlib-neoforge-1.21.1", version.ref = "ldlib" }
+registrate          = { module = "com.tterrag.registrate:Registrate", version.ref = "registrate" }
+configuration       = { module = "dev.toma.configuration:configuration-neoforge", version.ref = "configuration" }
+# mixinExtras-common  = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinExtras" }
+# mixinExtras-forge   = { module = "io.github.llamalad7:mixinextras-forge", version.ref = "mixinExtras" }
+
+jei-common-api      = { module = "mezz.jei:jei-26.3-common-api", version.ref = "jei" }
+jei-neoforge-api    = { module = "mezz.jei:jei-26.3-neoforge-api", version.ref = "jei" }
+jei-neoforge-impl   = { module = "mezz.jei:jei-26.3-neoforge", version.ref = "jei" }
+rei-plugin          = { module = "me.shedaniel:RoughlyEnoughItems-default-plugin-neoforge", version.ref = "rei" }
+rei-api             = { module = "me.shedaniel:RoughlyEnoughItems-api-neoforge", version.ref = "rei" }
+rei-neoforge        = { module = "me.shedaniel:RoughlyEnoughItems-neoforge", version.ref = "rei" }
+emi                 = { module = "dev.emi:emi-neoforge", version.ref = "emi" }
+
+ae2                 = { module = "org.appliedenergistics:appliedenergistics2", version.ref = "ae2" }
+kubejs              = { module = "dev.latvian.mods:kubejs-neoforge", version.ref = "kubejs" }
+rhino               = { module = "dev.latvian.mods:rhino", version.ref = "rhino" }
+architectury        = { module = "dev.architectury:architectury-neoforge", version.ref = "architectury" }
+clothconfig         = { module = "me.shedaniel.cloth:cloth-config-neoforge", version.ref = "clothconfig" }
+create              = { module = "com.simibubi.create:create-1.21.1", version.ref = "create" }
+ponder              = { module = "net.createmod.ponder:Ponder-NeoForge-1.21.1", version.ref = "ponder"}
+flywheel-forge-api  = { module = "dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1", version.ref = "flywheel"}
+flywheel-forge      = { module = "dev.engine-room.flywheel:flywheel-neoforge-1.21.1", version.ref = "flywheel"}
+curios              = { module = "top.theillusivec4.curios:curios-neoforge", version.ref = "curios" }
+kotlinforforge      = { module = "thedarkcolour:kotlinforforge-neoforge", version.ref = "kotlinforforge" }
+journeymap-api      = { module = "info.journeymap:journeymap-api-neoforge", version.ref = "journeyMapApi" }
+ftblibrary          = { module = "dev.ftb.mods:ftb-library-neoforge", version.ref = "ftblibrary" }
+ftbteams            = { module = "dev.ftb.mods:ftb-teams-neoforge", version.ref = "ftbteams" }
+ftbquests           = { module = "dev.ftb.mods:ftb-quests-neoforge", version.ref = "ftbquests" }
+ftbchunks           = { module = "dev.ftb.mods:ftb-chunks-neoforge", version.ref = "ftbchunks" }
+resourcefullib      = { module = "com.teamresourceful.resourcefullib:resourcefullib-neoforge-1.21", version.ref = "resourcefullib" }
+# Keep gamestages around so the code doesn't have to be commented out
+gamestages          = { module = "net.darkhax.gamestages:GameStages-Forge-1.20.3", version.ref = "gamestages" }
+bookshelf           = { module = "net.darkhax.bookshelf:bookshelf-neoforge-1.21.1", version.ref = "bookshelf" }
+# Keep odyssey quests/allies around so the code doesn't have to be commented out
+# TODO update these once there's 1.21 versions
+argonauts           = { module = "earth.terrarium.argonauts:argonauts-neoforge-1.20.4", version.ref = "argonauts" }
+heracles            = { module = "earth.terrarium.heracles:heracles-forge-1.20.1", version.ref = "heracles" }
+# these will be the new names of the projects when they finally update to 1.21
+# argonauts           = { module = "earth.terrarium.odyssey_allies:odyssey_allies-neoforge-1.21.1`", version.ref = "argonauts" }
+# heracles            = { module = "earth.terrarium.odyssey_quests:odyssey_quests-neoforge-1.21.1", version.ref = "heracles" }
+
+jade                = { module = "maven.modrinth:jade", version.ref = "jade" }
+sodium              = { module = "maven.modrinth:sodium", version.ref = "sodium" }
+iris                = { module = "maven.modrinth:iris", version.ref = "iris" }
+modernfix           = { module = "maven.modrinth:modernfix", version.ref = "modernfix" }
+
+
+cc-tweaked-core-api   = { module = "cc.tweaked:cc-tweaked-1.21.1-core-api", version.ref = "ccTweaked" }
+cc-tweaked-forge-api  = { module = "cc.tweaked:cc-tweaked-1.21.1-forge-api", version.ref = "ccTweaked" }
+cc-tweaked-forge-impl = { module = "cc.tweaked:cc-tweaked-1.21.1-forge", version.ref = "ccTweaked" }
+
+worldstripper       = { module = "curse.maven:worldStripper-250603", version.ref = "worldStripper" }
+javd                = { module = "curse.maven:javd-370890", version.ref = "javd" }
+trenzalore          = { module = "curse.maven:trenzalore-870210", version.ref = "trenzalore" }
+xaerosworldmap      = { module = "maven.modrinth:xaeros-world-map", version.ref = "xaerosWorldMap" }
+xaerosminimap       = { module = "maven.modrinth:xaeros-minimap", version.ref = "xaerosMinimap" }
+journeymap-forge    = { module = "curse.maven:journeymap-32274", version.ref = "journeyMap" }
+spark               = { module = "maven.modrinth:spark", version.ref = "spark" }
+observable          = { module = "curse.maven:observable-509575", version.ref = "observable" }
+
+[bundles]
+jei = ["jei-common-api", "jei-neoforge-api", "jei-neoforge-impl"]
+rei = ["rei-plugin", "rei-neoforge"]
+rei-runtime = ["rei-neoforge", "architectury", "clothconfig"]
+kjs = ["kubejs", "rhino"]
+

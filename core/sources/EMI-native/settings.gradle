@@ -1,0 +1,7 @@
+pluginManagement {
+    repositories { gradlePluginPortal(); maven { url = 'https://maven.neoforged.net/releases' } }
+}
+rootProject.name = 'emi-native-26.3'
+
+include(':transferCompat')
+project(':transferCompat').projectDir = file('../transfer-compat')

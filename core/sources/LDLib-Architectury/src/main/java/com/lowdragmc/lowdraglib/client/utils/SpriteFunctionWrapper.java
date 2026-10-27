@@ -1,0 +1,29 @@
+package com.lowdragmc.lowdraglib.client.utils;
+
+import com.lowdragmc.lowdraglib.client.ClientProxy;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
+
+import java.util.function.Function;
+
+public class SpriteFunctionWrapper implements Function<Material, TextureAtlasSprite> {
+
+    private final Function<Material, TextureAtlasSprite> internal;
+    private final Identifier modelLocation;
+
+    public SpriteFunctionWrapper(Function<Material, TextureAtlasSprite> internal, Identifier modelLocation) {
+        if (internal instanceof SpriteFunctionWrapper wrapper) {
+            this.internal = wrapper.internal;
+        } else {
+            this.internal = internal;
+        }
+        this.modelLocation = modelLocation;
+    }
+
+    @Override
+    public TextureAtlasSprite apply(Material material) {
+        ClientProxy.textureScraped(modelLocation, material);
+        return internal.apply(material);
+    }
+}

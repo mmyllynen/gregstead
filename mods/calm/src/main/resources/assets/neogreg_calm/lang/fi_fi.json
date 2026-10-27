@@ -1,0 +1,11 @@
+{
+  "block.neogreg_calm.calm_crystal": "Rauhakristalli",
+  "block.neogreg_calm.calm_dispenser_button": "Rauhakristallien jakelupainike",
+  "message.neogreg_calm.radius": "Rauhoituss\u00e4de: %s lohkoa (pallo). Vahingoitetut mobit saavat puolustautua.",
+  "message.neogreg_calm.admin_only": "Vain admin voi sijoittaa tai poistaa jakelupainikkeen.",
+  "message.neogreg_calm.inventory_full": "Inventaario on t\u00e4ynn\u00e4. Tee tilaa yhdelle kristallille.",
+  "message.neogreg_calm.kit_space": "Rauhakristallien rakennussarja odottaa. Vapauta viisi paikkaa ja k\u00e4yt\u00e4 /neogregcalm kit.",
+  "message.neogreg_calm.kit_delivered": "Rakennussarja toimitettu. Sijoita jakelupainike spawnille; jokainen painallus antaa painajalle yhden kristallin.",
+  "item.neogreg_calm.calm_amulet": "Rauhan amuletti",
+  "item.neogreg_calm.calm_amulet.desc": "Pue Curiosin kaulakorupaikkaan. Kristallin rauha seuraa askeleitasi."
+}

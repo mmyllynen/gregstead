@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/configurable_maintenance_hatch"
+  }
+}

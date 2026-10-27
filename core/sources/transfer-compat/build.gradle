@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+// Each consuming build has its own outputs so simultaneous Gradle runs do not
+// replace a game jar or classes while another compiler is reading them.
+layout.buildDirectory = file("build/${rootProject.name}")
+group = 'com.lowdragmc'
+version = '26.3-0.1.1'
+base.archivesName = 'gt-transfer-compat'
+repositories { mavenCentral() }
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+neoForge {
+    version = '26.3.0.77'
+    mods { gttransfercompat { sourceSet(sourceSets.main) } }
+}
+
+// Existing APIs use JSR-305 qualifiers; make their runtime metadata dependency explicit.
+dependencies { jarJar(api('com.google.code.findbugs:jsr305:3.0.2')) }
+
+neoForge.accessTransformers.from(file("src/main/resources/META-INF/accesstransformer.cfg"))
+
+// Public distribution: full bundled-license texts and provenance.
+tasks.named('jar', Jar) { from('../../../licenses') { into 'META-INF/licenses' } }

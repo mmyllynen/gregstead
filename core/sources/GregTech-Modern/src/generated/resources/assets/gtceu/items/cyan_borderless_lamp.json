@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:lamp",
+    "base": "gtceu:block/cyan_borderless_lamp"
+  }
+}

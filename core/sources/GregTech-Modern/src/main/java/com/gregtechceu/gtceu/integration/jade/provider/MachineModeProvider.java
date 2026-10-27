@@ -1,0 +1,80 @@
+package com.gregtechceu.gtceu.integration.jade.provider;
+
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.Identifier;
+
+import org.jetbrains.annotations.Nullable;
+import snownee.jade.api.BlockAccessor;
+import snownee.jade.api.IServerDataProvider;
+import snownee.jade.api.ITooltip;
+import snownee.jade.api.config.IPluginConfig;
+
+public class MachineModeProvider implements GTJadeTooltipProvider, IServerDataProvider<BlockAccessor> {
+
+    @Override
+    public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
+        CompoundTag serverData = blockAccessor.getServerData();
+        if (serverData.contains("RecipeTypes") && serverData.contains("CurrentRecipeType")) {
+            int currentRecipeTypeIndex = serverData.getIntOr("CurrentRecipeType", 0);
+            ListTag recipeTypesTagList = com.lowdragmc.lowdraglib.transfer.persistence.NbtCompatibility.getList(serverData, "RecipeTypes", StringTag.TAG_STRING);
+            if (blockAccessor.showDetails()) {
+                iTooltip.add(Component.translatable("gtceu.top.machine_mode"));
+                for (int i = 0; i < recipeTypesTagList.size(); i++) {
+                    Identifier recipeType = Identifier.parse(recipeTypesTagList.getStringOr(i, ""));
+                    MutableComponent text;
+                    if (currentRecipeTypeIndex == i) {
+                        text = Component.literal(" > ").withStyle(ChatFormatting.BLUE);
+                    } else {
+                        text = Component.literal("   ");
+                    }
+                    text.append(
+                            Component.translatable("%s.%s".formatted(recipeType.getNamespace(), recipeType.getPath())));
+                    iTooltip.add(text);
+                }
+            } else {
+                Identifier recipeType = Identifier.parse(
+                        recipeTypesTagList.getStringOr(currentRecipeTypeIndex, ""));
+                iTooltip.add(Component.translatable("gtceu.top.machine_mode").append(
+                        Component.translatable("%s.%s".formatted(recipeType.getNamespace(), recipeType.getPath()))));
+            }
+        }
+    }
+
+    @Override
+    public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
+        if (blockAccessor.getBlockEntity() instanceof MetaMachine blockEntity) {
+            @Nullable
+            GTRecipeType[] recipeTypes = blockEntity.getDefinition().getRecipeTypes();
+            if (recipeTypes.length > 1) {
+                if (blockEntity instanceof IRecipeLogicMachine recipeLogicMachine) {
+                    ListTag recipeTypesTagList = new ListTag();
+                    GTRecipeType currentRecipeType = recipeLogicMachine.getRecipeType();
+                    int currentRecipeTypeIndex = -1;
+                    for (int i = 0; i < recipeTypes.length; i++) {
+                        if (recipeTypes[i] == currentRecipeType) {
+                            currentRecipeTypeIndex = i;
+                        }
+                        recipeTypesTagList.add(StringTag.valueOf(recipeTypes[i].registryName.toString()));
+                    }
+                    compoundTag.put("RecipeTypes", recipeTypesTagList);
+                    compoundTag.putInt("CurrentRecipeType", currentRecipeTypeIndex);
+                }
+            }
+        }
+    }
+
+    @Override
+    public Identifier getUid() {
+        return GTCEu.id("machine_mode");
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/long_distance_fluid_pipeline_endpoint"
+  }
+}

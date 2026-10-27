@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/hv_input_bus"
+  }
+}

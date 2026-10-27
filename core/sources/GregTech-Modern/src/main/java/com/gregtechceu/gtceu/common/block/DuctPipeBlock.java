@@ -1,0 +1,119 @@
+package com.gregtechceu.gtceu.common.block;
+
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.block.PipeBlock;
+import com.gregtechceu.gtceu.api.blockentity.PipeBlockEntity;
+import com.gregtechceu.gtceu.api.capability.GTCapability;
+import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.trait.hazard.EnvironmentalHazardCleanerTrait;
+import com.gregtechceu.gtceu.api.machine.trait.hazard.EnvironmentalHazardEmitterTrait;
+import com.gregtechceu.gtceu.api.pipenet.IPipeNode;
+import com.gregtechceu.gtceu.api.registry.registrate.provider.GTBlockstateProvider;
+import com.gregtechceu.gtceu.client.model.pipe.PipeModel;
+import com.gregtechceu.gtceu.common.blockentity.DuctPipeBlockEntity;
+import com.gregtechceu.gtceu.common.data.GTBlockEntities;
+import com.gregtechceu.gtceu.common.pipelike.duct.DuctPipeProperties;
+import com.gregtechceu.gtceu.common.pipelike.duct.DuctPipeType;
+import com.gregtechceu.gtceu.common.pipelike.duct.LevelDuctPipeNet;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+
+public class DuctPipeBlock extends PipeBlock<DuctPipeType, DuctPipeProperties, LevelDuctPipeNet> implements com.lowdragmc.lowdraglib.transfer.tooltip.LegacyBlockTooltip {
+
+    private final DuctPipeProperties properties;
+
+    public DuctPipeBlock(Properties properties, DuctPipeType type) {
+        super(properties, type);
+        this.properties = new DuctPipeProperties(type.getRateMultiplier());
+    }
+
+    @Override
+    public LevelDuctPipeNet getWorldPipeNet(ServerLevel world) {
+        return LevelDuctPipeNet.getOrCreate(world);
+    }
+
+    @Override
+    public BlockEntityType<? extends PipeBlockEntity<DuctPipeType, DuctPipeProperties>> getBlockEntityType() {
+        return GTBlockEntities.DUCT_PIPE.get();
+    }
+
+    @Override
+    public DuctPipeProperties createRawData(BlockState pState, @Nullable ItemStack pStack) {
+        return properties;
+    }
+
+    @Override
+    public DuctPipeProperties createProperties(IPipeNode<DuctPipeType, DuctPipeProperties> pipeTile) {
+        DuctPipeType pipeType = pipeTile.getPipeType();
+        if (pipeType == null) return getFallbackType();
+        return this.pipeType.modifyProperties(properties);
+    }
+
+    public void attachCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlock(GTCapability.CAPABILITY_HAZARD_CONTAINER, (level, pos, state, blockEntity, side) -> {
+            if (blockEntity instanceof DuctPipeBlockEntity ductPipeBlockEntity) {
+                if (level.isClientSide())
+                    return ductPipeBlockEntity.clientCapability;
+
+                ductPipeBlockEntity.ensureHandlersInitialized();
+                ductPipeBlockEntity.checkNetwork();
+                return ductPipeBlockEntity.getHandlers().getOrDefault(side, ductPipeBlockEntity.getDefaultHandler());
+            }
+            return null;
+        }, this);
+        event.registerBlock(GTCapability.CAPABILITY_COVERABLE, (level, pos, state, blockEntity, side) -> {
+            if (blockEntity instanceof PipeBlockEntity<?, ?> pipe) {
+                return pipe.getCoverContainer();
+            }
+            return null;
+        }, this);
+    }
+
+    @Override
+    public DuctPipeProperties getFallbackType() {
+        return properties;
+    }
+
+    @Override
+    public PipeModel createPipeModel(GTBlockstateProvider provider) {
+        return new PipeModel(this, provider, this.pipeType.getThickness(),
+                GTCEu.id("block/pipe/pipe_duct_side"), GTCEu.id("block/pipe/pipe_duct_in"));
+    }
+
+    @Override
+    public boolean canPipesConnect(IPipeNode<DuctPipeType, DuctPipeProperties> selfTile, Direction side,
+                                   IPipeNode<DuctPipeType, DuctPipeProperties> sideTile) {
+        return selfTile instanceof DuctPipeBlockEntity && sideTile instanceof DuctPipeBlockEntity;
+    }
+
+    @Override
+    public boolean canPipeConnectToBlock(IPipeNode<DuctPipeType, DuctPipeProperties> selfTile,
+                                         Direction side, Level level, BlockPos pos) {
+        return (level.getCapability(GTCapability.CAPABILITY_HAZARD_CONTAINER, pos, side.getOpposite()) != null ||
+                level.getBlockEntity(pos) instanceof MetaMachine metaMachine &&
+                        (metaMachine.getTraitHolder().getTrait(EnvironmentalHazardCleanerTrait.TYPE) != null ||
+                                metaMachine.getTraitHolder().getTrait(EnvironmentalHazardEmitterTrait.TYPE) !=
+                                        null));
+    }
+
+    @Override
+    public void appendBlockTooltip(ItemStack stack, Item.TooltipContext context, List<Component> tooltip,
+                                TooltipFlag flag) {
+        tooltip.add(Component.translatable("gtceu.duct_pipe.transfer_rate",
+                this.pipeType.modifyProperties(this.properties).getTransferRate()));
+    }
+}

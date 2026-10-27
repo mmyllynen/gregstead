@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "gtceu:stack_property",
+    "key": "gtceu:lighter_open",
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "gtceu:item/invar_lighter"
+    },
+    "entries": [
+      {
+        "threshold": 0.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "gtceu:item/invar_lighter_closed"
+        }
+      },
+      {
+        "threshold": 1.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "gtceu:item/invar_lighter_open"
+        }
+      }
+    ]
+  }
+}

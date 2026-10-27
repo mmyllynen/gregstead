@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "neogreg_calm:block/calm_dispenser_button"
+    },
+    "powered=true": {
+      "model": "neogreg_calm:block/calm_dispenser_button_pressed"
+    }
+  }
+}

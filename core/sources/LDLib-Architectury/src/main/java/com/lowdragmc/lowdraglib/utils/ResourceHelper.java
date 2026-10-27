@@ -1,0 +1,42 @@
+package com.lowdragmc.lowdraglib.utils;
+
+import com.lowdragmc.lowdraglib.LDLib;
+import com.lowdragmc.lowdraglib.Platform;
+import lombok.experimental.UtilityClass;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.Identifier;
+
+import javax.annotation.Nonnull;
+import java.net.URL;
+
+/**
+ * @author KilaBash
+ * @date 2023/2/20
+ * @implNote ResourceHelper
+ */
+@UtilityClass
+public final class ResourceHelper {
+    public static boolean isResourceExistRaw(Identifier rs) {
+        URL url = ResourceHelper.class.getResource(String.format("/assets/%s/%s", rs.getNamespace(), rs.getPath()));
+        return url != null;
+    }
+
+    public static boolean isResourceExist(Identifier rs) {
+        if (LDLib.isClient()) {
+            return Minecraft.getInstance().getResourceManager().getResource(rs).isPresent();
+        } else {
+            return Platform.getMinecraftServer().getResourceManager().getResource(rs).isPresent();
+        }
+    }
+
+    public static boolean isTextureExist(@Nonnull Identifier location) {
+        var textureLocation = Identifier.fromNamespaceAndPath(location.getNamespace(), "textures/%s.png".formatted(location.getPath()));
+        return isResourceExist(textureLocation) || isResourceExistRaw(textureLocation);
+    }
+
+    public static boolean isModelExist(@Nonnull Identifier location) {
+        var modelLocation = Identifier.fromNamespaceAndPath(location.getNamespace(), "models/%s.json".formatted(location.getPath()));
+        return isResourceExist(modelLocation) || isResourceExistRaw(modelLocation);
+    }
+
+}

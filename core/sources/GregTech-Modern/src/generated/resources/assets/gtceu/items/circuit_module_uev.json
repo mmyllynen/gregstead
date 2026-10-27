@@ -1,0 +1,6 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "gtceu:item/circuit_module_uev"
+    }
+}

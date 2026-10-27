@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "neogreg_calm:item/calm_amulet"
+  }
+}

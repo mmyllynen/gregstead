@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "gtceu:item/gtmag",
+      "sprite": "gtceu:item/gtmag"
+    }
+  ]
+}

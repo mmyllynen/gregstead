@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fi.neogreg.corpse.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "server": [
+    "CorpseExpiryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

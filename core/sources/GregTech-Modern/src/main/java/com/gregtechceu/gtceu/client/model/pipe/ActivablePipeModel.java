@@ -1,0 +1,226 @@
+package com.gregtechceu.gtceu.client.model.pipe;
+
+import com.gregtechceu.gtceu.api.block.PipeBlock;
+import com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties;
+import com.gregtechceu.gtceu.api.registry.registrate.provider.GTBlockstateProvider;
+import com.gregtechceu.gtceu.data.model.builder.PipeModelBuilder;
+
+import net.minecraft.core.Direction;
+import net.minecraft.resources.Identifier;
+import com.tterrag.registrate.providers.generators.RegistrateLegacyBlockModelBuilder;
+import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.renderer.block.dispatch.Variant;
+
+import it.unimi.dsi.fastutil.objects.Reference2FloatMap;
+import lombok.Setter;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
+
+public class ActivablePipeModel extends PipeModel {
+
+    @Setter
+    public @Nullable Identifier sideActive, endActive;
+    @Setter
+    public @Nullable Identifier sideSecondaryActive, endSecondaryActive;
+    @Setter
+    public @Nullable Identifier sideOverlayActive, endOverlayActive;
+    @Setter
+    public int activeEmissivity = 15;
+
+    /// Use {@link #getOrCreateActiveBlockModel()} instead of referencing this field directly.
+    private Identifier activeBlockModel;
+    /// Use {@link #getOrCreateActiveCenterElement()} instead of referencing this field directly.
+    private Identifier activeCenterElement;
+    /// Use {@link #getOrCreateActiveConnectionElement()} instead of referencing this field directly.
+    private Identifier activeConnectionElement;
+
+    public ActivablePipeModel(PipeBlock<?, ?, ?> block, float thickness, Identifier side, Identifier end,
+                              GTBlockstateProvider provider) {
+        super(block, provider, thickness, side, end);
+    }
+
+    /**
+     * @see #getOrCreateActiveBlockModel()
+     * @see #getOrCreateConnectionElement()
+     * @see #getOrCreateActiveCenterElement()
+     * @see #getOrCreateActiveConnectionElement()
+     */
+    @Override
+    public void initModels() {
+        getOrCreateActiveCenterElement();
+        getOrCreateActiveConnectionElement();
+        getOrCreateActiveBlockModel();
+
+        super.initModels();
+    }
+
+    /**
+     * Override this to change the active model {@link #block this.block} will use.
+     *
+     * @return A model builder for the block's actual model.
+     * @see #getOrCreateBlockModel()
+     * @see #getOrCreateActiveCenterElement()
+     * @see #getOrCreateActiveConnectionElement()
+     */
+    @ApiStatus.OverrideOnly
+    protected Identifier getOrCreateActiveBlockModel() {
+        if (this.activeBlockModel != null) {
+            return this.activeBlockModel;
+        }
+        return activeBlockModel=provider.getBuilder().parent(getOrCreateActiveCenterElement())
+                .customLoader(PipeModelBuilder.begin(thickness,provider),builder -> builder
+                        .centerModels(getOrCreateActiveCenterElement()).connectionModels(getOrCreateActiveConnectionElement()))
+                .build(blockId.withPrefix("block/").withSuffix("_active"));
+        // spotless:on
+    }
+
+    /**
+     * Override this to change the center element's model for when the pipe is active.
+     *
+     * @return A model builder for the center element's model.
+     * @see #getOrCreateCenterElement()
+     * @see #getOrCreateActiveConnectionElement()
+     */
+    @ApiStatus.OverrideOnly
+    protected Identifier getOrCreateActiveCenterElement() {
+        if (this.activeCenterElement != null) {
+            return this.activeCenterElement;
+        }
+        return this.activeCenterElement = makeActiveElementModel(
+                this.blockId.withPath(path -> "block/pipe/" + path + "/center_active"),
+                null, minCoord, minCoord, minCoord, maxCoord, maxCoord, maxCoord);
+    }
+
+    /**
+     * Override this to change the 'connection' element's model for when the pipe is active.<br>
+     * By default, this is rotated & used for all connected sides of the pipe.<br>
+     * Note that that is not a hard requirement, and that you may set a model per side in
+     * {@link #getOrCreateBlockModel()}.
+     *
+     * @return A model builder for the connection element's model.
+     * @see #getOrCreateConnectionElement()
+     * @see #getOrCreateActiveCenterElement()
+     */
+    @ApiStatus.OverrideOnly
+    protected Identifier getOrCreateActiveConnectionElement() {
+        if (this.activeConnectionElement != null) {
+            return this.activeConnectionElement;
+        }
+        return this.activeConnectionElement = makeActiveElementModel(
+                this.blockId.withPath(path -> "block/pipe/" + path + "/connection_active"),
+                Direction.DOWN, minCoord, 0, minCoord, maxCoord, minCoord, maxCoord);
+    }
+
+    /**
+     * Fills out a model builder with applicable pipe model elements and returns it for further use
+     * <hr>
+     * This method is a copy of {@linkplain #makeElementModel} with the texture references changed for active variants.
+     *
+     * @param name    the resulting model's path
+     * @param endFace the model face that's being created
+     * @param x1      min X coordinate in the range [-16,32]
+     * @param y1      min Y coordinate in the range [-16,32]
+     * @param z1      min Z coordinate in the range [-16,32]
+     * @param x2      max X coordinate in the range [-16,32]
+     * @param y2      max Y coordinate in the range [-16,32]
+     * @param z2      max Z coordinate in the range [-16,32]
+     * @implNote The coordinates must be in the correct order or the resulting model's cubes will be inside out!
+     * @see #makeElementModel
+     */
+    protected Identifier makeActiveElementModel(Identifier name, @Nullable Direction endFace,
+                                                       final float x1, final float y1, final float z1,
+                                                       final float x2, final float y2, final float z2) {
+        Reference2FloatMap<Direction> faceEndpoints = makeFaceEndpointMap(x1, y1, z1, x2, y2, z2);
+
+        RegistrateLegacyBlockModelBuilder model=provider.getBuilder().parent(Identifier.parse("minecraft:block/block"));
+
+        Identifier side = this.sideActive != null ? this.sideActive : this.side;
+        Identifier end = this.endActive != null ? this.endActive : this.end;
+        Identifier sideSecondary = this.sideSecondaryActive != null ? this.sideSecondaryActive :
+                this.sideSecondary;
+        Identifier endSecondary = this.endSecondaryActive != null ? this.endSecondaryActive : this.endSecondary;
+        Identifier sideOverlay = this.sideOverlayActive != null ? this.sideOverlayActive : this.sideOverlay;
+        Identifier endOverlay = this.endOverlayActive != null ? this.endOverlayActive : this.endOverlay;
+
+        Identifier particle=this.side!=null?side:end;
+        if(particle!=null)model.texture(TextureSlot.PARTICLE,new Material(particle));
+
+        makePartModelElement(model, endFace, false, faceEndpoints, 0.0f, 0, 1,
+                x1, y1, z1, x2, y2, z2, side, end, SIDE_KEY, END_KEY,
+                this.sideActive != null, this.endActive != null);
+
+        makePartModelElement(model, endFace, true, faceEndpoints, 0.001f, 0, 1,
+                x1, y1, z1, x2, y2, z2, sideSecondary, endSecondary, SIDE_SECONDARY_KEY, END_SECONDARY_KEY,
+                this.sideSecondaryActive != null, this.endSecondaryActive != null);
+
+        makePartModelElement(model, endFace, true, faceEndpoints, 0.002f, 2, 2,
+                x1, y1, z1, x2, y2, z2, sideOverlay, endOverlay, SIDE_OVERLAY_KEY, END_OVERLAY_KEY,
+                this.sideOverlayActive != null, this.endOverlayActive != null);
+
+        return model.build(name);
+    }
+
+    protected void makePartModelElement(RegistrateLegacyBlockModelBuilder model, @Nullable Direction endFace,
+                                                                    boolean useEndWithFullCube,
+                                                                    Reference2FloatMap<Direction> faceEndpoints,
+                                                                    float offset, int sideTintIndex, int endTintIndex,
+                                                                    final float x1, final float y1, final float z1,
+                                                                    final float x2, final float y2, final float z2,
+                                                                    @Nullable Identifier sideTexture,
+                                                                    @Nullable Identifier endTexture,
+                                                                    String sideKey, String endKey,
+                                                                    boolean sideEmissive, boolean endEmissive) {
+        this.makePartModelElement(model, endFace, useEndWithFullCube, faceEndpoints, offset,
+                sideTintIndex, endTintIndex, x1, y1, z1, x2, y2, z2, sideTexture, endTexture, sideKey, endKey,
+                (face, textureKey, builder) -> {
+                    if (activeEmissivity == 0) {
+                        return;
+                    }
+                    if (sideEmissive && textureKey.equals(sideKey)) {
+                        builder.lightEmission(activeEmissivity).ambientOcclusion(false);
+                    } else if (endEmissive && textureKey.equals(endKey)) {
+                        builder.lightEmission(activeEmissivity).ambientOcclusion(false);
+                    }
+                });
+    }
+
+    @Override
+    public BlockModelDefinitionGenerator createBlockState() {
+        if(!block.defaultBlockState().hasProperty(GTBlockStateProperties.ACTIVE))return super.createBlockState();
+        var dispatch=PropertyDispatch.initial(GTBlockStateProperties.ACTIVE).generate(active ->
+                BlockModelGenerators.variant(new Variant(active?getOrCreateActiveBlockModel():getOrCreateBlockModel())));
+        var generator=MultiVariantGenerator.dispatch(block).with(dispatch);
+        return provider.addVanillaGenerator(block,generator);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ActivablePipeModel pipeModel)) return false;
+        return super.equals(o) &&
+                Objects.equals(sideActive, pipeModel.sideActive) &&
+                Objects.equals(endActive, pipeModel.endActive) &&
+                Objects.equals(sideSecondaryActive, pipeModel.sideSecondaryActive) &&
+                Objects.equals(endSecondaryActive, pipeModel.endSecondaryActive) &&
+                Objects.equals(sideOverlayActive, pipeModel.sideOverlayActive) &&
+                Objects.equals(endOverlayActive, pipeModel.endOverlayActive);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + Objects.hashCode(sideActive);
+        result = 31 * result + Objects.hashCode(endActive);
+        result = 31 * result + Objects.hashCode(sideSecondaryActive);
+        result = 31 * result + Objects.hashCode(endSecondaryActive);
+        result = 31 * result + Objects.hashCode(sideOverlayActive);
+        result = 31 * result + Objects.hashCode(endOverlayActive);
+        return result;
+    }
+}

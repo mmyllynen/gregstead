@@ -1,0 +1,17 @@
+modLoader="javafml"
+loaderVersion="[12,)"
+license="GPL-3.0-only"
+[[mods]]
+modId="gttransfercompat"
+version="0.1.1"
+displayName="GregTech Native Transfer Support"
+[[dependencies.gttransfercompat]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77,)"
+[[dependencies.gttransfercompat]]
+modId="minecraft"
+type="required"
+versionRange="[26.3]"
+[[mixins]]
+config="gttransfercompat.mixins.json"

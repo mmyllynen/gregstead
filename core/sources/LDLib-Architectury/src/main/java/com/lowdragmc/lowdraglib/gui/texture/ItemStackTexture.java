@@ -1,0 +1,72 @@
+package com.lowdragmc.lowdraglib.gui.texture;
+
+import com.lowdragmc.lowdraglib.editor.annotation.Configurable;
+import com.lowdragmc.lowdraglib.gui.util.DrawerHelper;
+import com.lowdragmc.lowdraglib.registry.annotation.LDLRegisterClient;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+
+@LDLRegisterClient(name = "item_stack_texture", registry = "ldlib:gui_texture")
+public class ItemStackTexture extends TransformTexture {
+    @Configurable(name = "ldlib.gui.editor.name.items")
+    public ItemStack[] items;
+    private int index = 0;
+    private int ticks = 0;
+    @Configurable(name = "ldlib.gui.editor.name.color")
+    private int color = -1;
+    private long lastTick;
+
+    public ItemStackTexture() {
+        this(Items.APPLE.asItem());
+    }
+
+
+    public ItemStackTexture(ItemStack... itemStacks) {
+        this.items = itemStacks;
+    }
+
+    public ItemStackTexture(Item... items) {
+        this.items = new ItemStack[items.length];
+        for(int i = 0; i < items.length; i++) {
+            this.items[i] = new ItemStack(items[i]);
+        }
+    }
+
+    public ItemStackTexture setItems(ItemStack... itemStack) {
+        this.items = itemStack;
+        return this;
+    }
+
+    @Override
+    public ItemStackTexture setColor(int color) {
+        this.color = color;
+        return this;
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void updateTick() {
+        if (Minecraft.getInstance().level != null) {
+            long tick = Minecraft.getInstance().level.getGameTime();
+            if (tick == lastTick) return;
+            lastTick = tick;
+        }
+        if(items.length > 1 && ++ticks % 20 == 0)
+            if(++index == items.length)
+                index = 0;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    protected void drawInternal(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float x, float y, int width, int height) {
+        if (items.length == 0) return;
+        updateTick();
+        com.lowdragmc.lowdraglib.transfer.client.GuiItems.drawScaled(graphics, items[index],
+                x, y, width, height, color, null);
+    }
+}

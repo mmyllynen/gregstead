@@ -1,0 +1,68 @@
+package com.gregtechceu.gtceu.client.model.machine;
+
+import com.gregtechceu.gtceu.api.machine.MachineDefinition;
+import com.gregtechceu.gtceu.api.machine.feature.IMachineFeature;
+
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.resources.model.geometry.BakedQuad;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.model.data.ModelData;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Collections;
+import java.util.List;
+
+public interface IMachineRendererModel<T extends IMachineFeature> {
+
+    MachineDefinition getDefinition();
+
+    @OnlyIn(Dist.CLIENT)
+    default @NotNull List<BakedQuad> getRenderQuads(@Nullable T machine, @Nullable BlockAndTintGetter level,
+                                                    @Nullable BlockPos pos, @Nullable BlockState blockState,
+                                                    @Nullable Direction side, RandomSource rand,
+                                                    @NotNull ModelData modelData, @Nullable RenderType renderType) {
+        return Collections.emptyList();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    NativeMachineRenderSubmission extractSubmission(T machine, float partialTick);
+
+    @OnlyIn(Dist.CLIENT)
+    default java.util.Optional<NativeMachineRenderSubmission> extractItem(ItemStack stack, ItemDisplayContext context) {
+        return java.util.Optional.empty();
+    }
+
+    default boolean shouldRenderOffScreen(T machine) {
+        return false;
+    }
+
+    default boolean shouldRender(T machine, Vec3 cameraPos) {
+        return Vec3.atCenterOf(machine.self().getBlockPos()).closerThan(cameraPos, this.getViewDistance());
+    }
+
+    default int getViewDistance() {
+        return 64;
+    }
+
+    default AABB getRenderBoundingBox(T machine) {
+        BlockPos pos = machine.self().getBlockPos();
+        return AABB.encapsulatingFullBlocks(pos.offset(-1, -1, -1), pos.offset(1, 1, 1));
+    }
+
+    default boolean isBlockEntityRenderer() {
+        return false;
+    }
+}

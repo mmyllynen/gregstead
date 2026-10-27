@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/hpca_advanced_computation_component"
+  }
+}

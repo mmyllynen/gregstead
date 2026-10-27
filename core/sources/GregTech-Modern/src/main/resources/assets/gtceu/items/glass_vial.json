@@ -1,0 +1,11 @@
+{
+  "model": {
+    "type": "neoforge:fluid_container",
+    "textures": {
+      "base": "gtceu:item/glass_vial/base",
+      "fluid": "gtceu:item/glass_vial/overlay",
+      "cover": "gtceu:item/glass_vial/base"
+    },
+    "fluid": "minecraft:empty"
+  }
+}

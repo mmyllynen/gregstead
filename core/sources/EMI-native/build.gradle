@@ -1,0 +1,73 @@
+buildscript { repositories { mavenCentral() }; dependencies { classpath 'org.ow2.asm:asm:9.10.1' } }
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+if (rootProject != project) layout.buildDirectory = file("build/${rootProject.name}")
+group = 'dev.emi'
+version = '1.1.24+26.3-port.1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com' }
+}
+neoForge {
+    version = '26.3.0.77'
+    mods { emi { sourceSet(sourceSets.main) } }
+
+}
+dependencies {
+    jarJar(api(project(':transferCompat')))
+    compileOnly 'mezz.jei:jei-26.3-common-api:31.10.0.63'
+    compileOnly 'mezz.jei:jei-26.3-neoforge-api:31.10.0.63'
+    compileOnly 'mezz.jei:jei-26.3-neoforge:31.10.0.63'
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs.addAll(['-Xmaxerrs', '10000'])
+}
+jar {
+    from('LICENSE')
+    manifest.attributes('FMLModType': 'MOD', 'Automatic-Module-Name': 'emi')
+}
+
+neoForge.mods {
+    gttransfercompat { sourceSet(project(':transferCompat').sourceSets.main) }
+}
+
+dependencies { compileOnly 'net.mezzdev.config:mezz_config-26.3-config-api:0.6.6' }
+
+dependencies { runtimeOnly 'mezz.jei:jei-26.3-neoforge:31.10.0.63' }
+
+// Upstream EMI's generated global mixin triggers its existing class-transform audit.
+def globalMixinDir = layout.buildDirectory.dir('generated-global-mixin')
+tasks.register('generateGlobalMixin') {
+    dependsOn tasks.named('compileJava')
+    inputs.files(sourceSets.main.output.classesDirs)
+    outputs.dir(globalMixinDir)
+    doLast {
+        def names = []
+        sourceSets.main.output.classesDirs.each { dir ->
+            if (dir.exists()) dir.eachFileRecurse(groovy.io.FileType.FILES) { file ->
+                if (file.name.endsWith('.class') && !file.path.toLowerCase().contains('mixin') && !file.path.toLowerCase().contains('emiconfig$'))
+                    names.add(dir.toPath().relativize(file.toPath()).toString().replace('.class','').replace(File.separator,'.'))
+            }
+        }
+        names.sort()
+        def writer = new org.objectweb.asm.ClassWriter(0)
+        writer.visit(69, org.objectweb.asm.Opcodes.ACC_PUBLIC | org.objectweb.asm.Opcodes.ACC_ABSTRACT | org.objectweb.asm.Opcodes.ACC_INTERFACE,
+            'dev/emi/emi/mixin/GlobalMixin', null, 'java/lang/Object', null)
+        writer.visitAnnotation('Lorg/spongepowered/asm/mixin/Pseudo;', false).visitEnd()
+        def annotation = writer.visitAnnotation('Lorg/spongepowered/asm/mixin/Mixin;', false)
+        def targets = annotation.visitArray('targets')
+        names.each { targets.visit(null, it) }
+        targets.visitEnd(); annotation.visitEnd(); writer.visitEnd()
+        def output = new File(globalMixinDir.get().asFile, 'dev/emi/emi/mixin/GlobalMixin.class')
+        output.parentFile.mkdirs(); output.bytes = writer.toByteArray()
+    }
+}
+sourceSets.main.output.dir(globalMixinDir, builtBy: tasks.named('generateGlobalMixin'))
+
+
+// Public distribution: full bundled-license texts and provenance.
+tasks.named('jar', Jar) { from('../../../licenses') { into 'META-INF/licenses' } }

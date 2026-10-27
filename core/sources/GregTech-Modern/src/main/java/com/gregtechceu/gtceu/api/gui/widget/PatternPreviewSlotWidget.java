@@ -1,0 +1,68 @@
+package com.gregtechceu.gtceu.api.gui.widget;
+
+import com.lowdragmc.lowdraglib.gui.modular.ModularUIGuiContainer;
+import com.lowdragmc.lowdraglib.gui.util.DrawerHelper;
+import com.lowdragmc.lowdraglib.transfer.client.GuiItems;
+import com.lowdragmc.lowdraglib.transfer.menu.QuickCraftPreview;
+import com.lowdragmc.lowdraglib.math.Position;
+
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.world.item.ItemStack;
+import com.lowdragmc.lowdraglib.transfer.item.IItemHandlerModifiable;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public class PatternPreviewSlotWidget extends SlotWidget {
+
+    public PatternPreviewSlotWidget(IItemHandlerModifiable itemHandler, int slotIndex, int xPosition, int yPosition,
+                                    boolean canTakeItems, boolean canPutItems) {
+        super(itemHandler, slotIndex, xPosition, yPosition, canTakeItems, canPutItems);
+    }
+
+    /**
+     * Override the draw method for regular slot widget since we do custom offsets when drawing the stack
+     */
+    @Override
+    public void drawInBackground(@NotNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks) {
+        super.drawBackgroundTexture(graphics, mouseX, mouseY);
+        Position pos = this.getPosition();
+        if (this.slotReference != null) {
+            ItemStack itemStack = this.getRealStack(this.slotReference.getItem());
+            ModularUIGuiContainer modularUIGui = this.gui == null ? null : this.gui.getModularUIGui();
+            if (modularUIGui != null && modularUIGui.getQuickCrafting() &&
+                    modularUIGui.getQuickCraftSlots().contains(this.slotReference) &&
+                    this.gui.getModularUIContainer().canDragTo(this.slotReference)) {
+                itemStack = QuickCraftPreview.stack(this.slotReference,
+                        this.gui.getModularUIContainer().getCarried(),
+                        modularUIGui.getQuickCraftSlots().size(), modularUIGui.dragSplittingLimit);
+            }
+
+            if (!itemStack.isEmpty()) {
+                drawItemStack(graphics, itemStack, pos.x + 1, pos.y + 1, -1, (String) null);
+            }
+        }
+
+        this.drawOverlay(graphics, mouseX, mouseY, partialTicks);
+        if (this.drawHoverOverlay && this.isMouseOverElement((double) mouseX, (double) mouseY) &&
+                this.getHoverElement((double) mouseX, (double) mouseY) == this) {
+            DrawerHelper.drawSolidRect(graphics, this.getPosition().x + 1, this.getPosition().y + 1, 16, 16,
+                    -2130706433);
+        }
+    }
+
+    public static void drawItemStack(@NotNull GuiGraphicsExtractor graphics, ItemStack itemStack, int x, int y, int color,
+                                     @Nullable String altTxt) {
+        // actual offset bit that's important :3
+        int xOffset = 0;
+        if (itemStack.getCount() / 100_000 != 0) {
+            xOffset = 9;
+        } else if (itemStack.getCount() / 10_000 != 0) {
+            xOffset = 6;
+        } else if (itemStack.getCount() / 1000 != 0) {
+            xOffset = 3;
+        }
+
+        GuiItems.draw(graphics, itemStack, x, y, color, altTxt, xOffset);
+    }
+}

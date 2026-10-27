@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/opv_input_hatch_4x"
+  }
+}

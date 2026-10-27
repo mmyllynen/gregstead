@@ -1,0 +1,21 @@
+{
+  "itemGroup.altarofabundance": "Altar of Abundance",
+  "block.altarofabundance.material_pedestal": "Materiaalijalusta",
+  "block.altarofabundance.offering_pedestal": "Uhrijalusta",
+  "block.altarofabundance.output_pedestal": "Runsauden jalusta",
+  "tooltip.altarofabundance.material_pedestal": "Aseta yksi raakamateriaaliblokki saadaksesi 64 kappaleen pinon.",
+  "tooltip.altarofabundance.offering_pedestal": "Yksi timantti käynnistää kolmen sekunnin rituaalin.",
+  "tooltip.altarofabundance.output_pedestal": "Valmis pino ilmestyy tämän jalustan päälle.",
+  "tooltip.altarofabundance.layout": "Aseta muut jalustat 3 blokin säteelle uhrijalustasta.",
+  "message.altarofabundance.inserted": "Esine asetettu. Rituaali alkaa automaattisesti, kun alttari on valmis.",
+  "message.altarofabundance.invalid": "Tämä esine ei kelpaa tälle jalustalle.",
+  "message.altarofabundance.occupied": "Jalustalla on jo esine. Nouda se tyhjällä kädellä.",
+  "message.altarofabundance.output": "Valmis rituaali pudottaa 64 blokkia tämän jalustan päälle. Pidä yläpuoli vapaana.",
+  "message.altarofabundance.missing": "Aseta yksi materiaali- ja yksi runsauden jalusta 3 blokin säteelle uhrijalustasta.",
+  "message.altarofabundance.ambiguous": "Lähellä on liikaa jalustoja tai jalusta kuuluu useaan alttariin.",
+  "message.altarofabundance.blocked": "Vapauta runsauden jalustan yläpuolinen blokki.",
+  "message.altarofabundance.material": "Aseta yksi raakamateriaaliblokki materiaalijalustalle.",
+  "message.altarofabundance.offering": "Aseta yksi timantti uhrijalustalle.",
+  "message.altarofabundance.running": "Rituaali on käynnissä...",
+  "message.altarofabundance.ready": "Rituaali on valmis alkamaan."
+}

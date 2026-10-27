@@ -1,0 +1,41 @@
+package com.gregtechceu.gtceu.integration.jade.provider;
+
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockControllerMachine;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+
+import snownee.jade.api.BlockAccessor;
+import snownee.jade.api.IServerDataProvider;
+import snownee.jade.api.ITooltip;
+import snownee.jade.api.config.IPluginConfig;
+
+public class MultiblockStructureProvider implements GTJadeTooltipProvider, IServerDataProvider<BlockAccessor> {
+
+    @Override
+    public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
+        if (blockAccessor.getServerData().contains("hasError")) {
+            boolean hasError = blockAccessor.getServerData().getBooleanOr("hasError", false);
+            if (hasError) {
+                iTooltip.add(Component.translatable("gtceu.top.invalid_structure").withStyle(ChatFormatting.RED));
+            } else {
+                iTooltip.add(Component.translatable("gtceu.top.valid_structure").withStyle(ChatFormatting.GREEN));
+            }
+        }
+    }
+
+    @Override
+    public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
+        if (blockAccessor.getBlockEntity() instanceof MultiblockControllerMachine controller) {
+            compoundTag.putBoolean("hasError", !controller.isFormed());
+        }
+    }
+
+    @Override
+    public Identifier getUid() {
+        return GTCEu.id("multiblock_structure");
+    }
+}

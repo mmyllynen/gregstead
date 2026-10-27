@@ -1,0 +1,37 @@
+package com.gregtechceu.gtceu.api.data.worldgen.modifier;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.codec.RegistryCodecs;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.levelgen.placement.PlacementContext;
+import net.minecraft.world.level.levelgen.placement.PlacementFilter;
+
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+public class DimensionFilter implements PlacementFilter {
+
+    public static final MapCodec<DimensionFilter> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            RegistryCodecs.holderSet(Registries.DIMENSION_TYPE).fieldOf("dimension_id")
+                    .forGetter(filter -> filter.dimensionId))
+            .apply(instance, DimensionFilter::new));
+
+    public HolderSet<DimensionType> dimensionId;
+
+    public DimensionFilter(HolderSet<DimensionType> dimensionId) {
+        this.dimensionId = dimensionId;
+    }
+
+    @Override
+    public boolean shouldPlace(PlacementContext context, RandomSource random, BlockPos pos) {
+        return this.dimensionId.contains(context.getLevel().getLevel().dimensionTypeRegistration());
+    }
+
+    @Override
+    public MapCodec<DimensionFilter> codec() {
+        return CODEC;
+    }
+}

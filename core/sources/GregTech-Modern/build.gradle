@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    alias libs.plugins.modDevGradle
+    alias libs.plugins.lombok
+}
+group = maven_group
+version = mod_version
+java { toolchain.languageVersion = JavaLanguageVersion.of(25) }
+sourceSets.main.resources.srcDir 'src/generated/resources'
+apply from: "$rootDir/gradle/scripts/jars.gradle"
+apply from: "$rootDir/gradle/scripts/moddevgradle.gradle"
+apply from: "$rootDir/gradle/scripts/repositories.gradle"
+apply from: "$rootDir/dependencies.gradle"
+apply from: "$rootDir/gradle/scripts/resources.gradle"
+lombok { version = "1.18.42" }
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.compilerArgs.addAll(["-Xlint:-removal", "-Aquiet=true", "-Xmaxerrs", "20000"])
+}
+dependencies { jarJar(api(project(':transferCompat'))) }
+neoForge.accessTransformers.from(file("../transfer-compat/src/main/resources/META-INF/accesstransformer.cfg"))
+
+// Public distribution: full bundled-license texts and provenance.
+tasks.named('jar', Jar) { from('../../../licenses') { into 'META-INF/licenses' } }

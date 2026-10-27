@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "gtceu:hazmat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "gtceu:hazmat"
+      }
+    ]
+  }
+}

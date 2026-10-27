@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "gtceu:nano_muscule_suite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "gtceu:nano_muscule_suite"
+      }
+    ]
+  }
+}

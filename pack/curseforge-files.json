@@ -1,0 +1,429 @@
+{
+  "AmbientEnvironment-neoforge-26.3-26.3.2.jar": {
+    "projectID": 320163,
+    "fileID": 8900485,
+    "sha256": "02962b8083795e8439f8e39a94684d966013faf97a1c70b35f904835a0149e67"
+  },
+  "AmbientSounds_NEOFORGE_v6.3.10_mc26.3.jar": {
+    "projectID": 254284,
+    "fileID": 9099153,
+    "sha256": "c92b2b67fd3becf4732ed0ccbf0d2af2b0cf18bef4dc90b347a9496f922f194d"
+  },
+  "BSL_v10.1.8.zip": {
+    "projectID": 322506,
+    "fileID": 8939313,
+    "sha256": "36b0a50ff7918bf10e9422c401d93779f9d0088a26acea975b435243f96930b5"
+  },
+  "BadOptimizations-2.4.1-26.3-forge.jar": {
+    "projectID": 949555,
+    "fileID": 8891659,
+    "sha256": "12332b5d6fe620b1ceeca702e6116c7ba1c99ff36c3d70eafb8336de6bdfd859"
+  },
+  "BetterF3-20.0.0-NeoForge-26.3.jar": {
+    "projectID": 401648,
+    "fileID": 9062694,
+    "sha256": "d5965c21bb69395342305de917adb29ffb76940da2c6a48c308ece401a3f31af"
+  },
+  "BetterThanMending-2.3.0-merged.jar": {
+    "projectID": 264738,
+    "fileID": 7913494,
+    "sha256": "244d948b24c88e33330db7622a33d3228e73f122a60243add3c68a61a9ed6fb8"
+  },
+  "BiomesOPlenty-neoforge-26.3-26.3.0.0.7.jar": {
+    "projectID": 220318,
+    "fileID": 8973616,
+    "sha256": "091246a05f8f7c7d5f10f76686fcc7ee7c51cb52f063d02241d3500e64461660"
+  },
+  "Bliss_v2.1.2_(Chocapic13_Shaders_edit).zip": {
+    "projectID": 610844,
+    "fileID": 7251787,
+    "sha256": "f41db92acc585fe9ffe0cc124d6ecaea27cef9ded91129ebc2a8e60226947b2c"
+  },
+  "Chunky-NeoForge-1.5.4.jar": {
+    "projectID": 485681,
+    "fileID": 8491618,
+    "sha256": "6ed601bd2c2942cd537f1732805bc786e70b57d988039c416c3bc27ba97162b9"
+  },
+  "Clumps-neoforge-26.3-26.3.2.jar": {
+    "projectID": 256717,
+    "fileID": 8897017,
+    "sha256": "18d65f554984a81a4dfe5f5e4038298ae02e6d8cc66870469305e8fae2a1fb79"
+  },
+  "ComplementaryReimagined_r5.9.3.zip": {
+    "projectID": 627557,
+    "fileID": 8884654,
+    "sha256": "fed6c879e732cf7fc7bc6570ebb1def43235aa7e96f62859fbdbdbfa0b484b38"
+  },
+  "Continents_26.3_v1.2.1+26.3.jar": {
+    "projectID": 682515,
+    "fileID": 9002585,
+    "sha256": "06de00340b4c833cc6e2b83bdd254bfd909a8bca49cf8da6d4dde2c59bdedb50"
+  },
+  "Controlling-neoforge-26.3-26.3.4.jar": {
+    "projectID": 250398,
+    "fileID": 9110876,
+    "sha256": "cfe916fb50c29749b8aa354f104689080a204a154743d701c8d65568af4368b5"
+  },
+  "CreativeCore_NEOFORGE_v2.14.21_mc26.3.jar": {
+    "projectID": 257814,
+    "fileID": 9099173,
+    "sha256": "17dc2a947b664a227469fed08654f5f5e0dacd945611940bce1393482fdf0be9"
+  },
+  "GlitchCore-neoforge-26.3-26.3.0.0.5.jar": {
+    "projectID": 955399,
+    "fileID": 9125343,
+    "sha256": "b48c2edb31d2f65d8a686b14ef90f07d06ffcde9807c7a7e26a9b342f00ee90d"
+  },
+  "ImmediatelyFast-NeoForge-1.17.1+26.3.jar": {
+    "projectID": 686911,
+    "fileID": 8905048,
+    "sha256": "447a22be8b4610d8c2fe35c5a3ea3f445a2cb7151650dd9fec1149ebe8e8bf67"
+  },
+  "InventoryProfilesNext-neoforge-26.3-2.3.8.jar": {
+    "projectID": 495267,
+    "fileID": 8990414,
+    "sha256": "5412a1b09a7749995bada42d39182c56713a870f928fa339cff113a05fa908de"
+  },
+  "MakeUp-UltraFast-9.6.zip": {
+    "projectID": 431203,
+    "fileID": 9262057,
+    "sha256": "71319ea5d0ad114143ef1c334890e315dbf1eeb2318d6bc35f3e5021fb3c8ba8"
+  },
+  "MouseTweaks-neoforge-mc26.3-2.31.jar": {
+    "projectID": 60089,
+    "fileID": 8890228,
+    "sha256": "e9ec08badec2e36f875a6b001b456284a40e337f6f224e85c7373770bce8103f"
+  },
+  "Searchables-neoforge-26.3-1.0.3.jar": {
+    "projectID": 858542,
+    "fileID": 9110867,
+    "sha256": "9f55011abba7b440ad6ead41093ce1a91f62a90225abccabd6262eba1645844d"
+  },
+  "SimpleBackups-26.3.1.jar": {
+    "projectID": 583228,
+    "fileID": 9020229,
+    "sha256": "804f702d9f1eae330af61ddfd1db0842258e3620ffc81d0169e0baf6c0b92f82"
+  },
+  "StorageDrawers-neoforge-26.3.0.2-curseforge.jar": {
+    "projectID": 223852,
+    "fileID": 9124546,
+    "sha256": "2b2abca1d637036647506134970791ebb411c5d9a9eaff6974c3ab5c82508963"
+  },
+  "TerraBlender-neoforge-26.3-26.3.0.0.9.jar": {
+    "projectID": 940057,
+    "fileID": 9033892,
+    "sha256": "f8d063d0aa56017246ffcc94f7c7c6914b60fcd3df45b3534e3b751c0ec6f276"
+  },
+  "Terralith_v2.6.5+26.3-neoforge.jar": {
+    "projectID": 513688,
+    "fileID": 8994277,
+    "sha256": "306461c39a5d45373ea6ff74e3f7ca453b49f8bb48fc2c531c84e6aa8d96d780"
+  },
+  "appleskin-neoforge-mc26.3-3.0.10.jar": {
+    "projectID": 248787,
+    "fileID": 8907904,
+    "sha256": "1b12ae7b7f129821957c33c6efee0ff1da25af1c4ed8b1f1fa112f41244928e7"
+  },
+  "appliedenergistics2-26.3.1-alpha.jar": {
+    "projectID": 223794,
+    "fileID": 9051894,
+    "sha256": "85da904d110e811f77fa5227f8d9fbc212028311badbceaead32bd4d275bc970"
+  },
+  "baguettelib-26.3-NeoForge-2.0.8.jar": {
+    "projectID": 1264423,
+    "fileID": 9134480,
+    "sha256": "9a71e5e9537dd5126ce782103595e58923cf50c807b5c82b90e65211085f3f47"
+  },
+  "balm-neoforge-26.3-26.3.0.3.jar": {
+    "projectID": 531761,
+    "fileID": 9035246,
+    "sha256": "8b06a2361c76f1f6b1d2779c39a03fd9bd7c565f91747d0ad235644ec7416c7b"
+  },
+  "chat_heads-1.3.2-neoforge-26.3.jar": {
+    "projectID": 407206,
+    "fileID": 9060721,
+    "sha256": "17b67ed8dc865cf63abb55f52e29bcc86b206b0b2d11efae66b188b347d34b24"
+  },
+  "chunkloaders-1.2.9-neoforge-mc26.3.jar": {
+    "projectID": 402924,
+    "fileID": 8888067,
+    "sha256": "3cd72199a8a7f8389a2e7b7f177ec2e0e6f8344b755c360b4a1c4edaee727be1"
+  },
+  "cloth-config-neoforge-26.3.159.jar": {
+    "projectID": 348521,
+    "fileID": 8952995,
+    "sha256": "24adcf323c6a439226aced11d2cd4f8e6e629b82de6f1c7d71a7b9ba37ebf81d"
+  },
+  "collective-26.3.0-8.58.jar": {
+    "projectID": 342584,
+    "fileID": 9233774,
+    "sha256": "c01e4ea87ae6eb17cec21f2b0f35c8a51cbfca616063745454145d21a15bd8aa"
+  },
+  "corpse-neoforge-1.1.20+26.3.jar": {
+    "projectID": 316582,
+    "fileID": 9027270,
+    "sha256": "dfcbd51175ea876182422344bb6abcf61c02758c8e762e7dc34d9cc2fb13439e"
+  },
+  "corpsecurioscompat-26.3-NeoForge-4.2.0.jar": {
+    "projectID": 1138130,
+    "fileID": 9137878,
+    "sha256": "7c32794d527ec23b321b0ce0f8a899d2448516f7fdf85120a528f7a56504bff6"
+  },
+  "craftingtweaks-neoforge-26.3-26.3.0.1.jar": {
+    "projectID": 233071,
+    "fileID": 8893528,
+    "sha256": "1e2bb8085679536e4d1c82427c80547a14a7cfcf2b92c2b31e7eb453e2f66330"
+  },
+  "curios-neoforge-17.0.0-beta.3+26.3.jar": {
+    "projectID": 309927,
+    "fileID": 9127186,
+    "sha256": "27775990860dca9a8e6462a4741282789ec37f1a0afd2f72b97f02d60bbc8371"
+  },
+  "doubledoors-26.3.0-7.4.jar": {
+    "projectID": 348831,
+    "fileID": 9225704,
+    "sha256": "3819fb15b8e8c38d6209a8cd0071b2b8be73a3cc1be15e3c6213849a9a6951a8"
+  },
+  "dynamic-fps-3.11.10+minecraft-26.3.0-neoforge.jar": {
+    "projectID": 335493,
+    "fileID": 8897868,
+    "sha256": "71af4f7839096fa17f24d758682786cead49c71182decb0d3dc5a228be2fe077"
+  },
+  "effortlessbuilding-neoforge-26.3-4.3.jar": {
+    "projectID": 302113,
+    "fileID": 9116962,
+    "sha256": "074c742b033bcc53b1305633b15669fbf77c8a0e304cf9bd3e92a617d5e18bd2"
+  },
+  "entityculling-neoforge-1.11.3-mc26.3.jar": {
+    "projectID": 448233,
+    "fileID": 9100316,
+    "sha256": "08ef339292ef63f22f1c22bed5df9d6ed5bed595fc712af73f121907d1babc5b"
+  },
+  "fallingleavesplus-v26.3.2-mc26.3.x+neoforge.jar": {
+    "projectID": 1577351,
+    "fileID": 8985559,
+    "sha256": "2917304c0326e739462fcf430f07aad2cfd200a75c856721f8271cd34aee3856"
+  },
+  "ferritecore-9.0.0-neoforge.jar": {
+    "projectID": 429235,
+    "fileID": 7806039,
+    "sha256": "a3292dadb1caf7ad220d3a4b68abff2ad58592ddd372160f9cf66c57d159b539"
+  },
+  "fusion-1.3.16-neoforge-mc26.3.jar": {
+    "projectID": 854949,
+    "fileID": 9070424,
+    "sha256": "e2dbf9429d22eac9094c73f9657338995fedb4d88dfe998d088872e1f4268d3c"
+  },
+  "guideme-26.3.1-alpha.jar": {
+    "projectID": 1173950,
+    "fileID": 9041286,
+    "sha256": "6247049c5fc7b39962dd5b8b9ab1fb0a77e9d4cec375200b1c80db0a25efa369"
+  },
+  "hellims_elytra_slot-26.3-neoforge-0.1.0.jar": {
+    "projectID": 1591206,
+    "fileID": 9120858,
+    "sha256": "d2fa8c5f4cbfaf81b2d12bb232dd2f1ee8262be2e0ee396f97f6735f17a56edf"
+  },
+  "infinitetrading-26.3.0-6.0.jar": {
+    "projectID": 348964,
+    "fileID": 9242856,
+    "sha256": "0e568b899a4f846a134f199586e3d9fd42c43f373f3bd318806610b74b0df62a"
+  },
+  "inventoryessentials-neoforge-26.3-26.3.0.5.jar": {
+    "projectID": 368825,
+    "fileID": 9142794,
+    "sha256": "4d9771bd8724d9a58441859afb94a98e69a0d0ff3fe4c21092bc0bddc9b292af"
+  },
+  "iris-neoforge-1.11.7+mc26.3.jar": {
+    "projectID": 455508,
+    "fileID": 9015109,
+    "sha256": "2260506334a17ac566ea30169ab491201208f55c1c7212bb987bc0c7c59a8d93"
+  },
+  "jade-26.3.5+neoforge.jar": {
+    "projectID": 324717,
+    "fileID": 9042207,
+    "sha256": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712"
+  },
+  "libIPN-neoforge-26.3-6.9.0.jar": {
+    "projectID": 679177,
+    "fileID": 8990267,
+    "sha256": "49bd1a8f96720c9bc21b0db67047657d9f57667dbf20d09a7466a0349b51a99c"
+  },
+  "lithium-neoforge-0.26.2+mc26.3.jar": {
+    "projectID": 360438,
+    "fileID": 8996663,
+    "sha256": "02beb29b0ca7949dba59d425aeb941b8978334ad539f55b1519059771ed23706"
+  },
+  "lithostitched-2.0.6-neoforge-26.3.jar": {
+    "projectID": 936015,
+    "fileID": 9154967,
+    "sha256": "88241e12586f8a04271b68c02300e1b02ec2c0098e3a0add879398a14c6e271d"
+  },
+  "mcw-bridges-3.1.2-mc26.3neoforge.jar": {
+    "projectID": 351725,
+    "fileID": 8959854,
+    "sha256": "fd3e278e3d45b9af55e9c1816fc6256b750d453468bfcd2ee3bf270a8b940749"
+  },
+  "mcw-doors-1.1.5-mc26.3neoforge.jar": {
+    "projectID": 378646,
+    "fileID": 9007650,
+    "sha256": "0ceb84d6dddfada6a32be7a754d6f10c5d5f22776a44e5a4ab47268ca06c264e"
+  },
+  "mcw-fences-1.2.1-mc26.3neoforge.jar": {
+    "projectID": 453925,
+    "fileID": 9007657,
+    "sha256": "23e94693d0d3cfa6feada58013706cfbe0d275652a9c564b68360618e1dcdf7b"
+  },
+  "mcw-furniture-3.4.2-mc26.3neoforge.jar": {
+    "projectID": 359540,
+    "fileID": 9007573,
+    "sha256": "bce031ec39b9148054f1f0cb457ff1b4a9c1d4920b1d4f0327bc21be81d152e2"
+  },
+  "mcw-holidays-1.1.3-mc26.3neoforge.jar": {
+    "projectID": 930232,
+    "fileID": 9068702,
+    "sha256": "219fe58f07178d4d56fa76a6aa39a5d168ebb624b7e5c4b5f1c7e679a7fa34f8"
+  },
+  "mcw-lights-1.1.5-mc26.3neoforge.jar": {
+    "projectID": 502372,
+    "fileID": 9007653,
+    "sha256": "8abea1b811296991166011c19fb61d085a96c3619846cce73990ee9145c8f870"
+  },
+  "mcw-paintings-1.1.0-mc26.3neoforge.jar": {
+    "projectID": 438116,
+    "fileID": 9007580,
+    "sha256": "560e27f7bdc6036e34c8a238e569d8e652d4be34d18b1d96077364fd417ed7af"
+  },
+  "mcw-paths-1.1.1-mc26.3neoforge.jar": {
+    "projectID": 629153,
+    "fileID": 9068783,
+    "sha256": "df40f0a0e06c39e392e85c8686df7fe884444b1db8d3ecc9dcffa171af14f7fb"
+  },
+  "mcw-roads-1.0.0-mc26.3neoforge.jar": {
+    "projectID": 1709382,
+    "fileID": 8961988,
+    "sha256": "3415c98f6822ca87b89b4987a9da8fd1a5694802c58099314b021a8ee61505e4"
+  },
+  "mcw-roofs-2.3.3-mc26.3neoforge.jar": {
+    "projectID": 352039,
+    "fileID": 9007606,
+    "sha256": "4795e0f0265719751996f7ec5bfeba5a506138e825875929cc91863cd650c5de"
+  },
+  "mcw-stairs-1.0.2-mc26.3neoforge.jar": {
+    "projectID": 1119394,
+    "fileID": 9007664,
+    "sha256": "62d42cb625952b06e6a28674aa74bab1bce7a65eb3faa3b2d6466cf8afd30f44"
+  },
+  "mcw-trapdoors-1.1.5-mc26.3neoforge.jar": {
+    "projectID": 400933,
+    "fileID": 9007661,
+    "sha256": "1195e9643ec1df8cef91d35c1f81b2034f003ddc39f9729acce4a59590c64971"
+  },
+  "mcw-windows-2.4.2-mc26.3neoforge.jar": {
+    "projectID": 363569,
+    "fileID": 9007587,
+    "sha256": "e10ac65c6c6f9a98831582ed408c715398d3fccc71c11e6bc9995056feed4c5e"
+  },
+  "modernfix-neoforge-5.27.23+mc26.3.jar": {
+    "projectID": 1367508,
+    "fileID": 9157019,
+    "sha256": "090379746d5452a220cee35df1c2f1cf9c7ca3de381891330f14b8d93107eb17"
+  },
+  "moreculling-neoforge-26.3-1.9.0.jar": {
+    "projectID": 630104,
+    "fileID": 9045550,
+    "sha256": "866b40e0df2b1c2eea0c5dd81498d7bac645fdc71137930edf232f4ef116f05a"
+  },
+  "notenoughanimations-neoforge-1.12.6-mc26.3.jar": {
+    "projectID": 433760,
+    "fileID": 8929073,
+    "sha256": "55366363c1156d2ba3a48fa06b26b5d3d7553091e86ed91ce07d1b097be55f05"
+  },
+  "polymorph_plus-neoforge-1.4.2+26.3.0.jar": {
+    "projectID": 1586874,
+    "fileID": 9242767,
+    "sha256": "1af9986ab2e05442a65be3ad3a429d941d822aae091154516d59940fceefe240"
+  },
+  "puzzleslib-v26.3.15-mc26.3.x+neoforge.jar": {
+    "projectID": 495476,
+    "fileID": 9173688,
+    "sha256": "62bc5b2337406a2bda610ed37bbbc5b0bb1a2fb07dc81408d22ba242095b3134"
+  },
+  "rechiseled-1.2.6a-neoforge-mc26.3.jar": {
+    "projectID": 558998,
+    "fileID": 9082583,
+    "sha256": "a7cab3429a5da559dc7925299005be1b996d82fdf4620046da182a6a6de539c2"
+  },
+  "relauncher-universal-1.1.1-curseforge.jar": {
+    "projectID": 1491728,
+    "fileID": 8001079,
+    "sha256": "e26071d76c913dd33d588b1cdfe0db37a986e384efb991e74d51410c9a308e21"
+  },
+  "servercore-neoforge-1.5.20+26.3.jar": {
+    "projectID": 550579,
+    "fileID": 8893826,
+    "sha256": "d4f1ea7ae1f8ba83e37808d2090bcc55606f6c46b90ded6af7a68bb144c93bd4"
+  },
+  "shulkerboxtooltip-neoforge-5.4.2+26.3.jar": {
+    "projectID": 315811,
+    "fileID": 8897816,
+    "sha256": "4dfb9375fb7209a6fbb8c549ad8d074a8f0c293589d807e1bde719cbd633ae4a"
+  },
+  "sodium-neoforge-0.9.3-beta.1+mc26.3.jar": {
+    "projectID": 394468,
+    "fileID": 9195225,
+    "sha256": "2d6dc7b223f93ce5c5fcedbddacdeb175c1e65484a5bc115e954465aebc8291f"
+  },
+  "sophisticatedbackpacks-26.3-3.26.12.2203.jar": {
+    "projectID": 422301,
+    "fileID": 9151403,
+    "sha256": "cf672a6f7228b017395c03fa6436240d985423f80fc2d03f2b8cf549145b8bc6"
+  },
+  "sophisticatedcore-26.3-1.5.11.2399.jar": {
+    "projectID": 618298,
+    "fileID": 9166041,
+    "sha256": "cadd19f35a6493f1916f964c8671fc12967a5f227b92d4e59e71414a58df1fb3"
+  },
+  "stringduper-1.0.0.jar": {
+    "projectID": 1645467,
+    "fileID": 8987037,
+    "sha256": "a74a048559350c765896a91c5e914a7110cc841bd4bdbacc5250534e8ca05e99"
+  },
+  "supermartijn642configlib-1.1.8-neoforge-mc26.3.jar": {
+    "projectID": 438332,
+    "fileID": 8888046,
+    "sha256": "70b2aeed2157dcfb1cc1a5601db4c42403b442de592e485bda35a6e9256acbb6"
+  },
+  "supermartijn642corelib-1.1.25-neoforge-mc26.3.jar": {
+    "projectID": 454372,
+    "fileID": 9083864,
+    "sha256": "29876a789a9e2422635ba737ae3950b242e0e1a2b7210af39d6b9c66add1bfce"
+  },
+  "travelertoolbelt-neoforge-26.3-1.0.6.jar": {
+    "projectID": 1457447,
+    "fileID": 9070308,
+    "sha256": "d9220bafb31df68271fafff1fa6020d62732fa90f918a1c43c76791ae58fc854"
+  },
+  "visualworkbench-v26.3.0-mc26.3.x+neoforge.jar": {
+    "projectID": 500273,
+    "fileID": 8955387,
+    "sha256": "cfea6961a04c9d9969a63874ddcc892e5a6316a4ac761941128f48321524ca25"
+  },
+  "xaerominimap-neoforge-26.3-26.6.1.jar": {
+    "projectID": 263420,
+    "fileID": 9265875,
+    "sha256": "c824af7339a6d5c6fd2b2603f3a0424ee2607843ec76e94a37532aac1df0e112"
+  },
+  "xaeroworldmap-neoforge-26.3-1.47.1.jar": {
+    "projectID": 317780,
+    "fileID": 9265828,
+    "sha256": "adb31959c8acc2f141e3c517142f32fcf6215a76c85d3f9ec4c4af8c6925d56d"
+  },
+  "FallingTree-26.3-25.jar": {
+    "projectID": 349559,
+    "fileID": 9120272,
+    "sha256": "ae542a72afb6386f2b662a00b118cd2a9e6dcd99e2bd45720f0a7187263acdd3",
+    "sha512": "dd51bcc1fce1af8cd001fbdc702eadb9c98454ebcedd2438606935426cb80e9e99a3b156d9b8ba7955b71ff57432c4383940157901b81c97ef5ca6cf0520bf6c",
+    "downloadUrl": "https://edge.forgecdn.net/files/9120/272/FallingTree-26.3-25.jar"
+  }
+}

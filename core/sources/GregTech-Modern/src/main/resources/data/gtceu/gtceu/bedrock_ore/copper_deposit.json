@@ -1,0 +1,29 @@
+{
+  "weight": 100,
+  "size": 3,
+  "yield": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 2,
+    "max_inclusive": 4
+  },
+  "depletion_amount": 1,
+  "depletion_chance": 100,
+  "depleted_yield": 1,
+  "materials": [
+    {
+      "material": "gtceu:chalcopyrite",
+      "weight": 4
+    },
+    {
+      "material": "gtceu:malachite",
+      "weight": 2
+    },
+    {
+      "material": "gtceu:copper",
+      "weight": 1
+    }
+  ],
+  "dimension_filter": [
+    "minecraft:overworld"
+  ]
+}

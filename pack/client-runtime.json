@@ -1,0 +1,63 @@
+{
+  "version": "9.11.1",
+  "purpose": "Client-only workaround for Xaero World Map GuiMap frame-computation failure on NeoForge 26.3.0.77 with ASM 9.11.",
+  "license": "BSD-3-Clause",
+  "licenseSource": "https://asm.ow2.io/license.html",
+  "licenseFile": "pack/sources/asm-9.11.1-LICENSE.txt",
+  "licenseSha256": "337e92fd361effe495d03978a34a3cd44681a63b8329adfd99c8996b306b2a8c",
+  "libraries": [
+    {
+      "module": "asm",
+      "version": "9.11.1",
+      "filename": "asm-9.11.1.jar",
+      "relativePath": "Gregstead_Info/runtime/asm-9.11.1/asm-9.11.1.jar",
+      "sha256": "ae4e6e10d59d0a1500317764b21881ad883f8550e33c66e6142f7032c6fb566c",
+      "sha512": "c31cb163f4a86df9f85e6ceeabb0f672080e1aed64c50aeffb84d5adadde7ad19ec3d3e01b8adfc29677d7a5f2ce5a182e4c593fba72626bf9c2d6d7c36640af",
+      "downloadUrl": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.11.1/asm-9.11.1.jar",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "module": "asm-tree",
+      "version": "9.11.1",
+      "filename": "asm-tree-9.11.1.jar",
+      "relativePath": "Gregstead_Info/runtime/asm-9.11.1/asm-tree-9.11.1.jar",
+      "sha256": "2b15c3c1b288a9fad3bb2cd6d988ba9521554914ed1f2a2029141fa3f483154a",
+      "sha512": "7ef6214020c8f765ad1d31df6cbe5c7811184469e9a74751474ac2fe2452c03e04bbd49edf77a2a642eb211dd8f2aceca803b452c9e1a5f4dd6546845c2ddfc7",
+      "downloadUrl": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.11.1/asm-tree-9.11.1.jar",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "module": "asm-analysis",
+      "version": "9.11.1",
+      "filename": "asm-analysis-9.11.1.jar",
+      "relativePath": "Gregstead_Info/runtime/asm-9.11.1/asm-analysis-9.11.1.jar",
+      "sha256": "3a91769287d0a186333d6e384e5d4eec37e4b8f705dcf920ff4aea4cc452fac2",
+      "sha512": "8564d2d25a338346e4906f4b141ce0b954c0e55c7d24e52275453dc32d31c43c1f3830d8037f4c3b903d867896a35454b7f390618c6561e2165ce40f8c0abe14",
+      "downloadUrl": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.11.1/asm-analysis-9.11.1.jar",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "module": "asm-commons",
+      "version": "9.11.1",
+      "filename": "asm-commons-9.11.1.jar",
+      "relativePath": "Gregstead_Info/runtime/asm-9.11.1/asm-commons-9.11.1.jar",
+      "sha256": "6a5095ec53726156a78b2cd2efd45bc4e877754eca7c234f61224a53d6bfa661",
+      "sha512": "1154328bc1ed20d0a92c0ba1eb732ef58ee737b66442c44b148075a2a205d2cc47b12c20e14af8095b783eb7fe213eaa0a44ccf1c3c8e363ece377fc5d2fd2b9",
+      "downloadUrl": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.11.1/asm-commons-9.11.1.jar",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "module": "asm-util",
+      "version": "9.11.1",
+      "filename": "asm-util-9.11.1.jar",
+      "relativePath": "Gregstead_Info/runtime/asm-9.11.1/asm-util-9.11.1.jar",
+      "sha256": "23fdffacdfc38f447cbd8b80e058f462451fa5d4709e437067d530fa6513579d",
+      "sha512": "83c95d5ee793b6d07651256b8dac9125e1f733c6374e7eed64e8469da70a619fe08121e58e265e93941a5dacceab738a8962e928f5f6ac7f7c5a07faed3dad2b",
+      "downloadUrl": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/9.11.1/asm-util-9.11.1.jar",
+      "license": "BSD-3-Clause"
+    }
+  ],
+  "requiredJvmOption": "-Xbootclasspath/a:",
+  "scope": "This client instance only; do not replace shared CurseForge libraries.",
+  "activation": "Relauncher 1.1.1 with config/relauncher/config.cfg; no launcher JVM edits needed."
+}

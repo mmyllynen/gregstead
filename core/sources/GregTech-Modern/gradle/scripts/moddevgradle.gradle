@@ -1,0 +1,16 @@
+neoForge {
+    version = libs.versions.neoForge.get()
+    accessTransformers {
+        var at = project.file('src/main/resources/META-INF/accesstransformer.cfg')
+        from(at)
+        publish(at)
+    }
+    validateAccessTransformers = true
+    interfaceInjectionData {
+        var data = project.file('injected_interfaces/interfaces.json')
+        from(data)
+        publish(data)
+    }
+    interfaceInjectionData = project.files('injected_interfaces/interfaces.json')
+    mods { "${mod_id}" { sourceSet(sourceSets.main) } }
+}

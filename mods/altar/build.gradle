@@ -1,0 +1,93 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+
+version = mod_version
+group = mod_group_id
+base.archivesName = mod_id
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+tasks.named('wrapper', Wrapper) {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+// Tests and the optional visual smoke scene are never packaged in the mod JAR.
+sourceSets {
+    gameTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+configurations.gameTestImplementation.extendsFrom(configurations.implementation)
+configurations.gameTestRuntimeOnly.extendsFrom(configurations.runtimeOnly)
+
+neoForge {
+    version = project.neo_version
+    addModdingDependenciesTo(sourceSets.gameTest)
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+        gameTestServer {
+            type = 'gameTestServer'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        smokeServer {
+            server()
+            gameDirectory = project.file('run-smoke-server')
+            programArguments.addAll '--nogui', '--port', '25586'
+            systemProperty 'altar.smokeServer', 'true'
+        }
+        smokeClient {
+            client()
+            gameDirectory = project.file('run-smoke-client')
+            programArguments.addAll '--quickPlayMultiplayer', '127.0.0.1:25586', '--width', '1280', '--height', '720'
+            systemProperty 'altar.smokeClient', 'true'
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(sourceSets.gameTest)
+        }
+    }
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var properties = [
+        minecraft_version_range: minecraft_version_range,
+        neo_version: neo_version,
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_license: mod_license,
+        mod_version: mod_version
+    ]
+    inputs.properties properties
+    expand properties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+tasks.named('check') {
+    dependsOn tasks.named('gameTestClasses')
+}
+idea.module {
+    downloadSources = true
+    downloadJavadoc = true
+}
+
+jar { from('LICENSE') { into 'META-INF' }; from('TEMPLATE_LICENSE.txt') { into 'META-INF' } }

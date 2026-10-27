@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+#issueTrackerURL = ""
+license = "GPL-3.0-only (combined distribution; component source licenses retained)"
+
+[[mixins]]
+config="emi.mixins.json"
+
+[[mixins]]
+config="emi-neoforge.mixins.json"
+
+[[mods]]
+modId = "emi"
+version = "1.1.24+26.3-port.1"
+displayName = "Gregstead - Unofficial EMI Port"
+authors = "Emi"
+description = '''
+A featureful and accessible item and recipe viewer
+'''
+iconFile = "icon.png"
+
+[[dependencies.emi]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.emi]]
+modId="minecraft"
+type="required"
+versionRange="[26.3]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.emi]]
+modId="gttransfercompat"
+type="required"
+versionRange="[0.1.0,)"
+ordering="AFTER"
+side="BOTH"

@@ -1,0 +1,13 @@
+Public combined binaries include GPL-covered LDLib and LDLib-derived transfer code.
+Their combined distribution is GPL-3.0-only; individual component licenses and credits are retained.
+GregTech source: GregTechCEu/GregTech-Modern, LGPL-3.0.
+EMI source: emilyploszaj/emi, MIT, Copyright (c) 2022 Emi.
+LDLib: Low-Drag-MC/LDLib-Architectury, GPL-3.0.
+Registrate: tterrag1098/Registrate, MPL-2.0.
+Transfer support: local adaptations of GregTech and LDLib; GPL-3.0 for the public combined code.
+Configuration 4.1.4+26.3: Toma, MIT License, unchanged upstream binary.
+https://github.com/Toma1O6/Configuration/tree/version/4.1.4%2B26.3
+jsr305 3.0.2: Apache-2.0, unchanged upstream binary.
+https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom
+Exact corresponding source for the ported components is provided in the matching source archive and repository commit.
+The official Configuration binary is unmodified; no Configuration port is claimed.

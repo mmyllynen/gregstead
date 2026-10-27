@@ -1,0 +1,327 @@
+package com.gregtechceu.gtceu.api.machine.multiblock;
+
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.block.property.GTBlockStateProperties;
+import com.gregtechceu.gtceu.api.blockentity.BlockEntityCreationInfo;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
+import com.gregtechceu.gtceu.api.capability.recipe.IRecipeHandler;
+import com.gregtechceu.gtceu.api.capability.recipe.RecipeCapability;
+import com.gregtechceu.gtceu.api.machine.feature.IMufflableMachine;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart;
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IWorkableMultiController;
+import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
+import com.gregtechceu.gtceu.api.machine.trait.*;
+import com.gregtechceu.gtceu.api.recipe.GTRecipe;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.sync_system.annotations.SaveField;
+import com.gregtechceu.gtceu.api.sync_system.annotations.SyncToClient;
+import com.gregtechceu.gtceu.client.model.machine.MachineRenderState;
+import com.gregtechceu.gtceu.utils.ISubscription;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+
+import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectMaps;
+import it.unimi.dsi.fastutil.longs.LongSet;
+import it.unimi.dsi.fastutil.longs.LongSets;
+import lombok.Getter;
+import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
+import java.util.function.Function;
+
+public abstract class WorkableMultiblockMachine extends MultiblockControllerMachine
+                                                implements IWorkableMultiController, IMufflableMachine {
+
+    @Getter
+    protected final CleanroomReceiverTrait cleanroomReceiver;
+    @Getter
+    @SaveField
+    @SyncToClient
+    public final RecipeLogic recipeLogic;
+    @Getter
+    private GTRecipeType[] recipeTypes;
+    @Getter
+    @Setter
+    @SaveField
+    private int activeRecipeType;
+    @Getter
+    protected final Map<IO, List<RecipeHandlerList>> capabilitiesProxy;
+    @Getter
+    protected final Map<IO, Map<RecipeCapability<?>, List<IRecipeHandler<?>>>> capabilitiesFlat;
+    protected final List<ISubscription> traitSubscriptions;
+    @Getter
+    @SaveField
+    @SyncToClient
+    protected boolean isMuffled;
+    protected boolean previouslyMuffled = true;
+    @Nullable
+    @Getter
+    protected LongSet activeBlocks;
+
+    @Getter
+    @SaveField
+    @SyncToClient
+    protected VoidingMode voidingMode = VoidingMode.VOID_NONE;
+
+    public WorkableMultiblockMachine(BlockEntityCreationInfo info,
+                                     Function<WorkableMultiblockMachine, RecipeLogic> recipeLogicSupplier) {
+        super(info);
+        this.recipeTypes = getDefinition().getRecipeTypes();
+        this.activeRecipeType = 0;
+        this.cleanroomReceiver = new CleanroomReceiverTrait(this);
+        this.recipeLogic = recipeLogicSupplier.apply(this);
+        this.capabilitiesProxy = new EnumMap<>(IO.class);
+        this.capabilitiesFlat = new EnumMap<>(IO.class);
+        this.traitSubscriptions = new ArrayList<>();
+    }
+
+    public WorkableMultiblockMachine(BlockEntityCreationInfo info) {
+        this(info, RecipeLogic::new);
+    }
+
+    public void setMuffled(boolean muffled) {
+        isMuffled = muffled;
+        syncDataHolder.markClientSyncFieldDirty("isMuffled");
+    }
+
+    @Override
+    public WorkableMultiblockMachine self() {
+        return this;
+    }
+
+    //////////////////////////////////////
+    // ***** Initialization ******//
+    //////////////////////////////////////
+
+    @Override
+    public void onUnload() {
+        super.onUnload();
+        traitSubscriptions.forEach(ISubscription::unsubscribe);
+        traitSubscriptions.clear();
+        recipeLogic.inValid();
+    }
+
+    //////////////////////////////////////
+    // *** Multiblock LifeCycle ***//
+    //////////////////////////////////////
+    @Override
+    public void onStructureFormed() {
+        super.onStructureFormed();
+        // attach parts' traits
+        activeBlocks = getMultiblockState().getMatchContext().getOrDefault("vaBlocks", LongSets.emptySet());
+        capabilitiesProxy.clear();
+        capabilitiesFlat.clear();
+        traitSubscriptions.forEach(ISubscription::unsubscribe);
+        traitSubscriptions.clear();
+        Long2ObjectMap<IO> ioMap = getMultiblockState().getMatchContext().getOrCreate("ioMap",
+                Long2ObjectMaps::emptyMap);
+        for (IMultiPart part : getParts()) {
+            IO io = ioMap.getOrDefault(part.self().getBlockPos().asLong(), IO.BOTH);
+            if (io == IO.NONE) continue;
+
+            var handlerLists = part.getRecipeHandlers();
+            for (var handlerList : handlerLists) {
+                if (!handlerList.isValid(io)) continue;
+                this.addHandlerList(handlerList);
+                traitSubscriptions.add(handlerList.subscribe(recipeLogic::updateTickSubscription));
+            }
+        }
+
+        // attach self traits
+        Map<IO, List<IRecipeHandler<?>>> ioTraits = new EnumMap<>(IO.class);
+        for (MachineTrait trait : traitHolder.getAllTraits()) {
+            if (trait instanceof IRecipeHandlerTrait<?> handlerTrait) {
+                ioTraits.computeIfAbsent(handlerTrait.getHandlerIO(), i -> new ArrayList<>()).add(handlerTrait);
+            }
+        }
+
+        for (var entry : ioTraits.entrySet()) {
+            var handlerList = RecipeHandlerList.of(entry.getKey(), entry.getValue());
+            this.addHandlerList(handlerList);
+            traitSubscriptions.add(handlerList.subscribe(recipeLogic::updateTickSubscription));
+        }
+        // schedule recipe logic
+        recipeLogic.updateTickSubscription();
+    }
+
+    @Override
+    public void onStructureInvalid() {
+        super.onStructureInvalid();
+        updateActiveBlocks(false);
+        activeBlocks = null;
+        capabilitiesProxy.clear();
+        capabilitiesFlat.clear();
+        traitSubscriptions.forEach(ISubscription::unsubscribe);
+        traitSubscriptions.clear();
+        // reset recipe Logic
+        recipeLogic.resetRecipeLogic();
+    }
+
+    @Override
+    public void onPartUnload() {
+        super.onPartUnload();
+        updateActiveBlocks(false);
+        activeBlocks = null;
+        capabilitiesProxy.clear();
+        capabilitiesFlat.clear();
+        traitSubscriptions.forEach(ISubscription::unsubscribe);
+        traitSubscriptions.clear();
+        // fine some parts invalid now.
+        // but we shouldn't reset recipe logic rn.
+        // if it's due to chunk unload, we should just wait for it to be valid again.
+        recipeLogic.updateTickSubscription();
+    }
+
+    //////////////////////////////////////
+    // ****** RECIPE LOGIC *******//
+    //////////////////////////////////////
+
+    @Override
+    public void clientTick() {
+        super.clientTick();
+        if (previouslyMuffled != isMuffled) {
+            previouslyMuffled = isMuffled;
+
+            if (recipeLogic != null)
+                recipeLogic.updateSound();
+        }
+    }
+
+    @Nullable
+    @Override
+    public final GTRecipe doModifyRecipe(GTRecipe recipe) {
+        for (IMultiPart part : getParts()) {
+            recipe = part.modifyRecipe(recipe);
+            if (recipe == null) return null;
+        }
+        return getRealRecipe(recipe);
+    }
+
+    @Nullable
+    protected GTRecipe getRealRecipe(GTRecipe recipe) {
+        return self().getDefinition().getRecipeModifier().applyModifier(self(), recipe);
+    }
+
+    public void updateActiveBlocks(boolean active) {
+        if (activeBlocks != null) {
+            for (long pos : activeBlocks) {
+                var blockPos = BlockPos.of(pos);
+                var blockState = getLevel().getBlockState(blockPos);
+                if (blockState.hasProperty(GTBlockStateProperties.ACTIVE)) {
+                    var newState = blockState.setValue(GTBlockStateProperties.ACTIVE, active);
+                    if (newState != blockState) {
+                        getLevel().setBlock(blockPos, newState, Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean keepSubscribing() {
+        return false;
+    }
+
+    @Override
+    public void notifyStatusChanged(RecipeLogic.Status oldStatus, RecipeLogic.Status newStatus) {
+        IWorkableMultiController.super.notifyStatusChanged(oldStatus, newStatus);
+        if (newStatus == RecipeLogic.Status.WORKING || oldStatus == RecipeLogic.Status.WORKING) {
+            updateActiveBlocks(newStatus == RecipeLogic.Status.WORKING);
+        }
+        for (IMultiPart part : getParts()) {
+            MachineRenderState state = part.self().getRenderState();
+            if (state.hasProperty(GTMachineModelProperties.RECIPE_LOGIC_STATUS)) {
+                part.self().setRenderState(state.setValue(GTMachineModelProperties.RECIPE_LOGIC_STATUS, newStatus));
+            }
+        }
+    }
+
+    @Override
+    public boolean isRecipeLogicAvailable() {
+        return isFormed && !getMultiblockState().hasError();
+    }
+
+    @Override
+    public void afterWorking() {
+        for (IMultiPart part : getParts()) {
+            part.afterWorking(this);
+        }
+        IWorkableMultiController.super.afterWorking();
+    }
+
+    @Override
+    public boolean beforeWorking(@Nullable GTRecipe recipe) {
+        for (IMultiPart part : getParts()) {
+            if (!part.beforeWorking(this)) {
+                return false;
+            }
+        }
+        return IWorkableMultiController.super.beforeWorking(recipe);
+    }
+
+    @Override
+    public boolean onWorking() {
+        for (IMultiPart part : getParts()) {
+            if (!part.onWorking(this)) {
+                return false;
+            }
+        }
+        return IWorkableMultiController.super.onWorking();
+    }
+
+    @Override
+    public void onWaiting() {
+        for (IMultiPart part : getParts()) {
+            part.onWaiting(this);
+        }
+        IWorkableMultiController.super.onWaiting();
+    }
+
+    @Override
+    public void setWorkingEnabled(boolean isWorkingAllowed) {
+        if (!isWorkingAllowed) {
+            for (IMultiPart part : getParts()) {
+                part.onPaused(this);
+            }
+        }
+        IWorkableMultiController.super.setWorkingEnabled(isWorkingAllowed);
+    }
+
+    @NotNull
+    public GTRecipeType getRecipeType() {
+        if (activeRecipeType >= recipeTypes.length) {
+            GTCEu.LOGGER.warn("Preventing crash from bad recipe type index!");
+            activeRecipeType = recipeTypes.length - 1;
+        }
+        return recipeTypes[activeRecipeType];
+    }
+
+    // Recipe compat
+    public void setRecipeType(@NotNull GTRecipeType type) {
+        int recipeIndex = -1;
+        for (int i = 0; i < recipeTypes.length; i++) {
+            if (type.equals(recipeTypes[i])) {
+                recipeIndex = i;
+                break;
+            }
+        }
+        if (recipeIndex == -1) {
+            var newer = new GTRecipeType[recipeTypes.length + 1];
+            System.arraycopy(recipeTypes, 0, newer, 0, recipeTypes.length);
+            newer[recipeTypes.length] = type;
+            recipeTypes = newer;
+            recipeIndex = recipeTypes.length - 1;
+        }
+        setActiveRecipeType(recipeIndex);
+    }
+
+    @Override
+    public void setVoidingMode(VoidingMode mode) {
+        voidingMode = mode;
+        getRecipeLogic().updateTickSubscription();
+    }
+}

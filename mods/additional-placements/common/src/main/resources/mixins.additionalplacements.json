@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "package": "com.firemerald.additionalplacements.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "minVersion": "0.8",
+  "plugin": "com.firemerald.additionalplacements.mixin.APMixinPlugin",
+  "client": [
+    "MixinBlockColors",
+    "MixinLocalPlayer",
+    "MixinWrapperBlockStateModel"
+  ],
+  "mixins": [
+    "MixinBasePressurePlateBlock",
+    "MixinCarpetBlock",
+    "MixinIronBarsBlock",
+    "MixinPlayer",
+    "MixinPressurePlateBlock",
+    "MixinServerPlayer",
+    "MixinSlabBlock",
+    "MixinStairBlock",
+    "MixinStructureTransform",
+    "MixinWeightedPressurePlateBlock"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

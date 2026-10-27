@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "neogreg_calm:block/calm_crystal"
+    }
+  }
+}

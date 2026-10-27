@@ -1,0 +1,80 @@
+package com.gregtechceu.gtceu.integration.jade.provider;
+
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
+import com.gregtechceu.gtceu.api.capability.IWorkable;
+import com.gregtechceu.gtceu.common.machine.multiblock.electric.research.ResearchStationMachine;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
+
+import net.minecraft.util.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+import org.jetbrains.annotations.Nullable;
+import snownee.jade.api.BlockAccessor;
+import snownee.jade.api.ITooltip;
+import snownee.jade.api.config.IPluginConfig;
+import snownee.jade.api.ui.BoxStyle;
+
+public class WorkableBlockProvider extends CapabilityBlockProvider<IWorkable> {
+
+    public WorkableBlockProvider() {
+        super(GTCEu.id("workable_provider"));
+    }
+
+    @Nullable
+    @Override
+    protected IWorkable getCapability(Level level, BlockPos pos, @Nullable Direction side) {
+        return GTCapabilityHelper.getWorkable(level, pos, side);
+    }
+
+    @Override
+    protected void write(CompoundTag data, IWorkable capability) {
+        data.putBoolean("Active", capability.isActive());
+        data.putInt("Progress", capability.getProgress());
+        data.putInt("MaxProgress", capability.getMaxProgress());
+        // Check if IWorkable is a research station and add flag to data
+        if (capability instanceof ResearchStationMachine rsm) {
+            data.putBoolean("Research", true);
+        }
+    }
+
+    @Override
+    protected void addTooltip(CompoundTag capData, ITooltip tooltip, Player player, BlockAccessor block,
+                              BlockEntity blockEntity, IPluginConfig config) {
+        if (!capData.getBooleanOr("Active", false)) return;
+
+        int currentProgress = capData.getIntOr("Progress", 0);
+        int maxProgress = capData.getIntOr("MaxProgress", 0);
+        Component text;
+
+        // show as total computation instead
+        if (capData.getBooleanOr("Research", false)) {
+            String current = FormattingUtil.formatNumberReadable(currentProgress);
+            String max = FormattingUtil.formatNumberReadable(maxProgress);
+            text = Component.translatable("gtceu.jade.progress_computation", current, max);
+
+            com.gregtechceu.gtceu.integration.jade.NativeJadeProgress.add(tooltip,
+                    getProgress(currentProgress, maxProgress), text, 0xFF006D6A, false);
+            return;
+        }
+
+        if (maxProgress < 20) {
+            text = Component.translatable("gtceu.jade.progress_tick", currentProgress, maxProgress);
+        } else {
+            text = Component.translatable("gtceu.jade.progress_sec", Math.round(currentProgress / 20.0F),
+                    Math.round(maxProgress / 20.0F));
+        }
+
+        if (maxProgress > 0) {
+            int color = capData.getBooleanOr("WorkingEnabled", false) ? 0xFF4CBB17 : 0xFFBB1C28;
+            com.gregtechceu.gtceu.integration.jade.NativeJadeProgress.add(tooltip,
+                    getProgress(currentProgress, maxProgress), text, color, false);
+        }
+    }
+}

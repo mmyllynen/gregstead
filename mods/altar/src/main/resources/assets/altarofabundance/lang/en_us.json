@@ -1,0 +1,21 @@
+{
+  "itemGroup.altarofabundance": "Altar of Abundance",
+  "block.altarofabundance.material_pedestal": "Material Pedestal",
+  "block.altarofabundance.offering_pedestal": "Offering Pedestal",
+  "block.altarofabundance.output_pedestal": "Abundance Pedestal",
+  "tooltip.altarofabundance.material_pedestal": "Offer one raw material block to receive a stack of 64.",
+  "tooltip.altarofabundance.offering_pedestal": "One diamond fuels a three-second ritual.",
+  "tooltip.altarofabundance.output_pedestal": "The finished stack appears above this pedestal.",
+  "tooltip.altarofabundance.layout": "Place the other two pedestals within 3 blocks of the offering.",
+  "message.altarofabundance.inserted": "Item placed. The ritual starts automatically when ready.",
+  "message.altarofabundance.invalid": "This item is not accepted by this pedestal.",
+  "message.altarofabundance.occupied": "This pedestal is occupied. Use an empty hand to retrieve the item.",
+  "message.altarofabundance.output": "A completed ritual drops 64 blocks above this pedestal. Keep the space above clear.",
+  "message.altarofabundance.missing": "Place one material and one abundance pedestal within 3 blocks of the offering.",
+  "message.altarofabundance.ambiguous": "Too many nearby pedestals, or a pedestal is shared between altars.",
+  "message.altarofabundance.blocked": "Clear the block directly above the abundance pedestal.",
+  "message.altarofabundance.material": "Place one raw material block on the material pedestal.",
+  "message.altarofabundance.offering": "Place one diamond on the offering pedestal.",
+  "message.altarofabundance.running": "The ritual is in progress...",
+  "message.altarofabundance.ready": "The ritual is ready to begin."
+}

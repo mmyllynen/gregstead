@@ -1,0 +1,18 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+[[mods]]
+modId="neogreg_emi_defaults"
+version="0.1.1"
+displayName="Gregstead EMI Defaults"
+description="Automatically expands EMI recipe trees using deterministic, cycle-free defaults for the Gregstead pack."
+[[dependencies.neogreg_emi_defaults]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77,26.4)"
+side="CLIENT"
+[[dependencies.neogreg_emi_defaults]]
+modId="emi"
+type="required"
+versionRange="[1.1.24,)"
+side="CLIENT"

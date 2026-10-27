@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AKA",
+    "KTK",
+    "AKA"
+  ],
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "K": "minecraft:gold_ingot",
+    "T": "minecraft:diamond"
+  },
+  "result": {
+    "id": "neogreg_calm:calm_crystal",
+    "count": 1
+  }
+}

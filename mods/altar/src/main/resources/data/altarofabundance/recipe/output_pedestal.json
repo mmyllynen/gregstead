@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KRK",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "K": "minecraft:gold_ingot",
+    "R": "minecraft:chest",
+    "M": "minecraft:cobblestone"
+  },
+  "result": {
+    "id": "altarofabundance:output_pedestal",
+    "count": 1
+  }
+}

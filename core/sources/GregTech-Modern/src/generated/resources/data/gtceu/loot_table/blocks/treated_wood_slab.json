@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "bonus_rolls": 0.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "gtceu:treated_wood_slab",
+                    "modifier": [
+                        {
+                            "type": "minecraft:set_count",
+                            "count": 2,
+                            "condition": {
+                                "type": "minecraft:match_block",
+                                "blocks": "gtceu:treated_wood_slab",
+                                "state": {
+                                    "type": "double"
+                                }
+                            }
+                        },
+                        {
+                            "type": "minecraft:explosion_decay"
+                        }
+                    ]
+                }
+            ],
+            "rolls": 1.0
+        }
+    ],
+    "random_sequence": "gtceu:blocks/treated_wood_slab"
+}

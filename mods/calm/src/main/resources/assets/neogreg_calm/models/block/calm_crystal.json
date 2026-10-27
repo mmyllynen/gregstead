@@ -1,0 +1,157 @@
+{
+  "textures": {
+    "base": "minecraft:block/dark_prismarine",
+    "crystal": "minecraft:block/diamond_block",
+    "trim": "minecraft:block/polished_deepslate",
+    "particle": "minecraft:block/diamond_block"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        2,
+        14
+      ],
+      "faces": {
+        "down": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        2,
+        3
+      ],
+      "to": [
+        13,
+        3,
+        13
+      ],
+      "faces": {
+        "down": {
+          "texture": "#base"
+        },
+        "up": {
+          "texture": "#base"
+        },
+        "north": {
+          "texture": "#base"
+        },
+        "south": {
+          "texture": "#base"
+        },
+        "west": {
+          "texture": "#base"
+        },
+        "east": {
+          "texture": "#base"
+        }
+      }
+    },
+    {
+      "from": [
+        5.5,
+        3,
+        5.5
+      ],
+      "to": [
+        10.5,
+        11,
+        10.5
+      ],
+      "faces": {
+        "down": {
+          "texture": "#crystal"
+        },
+        "up": {
+          "texture": "#crystal"
+        },
+        "north": {
+          "texture": "#crystal"
+        },
+        "south": {
+          "texture": "#crystal"
+        },
+        "west": {
+          "texture": "#crystal"
+        },
+        "east": {
+          "texture": "#crystal"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          7,
+          8
+        ],
+        "axis": "y",
+        "angle": 45
+      }
+    },
+    {
+      "from": [
+        6,
+        10,
+        6
+      ],
+      "to": [
+        10,
+        14,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "#crystal"
+        },
+        "up": {
+          "texture": "#crystal"
+        },
+        "north": {
+          "texture": "#crystal"
+        },
+        "south": {
+          "texture": "#crystal"
+        },
+        "west": {
+          "texture": "#crystal"
+        },
+        "east": {
+          "texture": "#crystal"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": 45
+      }
+    }
+  ],
+  "parent": "minecraft:block/block"
+}

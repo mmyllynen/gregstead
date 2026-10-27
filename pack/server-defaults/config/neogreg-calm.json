@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "provokeDuration": 400,
+  "allowSlimeContactDamage": true,
+  "excludedMobs": [
+    "minecraft:ender_dragon",
+    "minecraft:wither",
+    "minecraft:warden"
+  ],
+  "radius": 32
+}

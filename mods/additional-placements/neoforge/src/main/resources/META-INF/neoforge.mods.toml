@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "additionalplacements"
+version = "${version}"
+displayName="Additional Placements - Gregstead Port"
+authors = "FirEmerald"
+description = '''
+Adds additional placements for blocks:\nSlabs can be placed vertically.\nStairs can be placed vertically.\nCarpets can be placed on walls and ceilings.\nPressure plates can be placed on walls and ceilings.
+'''
+#logoFile = ""
+
+[[dependencies.additionalplacements]]
+modId = "neoforge"
+type = "required"
+versionRange = "[26.3.0.77,26.4)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.additionalplacements]]
+modId = "minecraft"
+type = "required"
+versionRange = "[26.3]"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "mixins.additionalplacements.json"

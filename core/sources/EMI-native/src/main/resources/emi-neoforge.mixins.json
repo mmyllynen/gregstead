@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.emi.emi.mixin.neoforge",
+  "compatibilityLevel": "JAVA_25",
+  "client": [],
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

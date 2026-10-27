@@ -1,0 +1,20 @@
+{
+    "depleted_yield": 5,
+    "depletion_amount": 1,
+    "depletion_chance": 100,
+    "dimension_filter": [
+        "minecraft:overworld"
+    ],
+    "fluid": "gtceu:bromine",
+    "weight": 5,
+    "weight_modifier": [
+        {
+            "added_weight": 50,
+            "biomes": "#minecraft:is_ocean"
+        }
+    ],
+    "yield": {
+        "max": 50,
+        "min": 25
+    }
+}

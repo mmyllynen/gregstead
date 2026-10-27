@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "gtceu:machine",
+    "base": "gtceu:item/uv_1024a_laser_target_hatch"
+  }
+}

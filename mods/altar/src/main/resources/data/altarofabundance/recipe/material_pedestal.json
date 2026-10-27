@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KRK",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "K": "minecraft:gold_ingot",
+    "R": "minecraft:smooth_stone",
+    "M": "minecraft:cobblestone"
+  },
+  "result": {
+    "id": "altarofabundance:material_pedestal",
+    "count": 1
+  }
+}

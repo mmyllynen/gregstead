@@ -1,0 +1,56 @@
+{
+  "parent": "block/block",
+  "loader": "neoforge:composite",
+  "textures": {
+    "particle": "gtceu:block/material_sets/quartz/block"
+  },
+  "children": {
+    "base": {
+      "parent": "gtceu:block/cube/tinted/all_0",
+      "textures": {
+        "all": "gtceu:block/material_sets/quartz/block"
+      }
+    },
+    "secondary": {
+      "parent": "gtceu:block/cube/tinted/all",
+      "textures": {
+        "particle": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "down": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "up": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "north": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "east": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "south": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "west": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        },
+        "all": {
+          "sprite": "gtceu:block/material_sets/quartz/block_secondary",
+          "force_translucent": true
+        }
+      }
+    }
+  },
+  "item_render_order": [
+    "base",
+    "secondary"
+  ]
+}

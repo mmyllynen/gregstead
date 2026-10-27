@@ -1,0 +1,48 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "bonus_rolls": 0.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "gtceu:rubber_log"
+                }
+            ],
+            "rolls": 1.0,
+            "condition": {
+                "type": "minecraft:survives_explosion"
+            }
+        },
+        {
+            "bonus_rolls": 0.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "gtceu:sticky_resin",
+                    "condition": {
+                        "type": "minecraft:all_of",
+                        "terms": [
+                            {
+                                "type": "minecraft:match_block",
+                                "blocks": "gtceu:rubber_log",
+                                "state": {
+                                    "natural": "true"
+                                }
+                            },
+                            {
+                                "chance": 0.85,
+                                "type": "minecraft:random_chance"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "rolls": 1.0,
+            "condition": {
+                "type": "minecraft:survives_explosion"
+            }
+        }
+    ],
+    "random_sequence": "gtceu:blocks/rubber_log"
+}

@@ -1,0 +1,167 @@
+package com.gregtechceu.gtceu.common.machine.trait;
+
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
+import com.gregtechceu.gtceu.api.capability.compat.FeCompat;
+import com.gregtechceu.gtceu.api.machine.MetaMachine;
+import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
+import com.gregtechceu.gtceu.api.machine.trait.MachineTrait;
+import com.gregtechceu.gtceu.api.machine.trait.MachineTraitType;
+import com.gregtechceu.gtceu.api.machine.trait.NotifiableEnergyContainer;
+import com.gregtechceu.gtceu.api.sync_system.annotations.RerenderOnChanged;
+import com.gregtechceu.gtceu.api.sync_system.annotations.SaveField;
+import com.gregtechceu.gtceu.api.sync_system.annotations.SyncToClient;
+import com.gregtechceu.gtceu.common.machine.electric.ConverterMachine;
+
+import com.lowdragmc.lowdraglib.transfer.energy.IEnergyStorage;
+import com.lowdragmc.lowdraglib.transfer.energy.ConvertedEnergyHandler;
+import net.neoforged.neoforge.transfer.transaction.TransactionContext;
+
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+
+public class ConverterTrait extends NotifiableEnergyContainer {
+
+    /**
+     * If TRUE, the front facing of the machine will OUTPUT EU, other sides INPUT FE.
+     * If FALSE, the front facing of the machine will OUTPUT FE, other sides INPUT EU.
+     */
+    @Getter
+    @SaveField
+    @SyncToClient
+    @RerenderOnChanged
+    private boolean feToEu;
+    @Getter
+    private final int amps;
+    @Getter
+    private final long voltage;
+    @Getter
+    private final FEContainer feContainer;
+
+    public ConverterTrait(@NotNull ConverterMachine machine, int amps) {
+        super(machine, GTValues.V[machine.getTier()] * 16 * amps, GTValues.V[machine.getTier()], amps,
+                GTValues.V[machine.getTier()], amps);
+        this.amps = amps;
+        this.voltage = GTValues.V[machine.getTier()];
+        setSideInputCondition(side -> !this.feToEu && side != this.getMachine().getFrontFacing());
+        setSideOutputCondition(side -> this.feToEu && side == this.getMachine().getFrontFacing());
+        this.feContainer = new FEContainer(machine);
+    }
+
+    ////////////////////////////////
+    // ***** Initialization ******//
+    ////////////////////////////////
+
+    public void setFeToEu(boolean feToEu) {
+        this.feToEu = feToEu;
+        setRenderState(getRenderState().setValue(GTMachineModelProperties.IS_FE_TO_EU, feToEu));
+        syncDataHolder.markClientSyncFieldDirty("feToEu");
+        if (machine.getLevel() != null) {
+            machine.getLevel().invalidateCapabilities(machine.getBlockPos());
+        }
+        machine.notifyBlockUpdate();
+    }
+
+    //////////////////////////////
+    // ********* logic *********//
+    //////////////////////////////
+    public void checkOutputSubscription() {
+        outputSubs = getMachine().subscribeServerTick(outputSubs, this::serverTick);
+    }
+
+    @Override
+    public void serverTick() {
+        if (feToEu) { // output eu
+            super.serverTick();
+        } else { // output fe
+            var fontFacing = machine.getFrontFacing();
+            var energyContainer = GTCapabilityHelper.getForgeEnergy(machine.getLevel(),
+                    machine.getBlockPos().relative(fontFacing), fontFacing.getOpposite());
+            if (energyContainer != null && energyContainer.canReceive()) {
+                var energyUsed = FeCompat.insertEu(energyContainer,
+                        Math.min(getEnergyStored(), voltage * amps), false);
+                if (energyUsed > 0) {
+                    setEnergyStored(getEnergyStored() - energyUsed);
+                }
+            }
+        }
+    }
+
+    //////////////////////////////
+    // ***** Forge Energy ******//
+    //////////////////////////////
+
+    private class FEContainer extends MachineTrait implements IEnergyStorage {
+
+        public static final MachineTraitType<FEContainer> TYPE = new MachineTraitType<>(FEContainer.class);
+
+        @Override
+        public MachineTraitType<FEContainer> getTraitType() {
+            return TYPE;
+        }
+
+        private final ConvertedEnergyHandler nativeHandler;
+
+        public FEContainer(MetaMachine machine) {
+            super(machine);
+            capabilityValidator = side -> side == null || (feToEu ?
+                    side != machine.getFrontFacing() : side == machine.getFrontFacing());
+            nativeHandler = new ConvertedEnergyHandler(
+                    () -> ConverterTrait.this.energyStored,
+                    value -> ConverterTrait.this.energyStored = value,
+                    ConverterTrait.this::getEnergyCapacity,
+                    () -> FeCompat.ratio(feToEu),
+                    () -> feToEu,
+                    (previous, current) -> ConverterTrait.this.onEnergyStoredChanged(previous));
+        }
+
+        @Override public long getAmountAsLong() { return nativeHandler.getAmountAsLong(); }
+        @Override public long getCapacityAsLong() { return nativeHandler.getCapacityAsLong(); }
+        @Override public int insert(int amount, TransactionContext transaction) {
+            return nativeHandler.insert(amount, transaction);
+        }
+        @Override public int extract(int amount, TransactionContext transaction) {
+            return nativeHandler.extract(amount, transaction);
+        }
+
+        @Override
+        public int receiveEnergy(int maxReceive, boolean simulate) {
+            return IEnergyStorage.super.receiveEnergy(maxReceive, simulate);
+        }
+
+        public long getMaxLongEnergyStored() {
+            return FeCompat.toFeLong(ConverterTrait.this.getEnergyCapacity(), FeCompat.ratio(feToEu));
+        }
+
+        public long getLongEnergyStored() {
+            return FeCompat.toFeLong(ConverterTrait.this.getEnergyStored(), FeCompat.ratio(feToEu));
+        }
+
+        @Override
+        public int extractEnergy(int maxExtract, boolean simulate) {
+            return 0;
+        }
+
+        @Override
+        public int getEnergyStored() {
+            return FeCompat.toFeBounded(ConverterTrait.this.getEnergyStored(), FeCompat.ratio(feToEu),
+                    Integer.MAX_VALUE);
+        }
+
+        @Override
+        public int getMaxEnergyStored() {
+            return FeCompat.toFeBounded(ConverterTrait.this.getEnergyCapacity(), FeCompat.ratio(feToEu),
+                    Integer.MAX_VALUE);
+        }
+
+        @Override
+        public boolean canExtract() {
+            return false;
+        }
+
+        @Override
+        public boolean canReceive() {
+            return feToEu;
+        }
+    }
+}

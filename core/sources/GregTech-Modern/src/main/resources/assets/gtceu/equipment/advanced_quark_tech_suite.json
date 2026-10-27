@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "gtceu:advanced_quark_tech_suite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "gtceu:advanced_quark_tech_suite"
+      }
+    ]
+  }
+}

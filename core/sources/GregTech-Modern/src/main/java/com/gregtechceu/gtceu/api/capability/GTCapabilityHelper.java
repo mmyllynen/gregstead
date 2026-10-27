@@ -1,0 +1,122 @@
+package com.gregtechceu.gtceu.api.capability;
+
+import com.gregtechceu.gtceu.api.machine.feature.multiblock.IMaintenanceMachine;
+import com.gregtechceu.gtceu.api.machine.trait.RecipeLogic;
+import com.gregtechceu.gtceu.common.data.GTAttachmentTypes;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import com.lowdragmc.lowdraglib.transfer.energy.IEnergyStorage;
+import com.lowdragmc.lowdraglib.transfer.energy.ResourceEnergyStorage;
+import net.neoforged.neoforge.transfer.access.ItemAccess;
+import com.lowdragmc.lowdraglib.transfer.fluid.IFluidHandler;
+import com.lowdragmc.lowdraglib.transfer.fluid.ResourceFluidHandler;
+import com.lowdragmc.lowdraglib.transfer.item.IItemHandler;
+import com.lowdragmc.lowdraglib.transfer.item.ResourceItemHandler;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public class GTCapabilityHelper {
+
+    @Nullable
+    public static IElectricItem getElectricItem(ItemStack itemStack) {
+        return itemStack.getCapability(GTCapability.CAPABILITY_ELECTRIC_ITEM);
+    }
+
+    @Nullable
+    public static IEnergyStorage getForgeEnergyItem(ItemStack itemStack) {
+        if (itemStack.isEmpty()) {
+            return null;
+        }
+        var nativeHandler = itemStack.getCapability(Capabilities.Energy.ITEM, ItemAccess.forStack(itemStack));
+        return nativeHandler == null ? null : ResourceEnergyStorage.of(nativeHandler);
+    }
+
+    @Nullable
+    public static IItemHandler getItemHandler(Level level, BlockPos pos, @Nullable Direction side) {
+        var nativeHandler = level.getCapability(Capabilities.Item.BLOCK, pos, side);
+        return nativeHandler == null ? null : ResourceItemHandler.of(nativeHandler);
+    }
+
+    @Nullable
+    public static IFluidHandler getFluidHandler(Level level, BlockPos pos, @Nullable Direction side) {
+        var nativeHandler = level.getCapability(Capabilities.Fluid.BLOCK, pos, side);
+        return nativeHandler == null ? null : ResourceFluidHandler.of(nativeHandler);
+    }
+
+    @Nullable
+    public static IEnergyContainer getEnergyContainer(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_ENERGY_CONTAINER, pos, side);
+    }
+
+    @Nullable
+    public static IEnergyInfoProvider getEnergyInfoProvider(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_ENERGY_INFO_PROVIDER, pos, side);
+    }
+
+    @Nullable
+    public static ICoverable getCoverable(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_COVERABLE, pos, side);
+    }
+
+    @Nullable
+    public static IWorkable getWorkable(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_WORKABLE, pos, side);
+    }
+
+    @Nullable
+    public static IControllable getControllable(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_CONTROLLABLE, pos, side);
+    }
+
+    @Nullable
+    public static RecipeLogic getRecipeLogic(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_RECIPE_LOGIC, pos, side);
+    }
+
+    @Nullable
+    public static IEnergyStorage getForgeEnergy(Level level, BlockPos pos, @Nullable Direction side) {
+        var nativeHandler = level.getCapability(Capabilities.Energy.BLOCK, pos, side);
+        return nativeHandler == null ? null : ResourceEnergyStorage.of(nativeHandler);
+    }
+
+    @Nullable
+    public static IMaintenanceMachine getMaintenanceMachine(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_MAINTENANCE_MACHINE, pos, side);
+    }
+
+    @Nullable
+    public static ILaserContainer getLaser(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_LASER, pos, side);
+    }
+
+    @Nullable
+    public static IOpticalComputationProvider getOpticalComputationProvider(Level level, BlockPos pos,
+                                                                            @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_COMPUTATION_PROVIDER, pos, side);
+    }
+
+    @Nullable
+    public static IDataAccessHatch getDataAccess(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_DATA_ACCESS, pos, side);
+    }
+
+    @Nullable
+    public static IHazardParticleContainer getHazardContainer(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_HAZARD_CONTAINER, pos, side);
+    }
+
+    public static IMedicalConditionTracker getMedicalConditionTracker(@NotNull Player entity) {
+        return entity.getData(GTAttachmentTypes.MEDICAL_CONDITION_TRACKER);
+    }
+
+    @Nullable
+    public static IMonitorComponent getMonitorComponent(Level level, BlockPos pos, @Nullable Direction side) {
+        return level.getCapability(GTCapability.CAPABILITY_MONITOR_COMPONENT, pos, side);
+    }
+}

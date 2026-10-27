@@ -1,0 +1,13 @@
+{
+  "parent": "gtceu:block/cube_2_layer/tinted_both/all_translucent",
+  "textures": {
+    "bot_all": {
+      "sprite": "gtceu:block/material_sets/rough/raw_ore_block",
+      "force_translucent": true
+    },
+    "top_all": {
+      "sprite": "gtceu:block/material_sets/rough/raw_ore_block_secondary",
+      "force_translucent": true
+    }
+  }
+}

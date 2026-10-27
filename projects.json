@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "minecraft": "26.3",
+  "neoforge": "26.3.0.77",
+  "java": 25,
+  "projects": {
+    "gregtech": {
+      "name": "Gregstead - Unofficial GregTech Port",
+      "kind": "mod",
+      "version": "8.0.7",
+      "side": "both"
+    },
+    "emi": {
+      "name": "Gregstead - Unofficial EMI Port",
+      "kind": "mod",
+      "version": "1.1.24+26.3-port.1",
+      "side": "client"
+    },
+    "calm": {
+      "name": "Gregstead Calm",
+      "kind": "mod",
+      "version": "2.2.3",
+      "side": "both",
+      "dependencies": [
+        "curios"
+      ]
+    },
+    "altar": {
+      "name": "Altar of Abundance",
+      "kind": "mod",
+      "version": "0.1.2",
+      "side": "both",
+      "dependencies": []
+    },
+    "corpse-persistence": {
+      "name": "Gregstead Corpse Persistence",
+      "kind": "mod",
+      "version": "1.0.1",
+      "side": "server",
+      "dependencies": [
+        "corpse"
+      ]
+    },
+    "additional-placements": {
+      "name": "Additional Placements - Gregstead Port",
+      "kind": "mod",
+      "version": "3.0.1.1-gregstead.1",
+      "side": "both",
+      "dependencies": []
+    },
+    "ui-fixes": {
+      "name": "Gregstead UI Fixes",
+      "kind": "mod",
+      "version": "0.1.3",
+      "side": "client",
+      "dependencies": [
+        "supermartijn642corelib"
+      ]
+    },
+    "emi-defaults": {
+      "name": "Gregstead EMI Defaults",
+      "kind": "pack-addon",
+      "version": "0.1.1",
+      "side": "client",
+      "dependencies": [
+        "emi"
+      ]
+    },
+    "pack": {
+      "name": "Gregstead",
+      "kind": "modpack"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "gtceu:metal"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "gtceu:metal"
+      }
+    ]
+  }
+}

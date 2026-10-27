@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fi.neogreg.uifixes.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "WidgetContainerScreenMixin",
+    "InventoryProfilesForegroundMixin",
+    "InventoryProfilesLayoutMixin",
+    "ModularUiExclusionMixin",
+    "ModularUiOpenMixin",
+    "BackpackLayoutMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

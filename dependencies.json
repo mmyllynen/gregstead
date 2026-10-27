@@ -1,0 +1,145 @@
+[
+  {
+    "path": "mods/calm/libs/curios-neoforge-17.0.0-beta.3+26.3.jar",
+    "components": [
+      "calm"
+    ],
+    "sha256": "27775990860dca9a8e6462a4741282789ec37f1a0afd2f72b97f02d60bbc8371",
+    "url": "https://edge.forgecdn.net/files/9127/186/curios-neoforge-17.0.0-beta.3%2b26.3.jar",
+    "source": "https://github.com/TheIllusiveC4/Curios",
+    "redistributed": false
+  },
+  {
+    "path": "mods/corpse-persistence/libs/corpse-neoforge-1.1.20+26.3.jar",
+    "components": [
+      "corpse-persistence"
+    ],
+    "sha256": "dfcbd51175ea876182422344bb6abcf61c02758c8e762e7dc34d9cc2fb13439e",
+    "url": "https://edge.forgecdn.net/files/9027/270/corpse-neoforge-1.1.20%2b26.3.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/corpse",
+    "redistributed": false
+  },
+  {
+    "path": "mods/ui-fixes/libs/InventoryProfilesNext-neoforge-26.3-2.3.8.jar",
+    "components": [
+      "ui-fixes"
+    ],
+    "sha256": "5412a1b09a7749995bada42d39182c56713a870f928fa339cff113a05fa908de",
+    "url": "https://edge.forgecdn.net/files/8990/414/InventoryProfilesNext-neoforge-26.3-2.3.8.jar",
+    "source": "https://codeberg.org/Inventory-Profiles-Next-Mod/IPN",
+    "redistributed": false
+  },
+  {
+    "path": "mods/ui-fixes/libs/gregstead-emi-api.jar",
+    "components": [
+      "ui-fixes"
+    ],
+    "sha256": null,
+    "url": null,
+    "source": "https://github.com/mmyllynen/gregstead",
+    "redistributed": false,
+    "builtComponent": "emi"
+  },
+  {
+    "path": "mods/ui-fixes/libs/libIPN-neoforge-26.3-6.9.0.jar",
+    "components": [
+      "ui-fixes"
+    ],
+    "sha256": "49bd1a8f96720c9bc21b0db67047657d9f57667dbf20d09a7466a0349b51a99c",
+    "url": "https://edge.forgecdn.net/files/8990/267/libIPN-neoforge-26.3-6.9.0.jar",
+    "source": "https://github.com/blackd/libIPN",
+    "redistributed": false
+  },
+  {
+    "path": "mods/ui-fixes/libs/sophisticatedbackpacks-26.3-3.26.12.2203.jar",
+    "components": [
+      "ui-fixes"
+    ],
+    "sha256": "cf672a6f7228b017395c03fa6436240d985423f80fc2d03f2b8cf549145b8bc6",
+    "url": "https://edge.forgecdn.net/files/9151/403/sophisticatedbackpacks-26.3-3.26.12.2203.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks",
+    "redistributed": false
+  },
+  {
+    "path": "mods/ui-fixes/libs/sophisticatedcore-26.3-1.5.11.2399.jar",
+    "components": [
+      "ui-fixes"
+    ],
+    "sha256": "cadd19f35a6493f1916f964c8671fc12967a5f227b92d4e59e71414a58df1fb3",
+    "url": "https://edge.forgecdn.net/files/9166/41/sophisticatedcore-26.3-1.5.11.2399.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-core",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/xaeroworldmap-neoforge-26.3-1.47.0.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "220ce5d54dc3cb231b44d7e71d3ece67d00dcdc424eea73d47fb87dafc445f50",
+    "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/p5t2Xn8F/xaeroworldmap-neoforge-26.3-1.47.0.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/xaeros-world-map",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/xaerominimap-neoforge-26.3-26.6.0.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "bdfa658a09ba6c5c2226e9f8139468b6d12eec93cabf27cc22bdc91c14ade0aa",
+    "url": "https://cdn.modrinth.com/data/1bokaNcj/versions/j2Xo3Dhc/xaerominimap-neoforge-26.3-26.6.0.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/xaerolib-neoforge-26.3-1.7.17.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "82f4199880092a072ebce10d84108fe73ede0939342b3668ddf2acfb43d2c867",
+    "url": null,
+    "source": "https://modrinth.com/mod/xaeros-world-map",
+    "redistributed": false,
+    "extractFrom": "core/dependencies/compile/xaeroworldmap-neoforge-26.3-1.47.0.jar",
+    "entry": "META-INF/jarjar/xaerolib-neoforge-26.3-1.7.17.jar"
+  },
+  {
+    "path": "core/dependencies/compile/ftb-chunks-neoforge-26.1.2.9.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "bc8d3144b481684974479840a98fdc085b2bd372bbcd5aff0aab6d26bee29940",
+    "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-chunks-neoforge/26.1.2.9/ftb-chunks-neoforge-26.1.2.9.jar",
+    "source": "https://github.com/FTBTeam",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/ftb-library-neoforge-26.1.2.10.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "34681f6b97b8f6bf850a36a18b6ee3f15a603f95a5b6c929f92642cbc7bc7683",
+    "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-library-neoforge/26.1.2.10/ftb-library-neoforge-26.1.2.10.jar",
+    "source": "https://github.com/FTBTeam",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/ftb-quests-neoforge-26.1.2.9.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "5cfb90c8dde51645142bcd4160687e87103f79c92ce14a06a0379691f6481a54",
+    "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-quests-neoforge/26.1.2.9/ftb-quests-neoforge-26.1.2.9.jar",
+    "source": "https://github.com/FTBTeam",
+    "redistributed": false
+  },
+  {
+    "path": "core/dependencies/compile/ftb-teams-neoforge-26.1.2.4.jar",
+    "components": [
+      "gregtech"
+    ],
+    "sha256": "7a467df980bbb9d051ccb6aa96d40548e776886bd9dc8d5b2684cd5ffac76f0c",
+    "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-neoforge/26.1.2.4/ftb-teams-neoforge-26.1.2.4.jar",
+    "source": "https://github.com/FTBTeam",
+    "redistributed": false
+  }
+]

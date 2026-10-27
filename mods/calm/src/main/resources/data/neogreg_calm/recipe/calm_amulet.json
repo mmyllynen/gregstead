@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " K ",
+    "KCK",
+    " K "
+  ],
+  "key": {
+    "K": "minecraft:gold_ingot",
+    "C": "neogreg_calm:calm_crystal"
+  },
+  "result": {
+    "id": "neogreg_calm:calm_amulet",
+    "count": 1
+  }
+}

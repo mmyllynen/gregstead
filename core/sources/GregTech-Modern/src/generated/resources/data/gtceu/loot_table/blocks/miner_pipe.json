@@ -1,0 +1,5 @@
+{
+    "type": "minecraft:block",
+    "pools": [],
+    "random_sequence": "gtceu:blocks/miner_pipe"
+}

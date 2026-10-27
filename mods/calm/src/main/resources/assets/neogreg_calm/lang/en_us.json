@@ -1,0 +1,11 @@
+{
+  "block.neogreg_calm.calm_crystal": "Calm Crystal",
+  "block.neogreg_calm.calm_dispenser_button": "Calm Crystal Dispenser",
+  "message.neogreg_calm.radius": "Calm radius: %s blocks (sphere). Provoked mobs can retaliate.",
+  "message.neogreg_calm.admin_only": "Only admins may place or remove this dispenser.",
+  "message.neogreg_calm.inventory_full": "Your inventory is full. Make room for one crystal.",
+  "message.neogreg_calm.kit_space": "Your calm building kit is waiting. Free five inventory slots, then use /neogregcalm kit.",
+  "message.neogreg_calm.kit_delivered": "Calm building kit delivered. Place the dispenser at spawn; every press gives the player one crystal.",
+  "item.neogreg_calm.calm_amulet": "Calm Amulet",
+  "item.neogreg_calm.calm_amulet.desc": "Wear in a Curios necklace slot. The crystal\u2019s stillness follows your footsteps."
+}

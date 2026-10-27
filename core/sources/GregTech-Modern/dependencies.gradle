@@ -1,0 +1,82 @@
+// Official, unmodified compile-only FTB artifacts; never bundled.
+def nativeFtb = [:]
+nativeFtb['chunks'] = files('../../dependencies/compile/ftb-chunks-neoforge-26.1.2.9.jar')
+nativeFtb['library'] = files('../../dependencies/compile/ftb-library-neoforge-26.1.2.10.jar')
+nativeFtb['quests'] = files('../../dependencies/compile/ftb-quests-neoforge-26.1.2.9.jar')
+nativeFtb['teams'] = files('../../dependencies/compile/ftb-teams-neoforge-26.1.2.4.jar')
+// Build the entire native KubeJS source before consuming its local artifact.
+// This is a separate build because its upstream Gradle plugin owns its own settings.
+def nativeKubeJSJar = file('../KubeJS-native/build/libs/kubejs-neoforge-26.3-8.0.6+26.3-port.jar')
+def buildNativeKubeJS = tasks.register('buildNativeKubeJS', Exec) {
+    workingDir file('../KubeJS-native')
+    commandLine(['bash', 'gradlew', 'jar', '--console=plain', '--no-daemon', '--no-build-cache'] + (gradle.startParameter.offline ? ['--offline'] : []))
+    inputs.dir file('../KubeJS-native/src')
+    inputs.files file('../KubeJS-native/build.gradle.kts'), file('../KubeJS-native/gradle.properties'), file('../KubeJS-native/interfaces.json')
+    outputs.file nativeKubeJSJar
+}
+def nativeKubeJS = files(nativeKubeJSJar).builtBy(buildNativeKubeJS)
+
+dependencies {
+    compileOnly(libs.jetbrains.annotations)
+
+
+    jarJar(api(project(':ldlibNative')) { transitive = false })
+
+    // Registrate
+    jarJar(api(project(':registrate')) { transitive = false })
+
+    // Configuration
+    jarJar(api(forge.configuration.get()))
+
+    // Recipe Viewers
+    compileOnly(forge.bundles.jei)
+    compileOnly(forge.bundles.rei)
+    compileOnly(project(':emiNative')) { transitive = false }
+
+    // WAILA-likes
+    compileOnly(forge.jade)
+
+    // Curios
+    compileOnly(variantOf(forge.curios) { classifier("api") })
+
+    // AE2
+    compileOnly(forge.ae2)
+
+    // Create
+    compileOnly(forge.ponder)
+    compileOnly(variantOf(forge.create) { classifier("slim") })
+    compileOnly(forge.flywheel.forge.api)
+
+    // KJS
+    compileOnly(nativeKubeJS)
+    compileOnly(forge.rhino)
+
+    // Rendering / Optimizations
+    compileOnly(forge.sodium)
+    compileOnly(forge.iris)
+    compileOnly(forge.modernfix)
+
+    // Teams
+    compileOnly(nativeFtb['library'])
+    compileOnly(nativeFtb['teams'])
+    compileOnly(nativeFtb['quests'])
+    compileOnly(forge.resourcefullib)
+    compileOnly(forge.argonauts)
+    compileOnly(forge.heracles)
+
+    // Maps
+    compileOnly(nativeFtb['chunks'])
+    compileOnly(files("../../dependencies/compile/xaerominimap-neoforge-26.3-26.6.0.jar"))
+    compileOnly(files("../../dependencies/compile/xaeroworldmap-neoforge-26.3-1.47.0.jar"))
+    compileOnly(files("../../dependencies/compile/xaerolib-neoforge-26.3-1.7.17.jar"))
+    compileOnly(forge.journeymap.api)
+    compileOnly(forge.journeymap.forge)
+
+    // GameStages
+    // compileOnly(forge.gamestages)
+
+    // CC: Tweaked
+    compileOnly(forge.cc.tweaked.core.api)
+    compileOnly(forge.cc.tweaked.forge.api)
+
+}
