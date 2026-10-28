@@ -1,4 +1,4 @@
-# Gregstead - Unofficial GregTech Port
+# GregTech CEu - Gregstead Port
 
 Part of [Gregstead](https://github.com/mmyllynen/gregstead).
 

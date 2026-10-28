@@ -1,4 +1,4 @@
-# Gregstead - Unofficial EMI Port
+# EMI - Gregstead Port
 
 Part of [Gregstead](https://github.com/mmyllynen/gregstead).
 

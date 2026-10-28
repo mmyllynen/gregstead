@@ -1,4 +1,4 @@
-# Gregstead Corpse Persistence
+# Corpse Persistence
 
 Part of [Gregstead](https://github.com/mmyllynen/gregstead).
 

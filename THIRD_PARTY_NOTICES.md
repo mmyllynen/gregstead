@@ -4,14 +4,14 @@ The root automation license does not apply to upstream code.
 
 | Component | Upstream | Local license |
 | --- | --- | --- |
-| GregTech | GregTechCEu/GregTech-Modern, base 9bd36746eee278716cc8f64b01306bf72836f924 | Source LGPL-3.0; public combined binary GPL-3.0 |
-| EMI | emilyploszaj/emi, base 81f6453c0d0b6df2e503d0bc5f19f1c73fd12173 | Source MIT; public combined binary GPL-3.0 |
+| GregTech | [GregTechCEu/GregTech-Modern](https://github.com/GregTechCEu/GregTech-Modern), base 9bd36746eee278716cc8f64b01306bf72836f924 | Source LGPL-3.0; public combined binary GPL-3.0 |
+| EMI | [emilyploszaj/emi](https://github.com/emilyploszaj/emi), base 81f6453c0d0b6df2e503d0bc5f19f1c73fd12173 | Source MIT; public combined binary GPL-3.0 |
 | LDLib | Low-Drag-MC/LDLib-Architectury, base 9fe36a4f96ccad937222e700cce88b7e92940510 | GPL-3.0 |
 | Registrate | tterrag1098/Registrate, base 254c351564e8a6b46b22152f7217477881a81585 | MPL-2.0 |
 | KubeJS | kube-mods/KubeJS, base ada579b4be8a266cf2b5435cdd250aa8b5985f09 | LGPL-3.0 |
 | Transfer support | Port-specific code, including code derived from GregTech and LDLib | Public combined code GPL-3.0; original LGPL text retained in LGPL_ORIGIN.txt |
-| Additional Placements | FirEmerald/AdditionalPlacements | MIT, original FirEmerald copyright retained |
-| Calm | Original project copyright identifies Kickstart contributors | MIT, original notice retained |
+| Additional Placements | [FirEmerald/Additional-Placements](https://github.com/FirEmerald/Additional-Placements) | MIT, original FirEmerald copyright retained |
+| Calm Crystals and Amulet | Original project copyright identifies Kickstart contributors | MIT, original notice retained |
 | Altar | Gregstead contributors; NeoForge MDK template retained separately | Own code MIT; see TEMPLATE_LICENSE.txt |
 | Corpse Persistence, UI Fixes, EMI Defaults | Gregstead contributors | MIT |
 

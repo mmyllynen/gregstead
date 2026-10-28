@@ -50,7 +50,7 @@ Some highlights:
 | Building | Macaw's Bridges, Doors, Furniture, Roofs, Windows and more; Rechiseled; Effortless Building |
 | Equipment | Curios, Traveler Tool Belt, Hellim's Elytra Slot |
 | Graphics | Sodium, Iris; Complementary Reimagined, BSL, Bliss and MakeUp Ultra Fast shader packs |
-| Custom additions | Calm, Altar of Abundance, EMI Defaults and UI compatibility fixes |
+| Custom additions | Calm Crystals and Amulet, Altar of Abundance, EMI Defaults and UI compatibility fixes |
 
 See [MODLIST.md](MODLIST.md) for the complete mod list. Names and save identifiers
 can differ: legacy IDs are intentionally retained for existing worlds.

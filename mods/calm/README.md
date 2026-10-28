@@ -1,4 +1,4 @@
-# Gregstead Calm
+# Calm Crystals and Amulet
 
 Part of [Gregstead](https://github.com/mmyllynen/gregstead).
 

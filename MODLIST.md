@@ -30,14 +30,14 @@
 | Double Doors | Client and server |
 | Dynamic FPS | Client |
 | Effortless Building | Client and server |
-| Gregstead - Unofficial EMI Port | Client |
+| EMI - Gregstead Port | Client |
 | EntityCulling | Client |
 | Falling Leaves Plus | Client |
 | FallingTree | Client and server |
 | Ferrite Core | Client and server |
 | Fusion | Client and server |
 | GlitchCore | Client and server |
-| Gregstead - Unofficial GregTech Port | Client and server |
+| GregTech CEu - Gregstead Port | Client and server |
 | GuideME | Client and server |
 | Hellim's Elytra Slot | Client and server |
 | ImmediatelyFast | Client |
@@ -65,8 +65,8 @@
 | ModernFix | Client and server |
 | More Culling | Client |
 | Mouse Tweaks | Client |
-| Gregstead Calm | Client and server |
-| Gregstead Corpse Persistence | Server |
+| Calm Crystals and Amulet | Client and server |
+| Corpse Persistence | Server |
 | Gregstead EMI Defaults | Client |
 | Gregstead UI Fixes | Client |
 | NotEnoughAnimations | Client |
