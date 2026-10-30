@@ -15,12 +15,9 @@ public final class GTRenderTypes {
     public static final RenderPipeline GUI_TEXTURE_PIPELINE=RenderPipeline.builder(RenderPipelines.WORLD_TEXT_SNIPPET)
             .withLocation(Identifier.parse("gtceu:pipeline/gui_texture"))
             .withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT)).withCull(true).build();
-    public static final RenderPipeline HIGHLIGHT_TEXTURE_PIPELINE=GUI_TEXTURE_PIPELINE.toBuilder()
-            .withLocation(Identifier.parse("gtceu:pipeline/highlight_texture"))
-            .withDepthStencilState(java.util.Optional.empty()).withCull(false).build();
-    private static final java.util.Map<Identifier,RenderType> HIGHLIGHTS=new ConcurrentHashMap<>();
-    public static RenderType highlightTexture(Identifier id){return HIGHLIGHTS.computeIfAbsent(id,key->RenderType.create("gtceu_highlight_"+key,
-            RenderSetup.builder(HIGHLIGHT_TEXTURE_PIPELINE).withTexture("Sampler0",key).useLightmap().createRenderSetup()));}
+    // Native see-through text has the same full-bright, translucent, no-depth overlay
+    // semantics, and Iris recognizes its pipeline and supplies the world transform.
+    public static RenderType highlightTexture(Identifier id){return RenderTypes.textSeeThrough(id);}
     private static final RenderType LIGHT_RING=RenderType.create("gtceu_light_ring",RenderSetup.builder(LIGHT_RING_PIPELINE).createRenderSetup());
     private static final RenderType MONITOR=RenderType.create("gtceu_central_monitor",RenderSetup.builder(MONITOR_PIPELINE).createRenderSetup());
     private static final java.util.Map<Identifier,RenderType> TEXTURES=new ConcurrentHashMap<>();

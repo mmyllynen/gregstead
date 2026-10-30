@@ -1,5 +1,9 @@
 # Changelog
 
+## GregTech 8.0.8
+
+- Fix shader compatibility of wrench, cover and pipe overlay icons using Minecraft's native see-through text pipeline. Registry IDs and gameplay are unchanged.
+
 ## Unreleased
 
 - Initial Gregstead modpack for Minecraft 26.3 and NeoForge 26.3.0.77.
