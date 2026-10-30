@@ -17,6 +17,7 @@ neoForge {
 
 }
 dependencies {
+    compileOnly files('../../dependencies/runtime/appliedenergistics2-26.3.1-alpha.jar')
     jarJar(api(project(':transferCompat')))
     compileOnly 'mezz.jei:jei-26.3-common-api:31.10.0.63'
     compileOnly 'mezz.jei:jei-26.3-neoforge-api:31.10.0.63'

@@ -6,6 +6,8 @@
 
 ## Unreleased
 
+- Restore EMI recipe filling in the ME Crafting Terminal using ingredients from ME storage and the player inventory, with missing-ingredient feedback and no automatic crafting requests.
+
 - Show a standard machine-error icon and explanatory tooltip when a steam machine has exhaust to release but its vent is blocked.
 
 - Initial Gregstead modpack for Minecraft 26.3 and NeoForge 26.3.0.77.
