@@ -141,5 +141,15 @@
     "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-neoforge/26.1.2.4/ftb-teams-neoforge-26.1.2.4.jar",
     "source": "https://github.com/FTBTeam",
     "redistributed": false
+  },
+  {
+    "path": "core/dependencies/runtime/appliedenergistics2-26.3.1-alpha.jar",
+    "components": [
+      "emi"
+    ],
+    "sha256": "85da904d110e811f77fa5227f8d9fbc212028311badbceaead32bd4d275bc970",
+    "url": "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/v26.3.1-alpha/appliedenergistics2-26.3.1-alpha.jar",
+    "source": "https://github.com/AppliedEnergistics/Applied-Energistics-2",
+    "redistributed": false
   }
 ]

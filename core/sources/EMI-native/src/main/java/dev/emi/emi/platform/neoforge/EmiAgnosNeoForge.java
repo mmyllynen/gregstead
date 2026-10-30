@@ -144,6 +144,10 @@ public class EmiAgnosNeoForge extends EmiAgnos {
 				}
 			}
 		}
+		if (ModList.get().isLoaded("ae2")) {
+			// This is a narrow EMI-owned bridge, not AE2's complete recipe plugin.
+			containers.add(new EmiPluginContainer(new dev.emi.emi.integration.ae2.Ae2EmiPlugin(), "emi"));
+		}
 		return containers;
 	}
 

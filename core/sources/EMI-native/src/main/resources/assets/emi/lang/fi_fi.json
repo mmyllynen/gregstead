@@ -668,6 +668,8 @@
     "tag.item.fabric.shovels": "Lapiot",
     "tag.item.fabric.hoes": "Kuokat",
     "tag.item.fabric.swords": "Miekat",
-    "tag.item.fabric.shears": "Keritsimet"
-  }
-  
+    "tag.item.fabric.shears": "Keritsimet",
+  "emi.ae2.unsupported_recipe": "Tätä reseptiä ei voi siirtää ME-terminaalin crafting-ruudukkoon",
+  "emi.ae2.missing_ingredients": "Aineksia puuttuu ME-varastosta ja inventaariosta",
+  "emi.ae2.partial_ingredients": "Siirrä saatavilla olevat aineet; osa puuttuu"
+}
