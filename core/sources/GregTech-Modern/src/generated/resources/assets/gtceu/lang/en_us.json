@@ -5772,6 +5772,8 @@
     "recipe.condition.quest.not_completed.tooltip": "Requires %s not completed",
     "recipe.condition.rain.tooltip": "Rain Level: %d",
     "recipe.condition.steam_vent.tooltip": "Clean steam vent",
+    "gtceu.machine.steam.exhaust_blocked": "Steam exhaust blocked",
+    "gtceu.machine.steam.exhaust_blocked_help": "Remove the obstruction at the steam exhaust.",
     "recipe.condition.thunder.tooltip": "Thunder Level: %d",
     "recipe_category.gtceu.arc_furnace_recycling": "Arc Scrapping",
     "recipe_category.gtceu.chem_dyes": "Chemical Dyeing",

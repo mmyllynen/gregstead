@@ -6,6 +6,8 @@
 
 ## Unreleased
 
+- Show a standard machine-error icon and explanatory tooltip when a steam machine has exhaust to release but its vent is blocked.
+
 - Initial Gregstead modpack for Minecraft 26.3 and NeoForge 26.3.0.77.
 - Unofficial GregTech CEu and EMI ports.
 - Calm crystals and a Curios amulet for localized mob protection.
