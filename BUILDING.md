@@ -150,3 +150,7 @@ persistence after graceful restart, and a single EMI alpha-0x77 slot overlay
 with Iris 1.11.7+mc26.3 and Complementary Reimagined r5.9.3 enabled. World and
 shadow rendering remained stable.
 Local screenshots and detailed results stay in `.test-client`.
+
+## GitHub client distributions
+
+Run `python3 build_pack.py build --github --version 1.0.27`. Outputs are under `dist/github/1.0.27/`: full CurseForge-format client import and own-client-mods-only update. GitHub mode bundles own mods without requiring CurseForge approval; external mods retain manifest references. No server archive is produced in this mode.

@@ -81,3 +81,7 @@ Gregstead does not replace them with a single blanket license. See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the component license files.
 
 Changes are recorded separately in [CHANGELOG.md](CHANGELOG.md).
+
+## Client distribution 1.0.27
+
+Download the full client ZIP from GitHub Releases for a fresh import into a new profile. Existing players can use the client-mods-only ZIP: close the game, remove previous versions of the nine listed Gregstead client mods, then copy the new JARs into mods/. Keep third-party mods and all settings. Follow INSTALL.txt, including legacy filenames. The small ZIP is not a standalone installation.

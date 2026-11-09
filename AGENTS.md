@@ -31,3 +31,7 @@ it in public GitHub or CurseForge releases or distributable modpacks.
 - Close the game before updating mods. Track the release baseline, exact mod versions/hashes, candidate builds and test results in .test-client/test-state.json. Replace outdated JARs for the same mod; do not load duplicate versions.
 - Keep tests within the persistent fixture area; avoid unnecessary exploration/chunk generation. Do not modify Mushroom, production worlds or the user's ordinary client profile.
 - Verify rendering fixes with the pack's pinned shader pack enabled as well as disabled before release. Shader-disabled success alone does not complete rendering verification. See BUILDING.md for development-client GPU validation settings.
+
+# GitHub pack distribution
+
+Publish full client import and own-client-mods-only ZIPs together with checksums and matching tagged sources. Mods-only contains nine own client mods, never settings or server-only mods. Document removal of previous versions including legacy names; preserve third-party mods and player configuration. Keep CurseForge approval checks separate and intact.
