@@ -25,3 +25,6 @@ neoForge.accessTransformers.from(file("../transfer-compat/src/main/resources/MET
 
 // Public distribution: full bundled-license texts and provenance.
 tasks.named('jar', Jar) { from('../../../licenses') { into 'META-INF/licenses' } }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "gregstead-${project.version}-mc26.3.jar" }

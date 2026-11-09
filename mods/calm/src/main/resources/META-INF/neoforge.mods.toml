@@ -3,7 +3,7 @@ loaderVersion="[12,)"
 license="MIT"
 [[mods]]
 modId="neogreg_calm"
-version="2.2.3"
+version="2.2.4"
 displayName="Gregstead Calm"
 description="Placeable calm crystals pacify nearby mobs. Admin distribution buttons provide crystals."
 [[mixins]]

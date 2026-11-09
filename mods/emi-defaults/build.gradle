@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '0.1.1'
+version = '0.1.2'
 group = 'fi.neogreg'
 base { archivesName = 'gregstead-emi-defaults' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -7,3 +7,6 @@ neoForge { version = '26.3.0.77'; mods { neogreg_emi_defaults { sourceSet source
 tasks.withType(JavaCompile).configureEach { options.release = 25; options.encoding = 'UTF-8' }
 tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
 jar { from('LICENSE') { into 'META-INF' } }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "gregstead-emi-defaults-${project.version}-mc26.3.jar" }

@@ -3,7 +3,7 @@ loaderVersion="[1,)"
 license="MIT"
 [[mods]]
 modId="neogreg_emi_defaults"
-version="0.1.1"
+version="0.1.2"
 displayName="Gregstead EMI Defaults"
 description="Automatically expands EMI recipe trees using deterministic, cycle-free defaults for the Gregstead pack."
 [[dependencies.neogreg_emi_defaults]]

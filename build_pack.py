@@ -8,6 +8,7 @@ import re
 import tomllib
 import urllib.request
 import zipfile
+from release import artifact_filename
 
 ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / '.build/pack-inputs'
@@ -107,7 +108,8 @@ def main():
     for component, project in projects.items():
         if project['kind'] != 'mod':
             continue
-        jars = list((ROOT / 'dist' / component).glob('*.jar'))
+        jars = [ROOT / 'dist' / component / artifact_filename(component)]
+        jars = [p for p in jars if p.is_file()]
         if len(jars) != 1:
             raise ValueError('Build exactly one JAR first: ' + component)
         jar = jars[0]
@@ -146,8 +148,8 @@ def main():
     payload['manifest.json'] = json.dumps(manifest, indent=2).encode() + b'\n'
     output = ROOT / 'dist/pack' / args.version
     output.mkdir(parents=True, exist_ok=True)
-    write_zip(output / ('Gregstead-Client-' + args.version + '.zip'), payload)
-    write_zip(output / ('Gregstead-Server-' + args.version + '.zip'), server)
+    write_zip(output / ('gregstead-client-' + args.version + '-mc' + lock['minecraft'] + '.zip'), payload)
+    write_zip(output / ('gregstead-server-' + args.version + '-mc' + lock['minecraft'] + '.zip'), server)
 
 
 if __name__ == '__main__':

@@ -34,3 +34,7 @@
 - Corpse Persistence, Additional Placements port and client UI compatibility fixes.
 - Pack-specific EMI recipe-tree defaults.
 - Original registry IDs and serialized keys retained.
+
+### Uniform artifact names
+- All component artifacts now include the Minecraft target in a consistent filename.
+- Calm 2.2.4, Altar 0.1.3, Corpse Persistence 1.0.2, Additional Placements 3.0.1.1-gregstead.2, UI Fixes 0.1.4 and EMI Defaults 0.1.2 are packaging-only updates with no gameplay changes.

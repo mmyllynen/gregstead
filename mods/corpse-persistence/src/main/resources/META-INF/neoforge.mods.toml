@@ -3,7 +3,7 @@ loaderVersion="[12,)"
 license="MIT"
 [[mods]]
 modId="neogreg_corpse_persistence"
-version="1.0.1"
+version="1.0.2"
 displayName="Gregstead Corpse Persistence"
 description="Server-only persistent corpses and skeletons, including after looting."
 displayTest="IGNORE_ALL_VERSION"

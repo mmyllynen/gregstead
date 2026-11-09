@@ -63,3 +63,13 @@ server configuration, worlds, player files and credentials are not build inputs.
 
 All normal builds use only this checkout, the installed JDK and verified
 downloaded inputs, with no USB-backup or old Ubuntu workspace dependency.
+
+## Release artifact names
+
+Component versions and artifact stems are declared in `projects.json`. All
+release JARs end in `-mc26.3.jar`. The GregTech port produces
+`gregstead-VERSION-mc26.3.jar`; upstream-versioned ports use their component
+name followed by `UPSTREAM-gregstead.REVISION-mc26.3.jar`. Other components
+use `gregstead-COMPONENT-VERSION-mc26.3.jar`. Pack ZIPs use
+`gregstead-client-VERSION-mc26.3.zip` and `gregstead-server-VERSION-mc26.3.zip`.
+Old build outputs may coexist; packaging selects the declared current artifact.

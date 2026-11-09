@@ -72,3 +72,6 @@ sourceSets.main.output.dir(globalMixinDir, builtBy: tasks.named('generateGlobalM
 
 // Public distribution: full bundled-license texts and provenance.
 tasks.named('jar', Jar) { from('../../../licenses') { into 'META-INF/licenses' } }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "emi-${project.version}-mc26.3.jar" }

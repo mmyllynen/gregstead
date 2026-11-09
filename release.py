@@ -60,6 +60,12 @@ def sha(path):
     return hashlib.file_digest(path.open('rb'), 'sha256').hexdigest()
 
 
+def artifact_filename(component):
+    manifest = json.loads((ROOT / 'projects.json').read_text())
+    project = manifest['projects'][component]
+    return project['artifactStem'] + '-' + project['version'] + '-mc' + manifest['minecraft'] + '.jar'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['build', 'bootstrap'])
@@ -100,7 +106,8 @@ def main():
             if args.artifact_dir:
                 command += ['--artifact-dir', str(args.artifact_dir)]
             subprocess.run(command, cwd=ROOT, check=True)
-            jars = list((ROOT / 'dist' / dependency).glob('*.jar'))
+            jars = [ROOT / 'dist' / dependency / artifact_filename(dependency)]
+            jars = [p for p in jars if p.is_file()]
             if len(jars) != 1:
                 parser.error('Expected one source-built compile dependency: ' + dependency)
             dest.parent.mkdir(parents=True, exist_ok=True)

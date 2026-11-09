@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '2.2.3'
+version = '2.2.4'
 group = 'fi.neogreg'
 base { archivesName = 'gregstead-calm' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -10,3 +10,6 @@ tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = fal
 dependencies { implementation files('libs/curios-neoforge-17.0.0-beta.3+26.3.jar') }
 
 jar { from('LICENSE') { into 'META-INF' } }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "gregstead-calm-${project.version}-mc26.3.jar" }

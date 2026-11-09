@@ -87,3 +87,6 @@ tasks.named('check') { dependsOn tasks.named('gameTestClasses') }
 
 // Match the existing NeoGreg client/server heap budget during validation.
 tasks.withType(JavaExec).configureEach { maxHeapSize = '6G' }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "additional-placements-${project.version}-mc26.3.jar" }

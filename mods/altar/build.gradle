@@ -91,3 +91,6 @@ idea.module {
 }
 
 jar { from('LICENSE') { into 'META-INF' }; from('TEMPLATE_LICENSE.txt') { into 'META-INF' } }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "gregstead-altar-${project.version}-mc26.3.jar" }

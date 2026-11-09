@@ -10,3 +10,6 @@ jar { from('LICENSE') { into 'META-INF' } }
 
 // Exact checksum-locked upstream API, never bundled.
 dependencies { compileOnly fileTree(dir: 'libs', include: '*.jar') }
+
+// Public artifact identity; internal mod IDs remain unchanged.
+tasks.named('jar', Jar) { archiveFileName = "gregstead-ae2-fixes-${project.version}-mc26.3.jar" }
