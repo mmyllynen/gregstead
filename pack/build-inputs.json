@@ -1,0 +1,1090 @@
+{
+  "schemaVersion": 1,
+  "minecraft": "26.3",
+  "neoforge": "26.3.0.77",
+  "artifacts": [
+    {
+      "filename": "AmbientEnvironment-neoforge-26.3-26.3.2.jar",
+      "sha256": "02962b8083795e8439f8e39a94684d966013faf97a1c70b35f904835a0149e67",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "ambientenvironment",
+      "projectID": 320163,
+      "fileID": 8900485,
+      "url": "https://edge.forgecdn.net/files/8900/485/AmbientEnvironment-neoforge-26.3-26.3.2.jar"
+    },
+    {
+      "filename": "AmbientSounds_NEOFORGE_v6.3.10_mc26.3.jar",
+      "sha256": "c92b2b67fd3becf4732ed0ccbf0d2af2b0cf18bef4dc90b347a9496f922f194d",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "ambientsounds",
+      "projectID": 254284,
+      "fileID": 9099153,
+      "url": "https://edge.forgecdn.net/files/9099/153/AmbientSounds_NEOFORGE_v6.3.10_mc26.3.jar"
+    },
+    {
+      "filename": "BSL_v10.1.8.zip",
+      "sha256": "36b0a50ff7918bf10e9422c401d93779f9d0088a26acea975b435243f96930b5",
+      "sides": [
+        "client"
+      ],
+      "kind": "shaderpack",
+      "projectID": 322506,
+      "fileID": 8939313,
+      "url": "https://edge.forgecdn.net/files/8939/313/BSL_v10.1.8.zip"
+    },
+    {
+      "filename": "BadOptimizations-2.4.1-26.3-forge.jar",
+      "sha256": "12332b5d6fe620b1ceeca702e6116c7ba1c99ff36c3d70eafb8336de6bdfd859",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "badoptimizations",
+      "projectID": 949555,
+      "fileID": 8891659,
+      "url": "https://edge.forgecdn.net/files/8891/659/BadOptimizations-2.4.1-26.3-forge.jar"
+    },
+    {
+      "filename": "BetterF3-20.0.0-NeoForge-26.3.jar",
+      "sha256": "d5965c21bb69395342305de917adb29ffb76940da2c6a48c308ece401a3f31af",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "betterf3",
+      "projectID": 401648,
+      "fileID": 9062694,
+      "url": "https://edge.forgecdn.net/files/9062/694/BetterF3-20.0.0-NeoForge-26.3.jar"
+    },
+    {
+      "filename": "BetterThanMending-2.3.0-merged.jar",
+      "sha256": "244d948b24c88e33330db7622a33d3228e73f122a60243add3c68a61a9ed6fb8",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "betterthanmending",
+      "projectID": 264738,
+      "fileID": 7913494,
+      "url": "https://edge.forgecdn.net/files/7913/494/BetterThanMending-2.3.0-merged.jar"
+    },
+    {
+      "filename": "BiomesOPlenty-neoforge-26.3-26.3.0.0.7.jar",
+      "sha256": "091246a05f8f7c7d5f10f76686fcc7ee7c51cb52f063d02241d3500e64461660",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "biomesoplenty",
+      "projectID": 220318,
+      "fileID": 8973616,
+      "url": "https://edge.forgecdn.net/files/8973/616/BiomesOPlenty-neoforge-26.3-26.3.0.0.7.jar"
+    },
+    {
+      "filename": "Bliss_v2.1.2_(Chocapic13_Shaders_edit).zip",
+      "sha256": "f41db92acc585fe9ffe0cc124d6ecaea27cef9ded91129ebc2a8e60226947b2c",
+      "sides": [
+        "client"
+      ],
+      "kind": "shaderpack",
+      "projectID": 610844,
+      "fileID": 7251787,
+      "url": "https://edge.forgecdn.net/files/7251/787/Bliss_v2.1.2_(Chocapic13_Shaders_edit).zip"
+    },
+    {
+      "filename": "Chunky-NeoForge-1.5.4.jar",
+      "sha256": "6ed601bd2c2942cd537f1732805bc786e70b57d988039c416c3bc27ba97162b9",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "chunky",
+      "projectID": 485681,
+      "fileID": 8491618,
+      "url": "https://edge.forgecdn.net/files/8491/618/Chunky-NeoForge-1.5.4.jar"
+    },
+    {
+      "filename": "Clumps-neoforge-26.3-26.3.2.jar",
+      "sha256": "18d65f554984a81a4dfe5f5e4038298ae02e6d8cc66870469305e8fae2a1fb79",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "clumps",
+      "projectID": 256717,
+      "fileID": 8897017,
+      "url": "https://edge.forgecdn.net/files/8897/17/Clumps-neoforge-26.3-26.3.2.jar"
+    },
+    {
+      "filename": "ComplementaryReimagined_r5.9.3.zip",
+      "sha256": "fed6c879e732cf7fc7bc6570ebb1def43235aa7e96f62859fbdbdbfa0b484b38",
+      "sides": [
+        "client"
+      ],
+      "kind": "shaderpack",
+      "projectID": 627557,
+      "fileID": 8884654,
+      "url": "https://edge.forgecdn.net/files/8884/654/ComplementaryReimagined_r5.9.3.zip"
+    },
+    {
+      "filename": "Continents_26.3_v1.2.1+26.3.jar",
+      "sha256": "06de00340b4c833cc6e2b83bdd254bfd909a8bca49cf8da6d4dde2c59bdedb50",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "continents",
+      "projectID": 682515,
+      "fileID": 9002585,
+      "url": "https://edge.forgecdn.net/files/9002/585/Continents_26.3_v1.2.1%2b26.3.jar"
+    },
+    {
+      "filename": "Controlling-neoforge-26.3-26.3.4.jar",
+      "sha256": "cfe916fb50c29749b8aa354f104689080a204a154743d701c8d65568af4368b5",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "controlling",
+      "projectID": 250398,
+      "fileID": 9110876,
+      "url": "https://edge.forgecdn.net/files/9110/876/Controlling-neoforge-26.3-26.3.4.jar"
+    },
+    {
+      "filename": "CreativeCore_NEOFORGE_v2.14.21_mc26.3.jar",
+      "sha256": "17dc2a947b664a227469fed08654f5f5e0dacd945611940bce1393482fdf0be9",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "creativecore",
+      "projectID": 257814,
+      "fileID": 9099173,
+      "url": "https://edge.forgecdn.net/files/9099/173/CreativeCore_NEOFORGE_v2.14.21_mc26.3.jar"
+    },
+    {
+      "filename": "FallingTree-26.3-25.jar",
+      "sha256": "ae542a72afb6386f2b662a00b118cd2a9e6dcd99e2bd45720f0a7187263acdd3",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "fallingtree",
+      "projectID": 349559,
+      "fileID": 9120272,
+      "url": "https://edge.forgecdn.net/files/9120/272/FallingTree-26.3-25.jar"
+    },
+    {
+      "filename": "GlitchCore-neoforge-26.3-26.3.0.0.5.jar",
+      "sha256": "b48c2edb31d2f65d8a686b14ef90f07d06ffcde9807c7a7e26a9b342f00ee90d",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "glitchcore",
+      "projectID": 955399,
+      "fileID": 9125343,
+      "url": "https://edge.forgecdn.net/files/9125/343/GlitchCore-neoforge-26.3-26.3.0.0.5.jar"
+    },
+    {
+      "filename": "ImmediatelyFast-NeoForge-1.17.1+26.3.jar",
+      "sha256": "447a22be8b4610d8c2fe35c5a3ea3f445a2cb7151650dd9fec1149ebe8e8bf67",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "immediatelyfast",
+      "projectID": 686911,
+      "fileID": 8905048,
+      "url": "https://edge.forgecdn.net/files/8905/48/ImmediatelyFast-NeoForge-1.17.1%2b26.3.jar"
+    },
+    {
+      "filename": "InventoryProfilesNext-neoforge-26.3-2.3.8.jar",
+      "sha256": "5412a1b09a7749995bada42d39182c56713a870f928fa339cff113a05fa908de",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "inventoryprofilesnext",
+      "projectID": 495267,
+      "fileID": 8990414,
+      "url": "https://edge.forgecdn.net/files/8990/414/InventoryProfilesNext-neoforge-26.3-2.3.8.jar"
+    },
+    {
+      "filename": "MakeUp-UltraFast-9.6.zip",
+      "sha256": "71319ea5d0ad114143ef1c334890e315dbf1eeb2318d6bc35f3e5021fb3c8ba8",
+      "sides": [
+        "client"
+      ],
+      "kind": "shaderpack",
+      "projectID": 431203,
+      "fileID": 9262057,
+      "url": "https://edge.forgecdn.net/files/9262/57/MakeUp-UltraFast-9.6.zip"
+    },
+    {
+      "filename": "MouseTweaks-neoforge-mc26.3-2.31.jar",
+      "sha256": "e9ec08badec2e36f875a6b001b456284a40e337f6f224e85c7373770bce8103f",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "mousetweaks",
+      "projectID": 60089,
+      "fileID": 8890228,
+      "url": "https://edge.forgecdn.net/files/8890/228/MouseTweaks-neoforge-mc26.3-2.31.jar"
+    },
+    {
+      "filename": "Searchables-neoforge-26.3-1.0.3.jar",
+      "sha256": "9f55011abba7b440ad6ead41093ce1a91f62a90225abccabd6262eba1645844d",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "searchables",
+      "projectID": 858542,
+      "fileID": 9110867,
+      "url": "https://edge.forgecdn.net/files/9110/867/Searchables-neoforge-26.3-1.0.3.jar"
+    },
+    {
+      "filename": "SimpleBackups-26.3.1.jar",
+      "sha256": "804f702d9f1eae330af61ddfd1db0842258e3620ffc81d0169e0baf6c0b92f82",
+      "sides": [
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "simplebackups",
+      "projectID": 583228,
+      "fileID": 9020229,
+      "url": "https://edge.forgecdn.net/files/9020/229/SimpleBackups-26.3.1.jar"
+    },
+    {
+      "filename": "StorageDrawers-neoforge-26.3.0.2-curseforge.jar",
+      "sha256": "2b2abca1d637036647506134970791ebb411c5d9a9eaff6974c3ab5c82508963",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "storagedrawers",
+      "projectID": 223852,
+      "fileID": 9124546,
+      "url": "https://edge.forgecdn.net/files/9124/546/StorageDrawers-neoforge-26.3.0.2.jar"
+    },
+    {
+      "filename": "TerraBlender-neoforge-26.3-26.3.0.0.9.jar",
+      "sha256": "f8d063d0aa56017246ffcc94f7c7c6914b60fcd3df45b3534e3b751c0ec6f276",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "terrablender",
+      "projectID": 940057,
+      "fileID": 9033892,
+      "url": "https://edge.forgecdn.net/files/9033/892/TerraBlender-neoforge-26.3-26.3.0.0.9.jar"
+    },
+    {
+      "filename": "Terralith_v2.6.5+26.3-neoforge.jar",
+      "sha256": "306461c39a5d45373ea6ff74e3f7ca453b49f8bb48fc2c531c84e6aa8d96d780",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "terralith",
+      "projectID": 513688,
+      "fileID": 8994277,
+      "url": "https://edge.forgecdn.net/files/8994/277/Terralith_v2.6.5%2b26.3-neoforge.jar"
+    },
+    {
+      "filename": "appleskin-neoforge-mc26.3-3.0.10.jar",
+      "sha256": "1b12ae7b7f129821957c33c6efee0ff1da25af1c4ed8b1f1fa112f41244928e7",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "appleskin",
+      "projectID": 248787,
+      "fileID": 8907904,
+      "url": "https://edge.forgecdn.net/files/8907/904/appleskin-neoforge-mc26.3-3.0.10.jar"
+    },
+    {
+      "filename": "appliedenergistics2-26.3.1-alpha.jar",
+      "sha256": "85da904d110e811f77fa5227f8d9fbc212028311badbceaead32bd4d275bc970",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "ae2",
+      "projectID": 223794,
+      "fileID": 9051894,
+      "url": "https://edge.forgecdn.net/files/9051/894/appliedenergistics2-26.3.1-alpha.jar"
+    },
+    {
+      "filename": "baguettelib-26.3-NeoForge-2.0.8.jar",
+      "sha256": "9a71e5e9537dd5126ce782103595e58923cf50c807b5c82b90e65211085f3f47",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "baguettelib",
+      "projectID": 1264423,
+      "fileID": 9134480,
+      "url": "https://edge.forgecdn.net/files/9134/480/baguettelib-26.3-NeoForge-2.0.8.jar"
+    },
+    {
+      "filename": "balm-neoforge-26.3-26.3.0.3.jar",
+      "sha256": "8b06a2361c76f1f6b1d2779c39a03fd9bd7c565f91747d0ad235644ec7416c7b",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "balm",
+      "projectID": 531761,
+      "fileID": 9035246,
+      "url": "https://edge.forgecdn.net/files/9035/246/balm-neoforge-26.3-26.3.0.3.jar"
+    },
+    {
+      "filename": "chat_heads-1.3.2-neoforge-26.3.jar",
+      "sha256": "17b67ed8dc865cf63abb55f52e29bcc86b206b0b2d11efae66b188b347d34b24",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "chat_heads",
+      "projectID": 407206,
+      "fileID": 9060721,
+      "url": "https://edge.forgecdn.net/files/9060/721/chat_heads-1.3.2-neoforge-26.3.jar"
+    },
+    {
+      "filename": "chunkloaders-1.2.9-neoforge-mc26.3.jar",
+      "sha256": "3cd72199a8a7f8389a2e7b7f177ec2e0e6f8344b755c360b4a1c4edaee727be1",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "chunkloaders",
+      "projectID": 402924,
+      "fileID": 8888067,
+      "url": "https://edge.forgecdn.net/files/8888/67/chunkloaders-1.2.9-neoforge-mc26.3.jar"
+    },
+    {
+      "filename": "cloth-config-neoforge-26.3.159.jar",
+      "sha256": "24adcf323c6a439226aced11d2cd4f8e6e629b82de6f1c7d71a7b9ba37ebf81d",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "cloth_config",
+      "projectID": 348521,
+      "fileID": 8952995,
+      "url": "https://edge.forgecdn.net/files/8952/995/cloth-config-neoforge-26.3.159.jar"
+    },
+    {
+      "filename": "collective-26.3.0-8.58.jar",
+      "sha256": "c01e4ea87ae6eb17cec21f2b0f35c8a51cbfca616063745454145d21a15bd8aa",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "collective",
+      "projectID": 342584,
+      "fileID": 9233774,
+      "url": "https://edge.forgecdn.net/files/9233/774/collective-26.3.0-8.58.jar"
+    },
+    {
+      "filename": "corpse-neoforge-1.1.20+26.3.jar",
+      "sha256": "dfcbd51175ea876182422344bb6abcf61c02758c8e762e7dc34d9cc2fb13439e",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "corpse",
+      "projectID": 316582,
+      "fileID": 9027270,
+      "url": "https://edge.forgecdn.net/files/9027/270/corpse-neoforge-1.1.20%2b26.3.jar"
+    },
+    {
+      "filename": "corpsecurioscompat-26.3-NeoForge-4.2.0.jar",
+      "sha256": "7c32794d527ec23b321b0ce0f8a899d2448516f7fdf85120a528f7a56504bff6",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "corpsecurioscompat",
+      "projectID": 1138130,
+      "fileID": 9137878,
+      "url": "https://edge.forgecdn.net/files/9137/878/corpsecurioscompat-26.3-NeoForge-4.2.0.jar"
+    },
+    {
+      "filename": "craftingtweaks-neoforge-26.3-26.3.0.1.jar",
+      "sha256": "1e2bb8085679536e4d1c82427c80547a14a7cfcf2b92c2b31e7eb453e2f66330",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "craftingtweaks",
+      "projectID": 233071,
+      "fileID": 8893528,
+      "url": "https://edge.forgecdn.net/files/8893/528/craftingtweaks-neoforge-26.3-26.3.0.1.jar"
+    },
+    {
+      "filename": "curios-neoforge-17.0.0-beta.3+26.3.jar",
+      "sha256": "27775990860dca9a8e6462a4741282789ec37f1a0afd2f72b97f02d60bbc8371",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "curios",
+      "projectID": 309927,
+      "fileID": 9127186,
+      "url": "https://edge.forgecdn.net/files/9127/186/curios-neoforge-17.0.0-beta.3%2b26.3.jar"
+    },
+    {
+      "filename": "doubledoors-26.3.0-7.4.jar",
+      "sha256": "3819fb15b8e8c38d6209a8cd0071b2b8be73a3cc1be15e3c6213849a9a6951a8",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "doubledoors",
+      "projectID": 348831,
+      "fileID": 9225704,
+      "url": "https://edge.forgecdn.net/files/9225/704/doubledoors-26.3.0-7.4.jar"
+    },
+    {
+      "filename": "dynamic-fps-3.11.10+minecraft-26.3.0-neoforge.jar",
+      "sha256": "71af4f7839096fa17f24d758682786cead49c71182decb0d3dc5a228be2fe077",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "dynamic_fps",
+      "projectID": 335493,
+      "fileID": 8897868,
+      "url": "https://edge.forgecdn.net/files/8897/868/dynamic-fps-3.11.10%2bminecraft-26.3.0-neoforge.jar"
+    },
+    {
+      "filename": "effortlessbuilding-neoforge-26.3-4.3.jar",
+      "sha256": "074c742b033bcc53b1305633b15669fbf77c8a0e304cf9bd3e92a617d5e18bd2",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "effortlessbuilding",
+      "projectID": 302113,
+      "fileID": 9116962,
+      "url": "https://edge.forgecdn.net/files/9116/962/effortlessbuilding-neoforge-26.3-4.3.jar"
+    },
+    {
+      "filename": "entityculling-neoforge-1.11.3-mc26.3.jar",
+      "sha256": "08ef339292ef63f22f1c22bed5df9d6ed5bed595fc712af73f121907d1babc5b",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "entityculling",
+      "projectID": 448233,
+      "fileID": 9100316,
+      "url": "https://edge.forgecdn.net/files/9100/316/entityculling-neoforge-1.11.3-mc26.3.jar"
+    },
+    {
+      "filename": "fallingleavesplus-v26.3.2-mc26.3.x+neoforge.jar",
+      "sha256": "2917304c0326e739462fcf430f07aad2cfd200a75c856721f8271cd34aee3856",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "fallingleavesplus",
+      "projectID": 1577351,
+      "fileID": 8985559,
+      "url": "https://edge.forgecdn.net/files/8985/559/fallingleavesplus-v26.3.2-mc26.3.x%2bneoforge.jar"
+    },
+    {
+      "filename": "ferritecore-9.0.0-neoforge.jar",
+      "sha256": "a3292dadb1caf7ad220d3a4b68abff2ad58592ddd372160f9cf66c57d159b539",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "ferritecore",
+      "projectID": 429235,
+      "fileID": 7806039,
+      "url": "https://edge.forgecdn.net/files/7806/39/ferritecore-9.0.0-neoforge.jar"
+    },
+    {
+      "filename": "fusion-1.3.16-neoforge-mc26.3.jar",
+      "sha256": "e2dbf9429d22eac9094c73f9657338995fedb4d88dfe998d088872e1f4268d3c",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "fusion",
+      "projectID": 854949,
+      "fileID": 9070424,
+      "url": "https://edge.forgecdn.net/files/9070/424/fusion-1.3.16-neoforge-mc26.3.jar"
+    },
+    {
+      "filename": "guideme-26.3.1-alpha.jar",
+      "sha256": "6247049c5fc7b39962dd5b8b9ab1fb0a77e9d4cec375200b1c80db0a25efa369",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "guideme",
+      "projectID": 1173950,
+      "fileID": 9041286,
+      "url": "https://edge.forgecdn.net/files/9041/286/guideme-26.3.1-alpha.jar"
+    },
+    {
+      "filename": "hellims_elytra_slot-26.3-neoforge-0.1.0.jar",
+      "sha256": "d2fa8c5f4cbfaf81b2d12bb232dd2f1ee8262be2e0ee396f97f6735f17a56edf",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "hellims_elytra_slot",
+      "projectID": 1591206,
+      "fileID": 9120858,
+      "url": "https://edge.forgecdn.net/files/9120/858/hellims_elytra_slot-26.3-neoforge-0.1.0.jar"
+    },
+    {
+      "filename": "infinitetrading-26.3.0-6.0.jar",
+      "sha256": "0e568b899a4f846a134f199586e3d9fd42c43f373f3bd318806610b74b0df62a",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "infinitetrading",
+      "projectID": 348964,
+      "fileID": 9242856,
+      "url": "https://edge.forgecdn.net/files/9242/856/infinitetrading-26.3.0-6.0.jar"
+    },
+    {
+      "filename": "inventoryessentials-neoforge-26.3-26.3.0.5.jar",
+      "sha256": "4d9771bd8724d9a58441859afb94a98e69a0d0ff3fe4c21092bc0bddc9b292af",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "inventoryessentials",
+      "projectID": 368825,
+      "fileID": 9142794,
+      "url": "https://edge.forgecdn.net/files/9142/794/inventoryessentials-neoforge-26.3-26.3.0.5.jar"
+    },
+    {
+      "filename": "iris-neoforge-1.11.7+mc26.3.jar",
+      "sha256": "2260506334a17ac566ea30169ab491201208f55c1c7212bb987bc0c7c59a8d93",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "iris",
+      "projectID": 455508,
+      "fileID": 9015109,
+      "url": "https://edge.forgecdn.net/files/9015/109/iris-neoforge-1.11.7%2bmc26.3.jar"
+    },
+    {
+      "filename": "jade-26.3.5+neoforge.jar",
+      "sha256": "c981ed9ad46613d0805dd10a435190d92e6850a61df3c5f4f6d653e24ef0b712",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "jade",
+      "projectID": 324717,
+      "fileID": 9042207,
+      "url": "https://edge.forgecdn.net/files/9042/207/Jade-mc26.3-NeoForge-26.3.5.jar"
+    },
+    {
+      "filename": "libIPN-neoforge-26.3-6.9.0.jar",
+      "sha256": "49bd1a8f96720c9bc21b0db67047657d9f57667dbf20d09a7466a0349b51a99c",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "libipn",
+      "projectID": 679177,
+      "fileID": 8990267,
+      "url": "https://edge.forgecdn.net/files/8990/267/libIPN-neoforge-26.3-6.9.0.jar"
+    },
+    {
+      "filename": "lithium-neoforge-0.26.2+mc26.3.jar",
+      "sha256": "02beb29b0ca7949dba59d425aeb941b8978334ad539f55b1519059771ed23706",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "lithium",
+      "projectID": 360438,
+      "fileID": 8996663,
+      "url": "https://edge.forgecdn.net/files/8996/663/lithium-neoforge-0.26.2%2bmc26.3.jar"
+    },
+    {
+      "filename": "lithostitched-2.0.6-neoforge-26.3.jar",
+      "sha256": "88241e12586f8a04271b68c02300e1b02ec2c0098e3a0add879398a14c6e271d",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "lithostitched",
+      "projectID": 936015,
+      "fileID": 9154967,
+      "url": "https://edge.forgecdn.net/files/9154/967/lithostitched-2.0.6-neoforge-26.3.jar"
+    },
+    {
+      "filename": "mcw-bridges-3.1.2-mc26.3neoforge.jar",
+      "sha256": "fd3e278e3d45b9af55e9c1816fc6256b750d453468bfcd2ee3bf270a8b940749",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwbridges",
+      "projectID": 351725,
+      "fileID": 8959854,
+      "url": "https://edge.forgecdn.net/files/8959/854/mcw-bridges-3.1.2-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-doors-1.1.5-mc26.3neoforge.jar",
+      "sha256": "0ceb84d6dddfada6a32be7a754d6f10c5d5f22776a44e5a4ab47268ca06c264e",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwdoors",
+      "projectID": 378646,
+      "fileID": 9007650,
+      "url": "https://edge.forgecdn.net/files/9007/650/mcw-doors-1.1.5-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-fences-1.2.1-mc26.3neoforge.jar",
+      "sha256": "23e94693d0d3cfa6feada58013706cfbe0d275652a9c564b68360618e1dcdf7b",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwfences",
+      "projectID": 453925,
+      "fileID": 9007657,
+      "url": "https://edge.forgecdn.net/files/9007/657/mcw-fences-1.2.1-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-furniture-3.4.2-mc26.3neoforge.jar",
+      "sha256": "bce031ec39b9148054f1f0cb457ff1b4a9c1d4920b1d4f0327bc21be81d152e2",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwfurnitures",
+      "projectID": 359540,
+      "fileID": 9007573,
+      "url": "https://edge.forgecdn.net/files/9007/573/mcw-furniture-3.4.2-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-holidays-1.1.3-mc26.3neoforge.jar",
+      "sha256": "219fe58f07178d4d56fa76a6aa39a5d168ebb624b7e5c4b5f1c7e679a7fa34f8",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwholidays",
+      "projectID": 930232,
+      "fileID": 9068702,
+      "url": "https://edge.forgecdn.net/files/9068/702/mcw-holidays-1.1.3-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-lights-1.1.5-mc26.3neoforge.jar",
+      "sha256": "8abea1b811296991166011c19fb61d085a96c3619846cce73990ee9145c8f870",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwlights",
+      "projectID": 502372,
+      "fileID": 9007653,
+      "url": "https://edge.forgecdn.net/files/9007/653/mcw-lights-1.1.5-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-paintings-1.1.0-mc26.3neoforge.jar",
+      "sha256": "560e27f7bdc6036e34c8a238e569d8e652d4be34d18b1d96077364fd417ed7af",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwpaintings",
+      "projectID": 438116,
+      "fileID": 9007580,
+      "url": "https://edge.forgecdn.net/files/9007/580/mcw-paintings-1.1.0-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-paths-1.1.1-mc26.3neoforge.jar",
+      "sha256": "df40f0a0e06c39e392e85c8686df7fe884444b1db8d3ecc9dcffa171af14f7fb",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwpaths",
+      "projectID": 629153,
+      "fileID": 9068783,
+      "url": "https://edge.forgecdn.net/files/9068/783/mcw-paths-1.1.1-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-roads-1.0.0-mc26.3neoforge.jar",
+      "sha256": "3415c98f6822ca87b89b4987a9da8fd1a5694802c58099314b021a8ee61505e4",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwroads",
+      "projectID": 1709382,
+      "fileID": 8961988,
+      "url": "https://edge.forgecdn.net/files/8961/988/mcw-roads-1.0.0-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-roofs-2.3.3-mc26.3neoforge.jar",
+      "sha256": "4795e0f0265719751996f7ec5bfeba5a506138e825875929cc91863cd650c5de",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwroofs",
+      "projectID": 352039,
+      "fileID": 9007606,
+      "url": "https://edge.forgecdn.net/files/9007/606/mcw-roofs-2.3.3-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-stairs-1.0.2-mc26.3neoforge.jar",
+      "sha256": "62d42cb625952b06e6a28674aa74bab1bce7a65eb3faa3b2d6466cf8afd30f44",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwstairs",
+      "projectID": 1119394,
+      "fileID": 9007664,
+      "url": "https://edge.forgecdn.net/files/9007/664/mcw-stairs-1.0.2-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-trapdoors-1.1.5-mc26.3neoforge.jar",
+      "sha256": "1195e9643ec1df8cef91d35c1f81b2034f003ddc39f9729acce4a59590c64971",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwtrpdoors",
+      "projectID": 400933,
+      "fileID": 9007661,
+      "url": "https://edge.forgecdn.net/files/9007/661/mcw-trapdoors-1.1.5-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "mcw-windows-2.4.2-mc26.3neoforge.jar",
+      "sha256": "e10ac65c6c6f9a98831582ed408c715398d3fccc71c11e6bc9995056feed4c5e",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "mcwwindows",
+      "projectID": 363569,
+      "fileID": 9007587,
+      "url": "https://edge.forgecdn.net/files/9007/587/mcw-windows-2.4.2-mc26.3neoforge.jar"
+    },
+    {
+      "filename": "modernfix-neoforge-5.27.23+mc26.3.jar",
+      "sha256": "090379746d5452a220cee35df1c2f1cf9c7ca3de381891330f14b8d93107eb17",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "modernfix",
+      "projectID": 1367508,
+      "fileID": 9157019,
+      "url": "https://edge.forgecdn.net/files/9157/19/modernfix-neoforge-5.27.23%2bmc26.3.jar"
+    },
+    {
+      "filename": "moreculling-neoforge-26.3-1.9.0.jar",
+      "sha256": "866b40e0df2b1c2eea0c5dd81498d7bac645fdc71137930edf232f4ef116f05a",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "moreculling",
+      "projectID": 630104,
+      "fileID": 9045550,
+      "url": "https://edge.forgecdn.net/files/9045/550/moreculling-neoforge-26.3-1.9.0.jar"
+    },
+    {
+      "filename": "notenoughanimations-neoforge-1.12.6-mc26.3.jar",
+      "sha256": "55366363c1156d2ba3a48fa06b26b5d3d7553091e86ed91ce07d1b097be55f05",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "notenoughanimations",
+      "projectID": 433760,
+      "fileID": 8929073,
+      "url": "https://edge.forgecdn.net/files/8929/73/notenoughanimations-neoforge-1.12.6-mc26.3.jar"
+    },
+    {
+      "filename": "open-parties-and-claims-neoforge-26.3-0.33.0.jar",
+      "sha256": "d97fca4a38c6ebbf2a1eeb2cc7ed5e49692c59018313f6887040a03a97981406",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "openpartiesandclaims",
+      "url": "https://mediafilez.forgecdn.net/files/9222/174/open-parties-and-claims-neoforge-26.3-0.33.0.jar"
+    },
+    {
+      "filename": "polymorph_plus-neoforge-1.4.2+26.3.0.jar",
+      "sha256": "1af9986ab2e05442a65be3ad3a429d941d822aae091154516d59940fceefe240",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "polymorph_plus",
+      "projectID": 1586874,
+      "fileID": 9242767,
+      "url": "https://edge.forgecdn.net/files/9242/767/polymorph_plus-neoforge-1.4.2%2b26.3.0.jar"
+    },
+    {
+      "filename": "puzzleslib-v26.3.15-mc26.3.x+neoforge.jar",
+      "sha256": "62bc5b2337406a2bda610ed37bbbc5b0bb1a2fb07dc81408d22ba242095b3134",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "puzzleslib",
+      "projectID": 495476,
+      "fileID": 9173688,
+      "url": "https://edge.forgecdn.net/files/9173/688/puzzleslib-v26.3.15-mc26.3.x%2bneoforge.jar"
+    },
+    {
+      "filename": "rechiseled-1.2.6a-neoforge-mc26.3.jar",
+      "sha256": "a7cab3429a5da559dc7925299005be1b996d82fdf4620046da182a6a6de539c2",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "rechiseled",
+      "projectID": 558998,
+      "fileID": 9082583,
+      "url": "https://edge.forgecdn.net/files/9082/583/rechiseled-1.2.6a-neoforge-mc26.3.jar"
+    },
+    {
+      "filename": "relauncher-universal-1.1.1-curseforge.jar",
+      "sha256": "e26071d76c913dd33d588b1cdfe0db37a986e384efb991e74d51410c9a308e21",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "relauncher",
+      "projectID": 1491728,
+      "fileID": 8001079,
+      "url": "https://edge.forgecdn.net/files/8001/079/relauncher-universal-1.1.1-curseforge.jar"
+    },
+    {
+      "filename": "servercore-neoforge-1.5.20+26.3.jar",
+      "sha256": "d4f1ea7ae1f8ba83e37808d2090bcc55606f6c46b90ded6af7a68bb144c93bd4",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "servercore",
+      "projectID": 550579,
+      "fileID": 8893826,
+      "url": "https://edge.forgecdn.net/files/8893/826/servercore-neoforge-1.5.20%2b26.3.jar"
+    },
+    {
+      "filename": "shulkerboxtooltip-neoforge-5.4.2+26.3.jar",
+      "sha256": "4dfb9375fb7209a6fbb8c549ad8d074a8f0c293589d807e1bde719cbd633ae4a",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "shulkerboxtooltip",
+      "projectID": 315811,
+      "fileID": 8897816,
+      "url": "https://edge.forgecdn.net/files/8897/816/shulkerboxtooltip-neoforge-5.4.2%2b26.3.jar"
+    },
+    {
+      "filename": "sodium-neoforge-0.9.3-beta.1+mc26.3.jar",
+      "sha256": "2d6dc7b223f93ce5c5fcedbddacdeb175c1e65484a5bc115e954465aebc8291f",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "sodium",
+      "projectID": 394468,
+      "fileID": 9195225,
+      "url": "https://edge.forgecdn.net/files/9195/225/sodium-neoforge-0.9.3-beta.1%2bmc26.3.jar"
+    },
+    {
+      "filename": "sophisticatedbackpacks-26.3-3.26.12.2203.jar",
+      "sha256": "cf672a6f7228b017395c03fa6436240d985423f80fc2d03f2b8cf549145b8bc6",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "sophisticatedbackpacks",
+      "projectID": 422301,
+      "fileID": 9151403,
+      "url": "https://edge.forgecdn.net/files/9151/403/sophisticatedbackpacks-26.3-3.26.12.2203.jar"
+    },
+    {
+      "filename": "sophisticatedcore-26.3-1.5.11.2399.jar",
+      "sha256": "cadd19f35a6493f1916f964c8671fc12967a5f227b92d4e59e71414a58df1fb3",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "sophisticatedcore",
+      "projectID": 618298,
+      "fileID": 9166041,
+      "url": "https://edge.forgecdn.net/files/9166/41/sophisticatedcore-26.3-1.5.11.2399.jar"
+    },
+    {
+      "filename": "stringduper-1.0.0.jar",
+      "sha256": "a74a048559350c765896a91c5e914a7110cc841bd4bdbacc5250534e8ca05e99",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "stringduper",
+      "projectID": 1645467,
+      "fileID": 8987037,
+      "url": "https://edge.forgecdn.net/files/8987/37/stringduper-1.0.0.jar"
+    },
+    {
+      "filename": "supermartijn642configlib-1.1.8-neoforge-mc26.3.jar",
+      "sha256": "70b2aeed2157dcfb1cc1a5601db4c42403b442de592e485bda35a6e9256acbb6",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "supermartijn642configlib",
+      "projectID": 438332,
+      "fileID": 8888046,
+      "url": "https://edge.forgecdn.net/files/8888/46/supermartijn642configlib-1.1.8-neoforge-mc26.3.jar"
+    },
+    {
+      "filename": "supermartijn642corelib-1.1.25-neoforge-mc26.3.jar",
+      "sha256": "29876a789a9e2422635ba737ae3950b242e0e1a2b7210af39d6b9c66add1bfce",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "supermartijn642corelib",
+      "projectID": 454372,
+      "fileID": 9083864,
+      "url": "https://edge.forgecdn.net/files/9083/864/supermartijn642corelib-1.1.25-neoforge-mc26.3.jar"
+    },
+    {
+      "filename": "travelertoolbelt-neoforge-26.3-1.0.6.jar",
+      "sha256": "d9220bafb31df68271fafff1fa6020d62732fa90f918a1c43c76791ae58fc854",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "travelertoolbelt",
+      "projectID": 1457447,
+      "fileID": 9070308,
+      "url": "https://edge.forgecdn.net/files/9070/308/travelertoolbelt-neoforge-26.3-1.0.6.jar"
+    },
+    {
+      "filename": "visualworkbench-v26.3.0-mc26.3.x+neoforge.jar",
+      "sha256": "cfea6961a04c9d9969a63874ddcc892e5a6316a4ac761941128f48321524ca25",
+      "sides": [
+        "client",
+        "server"
+      ],
+      "kind": "mod",
+      "modId": "visualworkbench",
+      "projectID": 500273,
+      "fileID": 8955387,
+      "url": "https://edge.forgecdn.net/files/8955/387/visualworkbench-v26.3.0-mc26.3.x%2bneoforge.jar"
+    },
+    {
+      "filename": "xaerominimap-neoforge-26.3-26.6.1.jar",
+      "sha256": "c824af7339a6d5c6fd2b2603f3a0424ee2607843ec76e94a37532aac1df0e112",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "xaerominimap",
+      "projectID": 263420,
+      "fileID": 9265875,
+      "url": "https://edge.forgecdn.net/files/9265/875/xaerominimap-neoforge-26.3-26.6.1.jar"
+    },
+    {
+      "filename": "xaeroworldmap-neoforge-26.3-1.47.1.jar",
+      "sha256": "adb31959c8acc2f141e3c517142f32fcf6215a76c85d3f9ec4c4af8c6925d56d",
+      "sides": [
+        "client"
+      ],
+      "kind": "mod",
+      "modId": "xaeroworldmap",
+      "projectID": 317780,
+      "fileID": 9265828,
+      "url": "https://edge.forgecdn.net/files/9265/828/xaeroworldmap-neoforge-26.3-1.47.1.jar"
+    }
+  ]
+}

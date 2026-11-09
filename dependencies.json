@@ -141,5 +141,36 @@
     "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-neoforge/26.1.2.4/ftb-teams-neoforge-26.1.2.4.jar",
     "source": "https://github.com/FTBTeam",
     "redistributed": false
+  },
+  {
+    "path": "core/dependencies/runtime/appliedenergistics2-26.3.1-alpha.jar",
+    "components": [
+      "emi",
+      "gregtech"
+    ],
+    "sha256": "85da904d110e811f77fa5227f8d9fbc212028311badbceaead32bd4d275bc970",
+    "url": "https://edge.forgecdn.net/files/9051/894/appliedenergistics2-26.3.1-alpha.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2",
+    "redistributed": false
+  },
+  {
+    "path": "mods/ae2-fixes/libs/appliedenergistics2-26.3.1-alpha.jar",
+    "components": [
+      "ae2-fixes"
+    ],
+    "sha256": "85da904d110e811f77fa5227f8d9fbc212028311badbceaead32bd4d275bc970",
+    "url": "https://edge.forgecdn.net/files/9051/894/appliedenergistics2-26.3.1-alpha.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2",
+    "redistributed": false
+  },
+  {
+    "path": "mods/toolbelt-slot/libs/travelertoolbelt-neoforge-26.3-1.0.6.jar",
+    "components": [
+      "toolbelt-slot"
+    ],
+    "sha256": "d9220bafb31df68271fafff1fa6020d62732fa90f918a1c43c76791ae58fc854",
+    "url": "https://edge.forgecdn.net/files/9070/308/travelertoolbelt-neoforge-26.3-1.0.6.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/traveler-tool-belt",
+    "redistributed": false
   }
 ]

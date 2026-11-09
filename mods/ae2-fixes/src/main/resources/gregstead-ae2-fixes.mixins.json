@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fi.gregstead.ae2fixes.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": ["CraftingRemainderMixin", "CraftingSubstitutionMixin"],
+  "injectors": {"defaultRequire": 1}
+}

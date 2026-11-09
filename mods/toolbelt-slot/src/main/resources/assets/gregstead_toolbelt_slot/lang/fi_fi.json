@@ -1,0 +1,7 @@
+{
+  "key.gregstead_toolbelt_slot.bind": "Sido työkaluvyö valittuun hotbar-paikkaan",
+  "key.gregstead_toolbelt_slot.open_here": "Avaa työkaluvyö nykyisessä paikassa (ohitus)",
+  "message.gregstead_toolbelt_slot.bound": "Työkaluvyö sidottu hotbar-paikkaan %s",
+  "message.gregstead_toolbelt_slot.save_failed": "Työkaluvyön paikan tallentaminen epäonnistui",
+  "key.gregstead_toolbelt_slot.cycle": "Valitse vyöpaikka / seuraava työkalu"
+}

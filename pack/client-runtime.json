@@ -3,7 +3,7 @@
   "purpose": "Client-only workaround for Xaero World Map GuiMap frame-computation failure on NeoForge 26.3.0.77 with ASM 9.11.",
   "license": "BSD-3-Clause",
   "licenseSource": "https://asm.ow2.io/license.html",
-  "licenseFile": "pack/sources/asm-9.11.1-LICENSE.txt",
+  "licenseFile": "pack/ASM_LICENSE.txt",
   "licenseSha256": "337e92fd361effe495d03978a34a3cd44681a63b8329adfd99c8996b306b2a8c",
   "libraries": [
     {

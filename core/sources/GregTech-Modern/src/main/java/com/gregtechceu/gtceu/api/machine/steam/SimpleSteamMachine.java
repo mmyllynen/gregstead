@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.capability.recipe.RecipeCapability;
 import com.gregtechceu.gtceu.api.gui.GuiTextures;
 import com.gregtechceu.gtceu.api.gui.UITemplate;
 import com.gregtechceu.gtceu.api.gui.widget.PredicatedImageWidget;
+import com.gregtechceu.gtceu.api.gui.widget.SteamVentWarningWidget;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.feature.IUIMachine;
 import com.gregtechceu.gtceu.api.machine.property.GTMachineModelProperties;
@@ -168,8 +169,11 @@ public class SimpleSteamMachine extends SteamWorkableMachine implements IUIMachi
         if (!(machine instanceof SimpleSteamMachine steamMachine)) {
             return RecipeModifier.nullWrongType(SimpleSteamMachine.class, machine);
         }
-        if (RecipeHelper.getRecipeEUtTier(recipe) > GTValues.LV || !steamMachine.exhaustVentTrait.checkVenting()) {
+        if (RecipeHelper.getRecipeEUtTier(recipe) > GTValues.LV) {
             return ModifierFunction.NULL;
+        }
+        if (!steamMachine.exhaustVentTrait.checkVenting()) {
+            return ModifierFunction.cancel(SteamVentWarningWidget.blockedReason());
         }
 
         var builder = ModifierFunction.builder().conditions(VentCondition.INSTANCE);
@@ -210,8 +214,13 @@ public class SimpleSteamMachine extends SteamWorkableMachine implements IUIMachi
                 .widget(new PredicatedImageWidget(pos.x + group.getSize().width / 2 - 9,
                         pos.y + group.getSize().height / 2 - 9, 18, 18,
                         GuiTextures.INDICATOR_NO_STEAM.get(isHighPressure))
-                        .setPredicate(recipeLogic::isWaiting))
+                        .setPredicate(() -> recipeLogic.isWaiting() && !isExhaustBlocked()))
+                .widget(new SteamVentWarningWidget(this::isExhaustBlocked))
                 .widget(UITemplate.bindPlayerInventory(entityPlayer.getInventory(),
                         GuiTextures.SLOT_STEAM.get(isHighPressure), 7, 84, true));
+    }
+
+    private boolean isExhaustBlocked() {
+        return exhaustVentTrait.isNeedsVenting() && exhaustVentTrait.isVentingBlocked();
     }
 }

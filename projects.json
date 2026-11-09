@@ -7,13 +7,13 @@
     "gregtech": {
       "name": "GregTech CEu - Gregstead Port",
       "kind": "mod",
-      "version": "8.0.7",
+      "version": "8.0.9",
       "side": "both"
     },
     "emi": {
       "name": "EMI - Gregstead Port",
       "kind": "mod",
-      "version": "1.1.24+26.3-port.1",
+      "version": "1.1.24-gregstead.2",
       "side": "client"
     },
     "calm": {
@@ -68,7 +68,26 @@
     },
     "pack": {
       "name": "Gregstead",
-      "kind": "modpack"
+      "kind": "modpack",
+      "version": "1.0.27"
+    },
+    "ae2-fixes": {
+      "name": "Gregstead AE2 Fixes",
+      "kind": "mod",
+      "version": "0.1.0",
+      "side": "both",
+      "dependencies": [
+        "ae2"
+      ]
+    },
+    "toolbelt-slot": {
+      "name": "Gregstead Toolbelt Slot",
+      "kind": "mod",
+      "version": "0.1.2",
+      "side": "client",
+      "dependencies": [
+        "travelertoolbelt"
+      ]
     }
   }
 }

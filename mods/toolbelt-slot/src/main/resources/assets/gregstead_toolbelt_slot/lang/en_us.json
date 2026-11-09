@@ -1,0 +1,7 @@
+{
+  "key.gregstead_toolbelt_slot.bind": "Bind tool belt to selected hotbar slot",
+  "key.gregstead_toolbelt_slot.open_here": "Open tool belt in current slot (override)",
+  "message.gregstead_toolbelt_slot.bound": "Tool belt bound to hotbar slot %s",
+  "message.gregstead_toolbelt_slot.save_failed": "Could not save tool belt slot binding",
+  "key.gregstead_toolbelt_slot.cycle": "Select belt slot / next tool"
+}

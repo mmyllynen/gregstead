@@ -792,5 +792,8 @@
   "tag.item.fabric.shovels": "Shovels",
   "tag.item.fabric.hoes": "Hoes",
   "tag.item.fabric.swords": "Swords",
-  "tag.item.fabric.shears": "Shears"
+  "tag.item.fabric.shears": "Shears",
+  "emi.ae2.unsupported_recipe": "This recipe cannot be transferred to the ME crafting grid",
+  "emi.ae2.missing_ingredients": "Missing ingredients in ME storage and inventory",
+  "emi.ae2.partial_ingredients": "Move available ingredients; some are missing"
 }

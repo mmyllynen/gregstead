@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+[[mods]]
+modId="gregstead_ae2_fixes"
+version="0.1.0"
+displayName="Gregstead AE2 Fixes"
+description="Preserves crafting-grid coordinates for reusable tools and crafting remainders in AE2 terminals."
+[[mixins]]
+config="gregstead-ae2-fixes.mixins.json"
+[[dependencies.gregstead_ae2_fixes]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77,26.4)"
+side="BOTH"
+[[dependencies.gregstead_ae2_fixes]]
+modId="ae2"
+type="required"
+versionRange="[26.3.1-alpha]"
+side="BOTH"

@@ -69,6 +69,17 @@ def main():
                         help='Official author-downloaded compile JARs, checked against dependencies.json')
     args = parser.parse_args()
     projects = json.loads((ROOT / 'projects.json').read_text())['projects']
+    if args.component == 'all':
+        for component, project in projects.items():
+            if project.get('kind') != 'mod':
+                continue
+            command = [sys.executable, str(ROOT / 'release.py'), args.action, component]
+            if args.download_dependencies:
+                command.append('--download-dependencies')
+            if args.artifact_dir:
+                command += ['--artifact-dir', str(args.artifact_dir)]
+            subprocess.run(command, cwd=ROOT, check=True)
+        return
     if args.component not in projects or projects[args.component].get('kind') not in ['mod', 'pack-addon']:
         parser.error('Choose a listed mod component')
     online = args.action == 'bootstrap' and args.download_dependencies
@@ -130,7 +141,7 @@ def main():
     project = ROOT / ('core/sources/GregTech-Modern' if args.component == 'gregtech' else
                       'core/sources/EMI-native' if args.component == 'emi' else 'mods/' + args.component)
     wrapper = ROOT / 'core/sources/GregTech-Modern/gradlew' if args.component in ['gregtech', 'emi'] else project / 'gradlew'
-    command = ['bash', str(wrapper), '-p', str(project), 'jar',
+    command = ['bash', str(wrapper), '-p', str(project), 'clean', 'jar',
                '--no-daemon', '--no-build-cache', '--console=plain']
     if not online:
         command.append('--offline')

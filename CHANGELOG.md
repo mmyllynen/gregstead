@@ -1,6 +1,31 @@
 # Changelog
 
-## Unreleased
+## 1.0.27 — CurseForge submission preparation
+
+### GregTech 8.0.9 (since 8.0.7)
+- Fix shader-compatible machine highlight rendering.
+- Show a blocked steam exhaust warning and distinguish it from missing steam.
+
+### EMI 1.1.24-gregstead.2 (since port.1)
+- Add recipe transfer into AE2 crafting terminals.
+- Explain missing ingredients and unsupported recipe transfers.
+- Standardize the Gregstead port version format.
+
+### AE2 Fixes 0.1.0 — first public release
+- Preserve full crafting-grid coordinates for ingredient substitution.
+- Correct reusable tool and crafting remainder placement.
+
+### Toolbelt Slot 0.1.2 — first public release
+- Save a preferred hotbar slot for Traveler Tool Belt.
+- Allow a temporary current-slot override.
+- Add tool cycling and a bound-slot indicator.
+
+### Modpack 1.0.27 — first CurseForge submission
+- Include the current GregTech and EMI fixes.
+- Add AE2 Fixes and Toolbelt Slot alongside the pinned mod collection.
+- Provide separate client and server packages, excluding private server components.
+
+## Initial project contents
 
 - Initial Gregstead modpack for Minecraft 26.3 and NeoForge 26.3.0.77.
 - Unofficial GregTech CEu and EMI ports.

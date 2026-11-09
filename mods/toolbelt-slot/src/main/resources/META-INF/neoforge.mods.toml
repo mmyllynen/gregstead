@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+[[mods]]
+modId="gregstead_toolbelt_slot"
+version="0.1.2"
+displayName="Gregstead Toolbelt Slot"
+description="Bind Traveler Tool Belt to one hotbar position, with an explicit current-slot override."
+[[mixins]]
+config="gregstead-toolbelt-slot.mixins.json"
+[[dependencies.gregstead_toolbelt_slot]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77,26.4)"
+side="CLIENT"
+[[dependencies.gregstead_toolbelt_slot]]
+modId="travelertoolbelt"
+type="required"
+versionRange="[1.0.6]"
+side="CLIENT"

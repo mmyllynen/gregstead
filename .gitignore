@@ -21,3 +21,6 @@ core/dependencies/
 **/.agents/
 **/.codex/
 **/.claude/
+
+# Keep the explicitly requested private-component exception versioned.
+!/AGENTS.md
