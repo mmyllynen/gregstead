@@ -104,5 +104,7 @@
 | Additional Placements port | None |
 | UI Fixes | Core Lib 1.1.25; client only |
 | EMI Defaults | EMI and the Gregstead recipe set; client only |
+| AE2 Fixes | Applied Energistics 2 26.3.1-alpha; client and server |
+| Toolbelt Slot | Traveler Tool Belt 1.0.6; client only |
 
 Component licenses and original author credits are retained. Support is centralized in the main Gregstead project.

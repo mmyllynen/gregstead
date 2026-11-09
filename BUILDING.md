@@ -73,3 +73,20 @@ name followed by `UPSTREAM-gregstead.REVISION-mc26.3.jar`. Other components
 use `gregstead-COMPONENT-VERSION-mc26.3.jar`. Pack ZIPs use
 `gregstead-client-VERSION-mc26.3.zip` and `gregstead-server-VERSION-mc26.3.zip`.
 Old build outputs may coexist; packaging selects the declared current artifact.
+
+## CurseForge submission build
+
+`pack/component-files.json` records the submitted component versions, exact JAR
+hashes, CurseForge project/file IDs and last observed moderation statuses.
+After verifying the current files are approved in the author dashboard, update
+the recorded statuses and run:
+
+```sh
+python3 build_pack.py build --curseforge --version 1.0.27
+```
+
+This writes the client/server ZIPs under `dist/curseforge/1.0.27/`. It refuses
+unapproved component versions, changed JARs and missing client file references.
+Client mods are referenced in manifest.json instead of bundled into overrides.
+The ordinary `build` command produces a local test pack under `dist/pack/`; that
+pack is not the CurseForge submission artifact. Neither command submits files.

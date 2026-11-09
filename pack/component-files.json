@@ -1,0 +1,92 @@
+{
+  "gregtech": {
+    "projectID": 1768748,
+    "fileID": 9523642,
+    "version": "8.0.9",
+    "filename": "gregstead-8.0.9-mc26.3.jar",
+    "lastObservedStatus": "Under Manual Review",
+    "sourceCommit": "0ef4310b",
+    "sha256": "f1c27391f2131e3958ab3507cddc9bc454443e4f95a8d7953baa7cc02a89c241"
+  },
+  "emi": {
+    "projectID": 1768750,
+    "fileID": 9523665,
+    "version": "1.1.24-gregstead.2",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "emi-1.1.24-gregstead.2-mc26.3.jar",
+    "sha256": "96ab1173f96ca2ad47c816c9a9cfffa78556061df51e1f18b8297c6177149960"
+  },
+  "additional-placements": {
+    "projectID": 1768753,
+    "fileID": 9523667,
+    "version": "3.0.1.1-gregstead.2",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "additional-placements-3.0.1.1-gregstead.2-mc26.3.jar",
+    "sha256": "467dffd620bb2730872b7036819876c086fa58c21e87ca3027792738bc5df3de"
+  },
+  "altar": {
+    "projectID": 1768745,
+    "fileID": 9523666,
+    "version": "0.1.3",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-altar-0.1.3-mc26.3.jar",
+    "sha256": "14af7c1e734abdf3a0f8d41248fca7d76445b2a54c07f56cd7afe210ebb0d030"
+  },
+  "calm": {
+    "projectID": 1768721,
+    "fileID": 9523672,
+    "version": "2.2.4",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-calm-2.2.4-mc26.3.jar",
+    "sha256": "6c6fb13c5e43f4243654d1ac19100f5d366e3604d8ee770b62443b975e3a2b85"
+  },
+  "corpse-persistence": {
+    "projectID": 1768756,
+    "fileID": 9523674,
+    "version": "1.0.2",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-corpse-persistence-1.0.2-mc26.3.jar",
+    "sha256": "9bc02c538a912a0cd3ad9b0d846f7d6f6ddd463c873aa332edc3f651b9c6cd17"
+  },
+  "emi-defaults": {
+    "projectID": 1768770,
+    "fileID": 9523677,
+    "version": "0.1.2",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-emi-defaults-0.1.2-mc26.3.jar",
+    "sha256": "de8dac18dfe769d9839c62c553fed2dfb2899c11ddbf1122067de096cf672b22"
+  },
+  "ui-fixes": {
+    "projectID": 1768759,
+    "fileID": 9523676,
+    "version": "0.1.4",
+    "lastObservedStatus": "Approved",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-ui-fixes-0.1.4-mc26.3.jar",
+    "sha256": "1175262ebeef9ccd935db3f068d31cfe61955449191d614c011d6561630134f7"
+  },
+  "ae2-fixes": {
+    "projectID": 1793667,
+    "fileID": 9523877,
+    "version": "0.1.0",
+    "lastObservedStatus": "Processing",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-ae2-fixes-0.1.0-mc26.3.jar",
+    "sha256": "cea3e766212baa8b6636c7b3c8c0d75a7d8384dafffc4212d4bcdcfb32cb92e2"
+  },
+  "toolbelt-slot": {
+    "projectID": 1793668,
+    "fileID": 9523878,
+    "version": "0.1.2",
+    "lastObservedStatus": "Processing",
+    "sourceCommit": "0ef4310b",
+    "filename": "gregstead-toolbelt-slot-0.1.2-mc26.3.jar",
+    "sha256": "aad01fa4a7f429b542d5d25f7bd1cd38c5a3ae70d6dd53304fbe40c62d4ed5d4"
+  }
+}

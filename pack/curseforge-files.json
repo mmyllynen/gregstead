@@ -425,5 +425,10 @@
     "sha256": "ae542a72afb6386f2b662a00b118cd2a9e6dcd99e2bd45720f0a7187263acdd3",
     "sha512": "dd51bcc1fce1af8cd001fbdc702eadb9c98454ebcedd2438606935426cb80e9e99a3b156d9b8ba7955b71ff57432c4383940157901b81c97ef5ca6cf0520bf6c",
     "downloadUrl": "https://edge.forgecdn.net/files/9120/272/FallingTree-26.3-25.jar"
+  },
+  "open-parties-and-claims-neoforge-26.3-0.33.0.jar": {
+    "projectID": 636608,
+    "fileID": 9222174,
+    "sha256": "d97fca4a38c6ebbf2a1eeb2cc7ed5e49692c59018313f6887040a03a97981406"
   }
 }

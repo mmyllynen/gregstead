@@ -880,7 +880,9 @@
       ],
       "kind": "mod",
       "modId": "openpartiesandclaims",
-      "url": "https://mediafilez.forgecdn.net/files/9222/174/open-parties-and-claims-neoforge-26.3-0.33.0.jar"
+      "url": "https://mediafilez.forgecdn.net/files/9222/174/open-parties-and-claims-neoforge-26.3-0.33.0.jar",
+      "projectID": 636608,
+      "fileID": 9222174
     },
     {
       "filename": "polymorph_plus-neoforge-1.4.2+26.3.0.jar",

@@ -72,6 +72,8 @@ def main():
     parser.add_argument('action', choices=['bootstrap', 'build'])
     parser.add_argument('--download-dependencies', action='store_true')
     parser.add_argument('--artifact-dir', type=Path)
+    parser.add_argument('--curseforge', action='store_true',
+                        help='Require approved component files and use manifest references')
     parser.add_argument('--version', help='Explicit local pack version, e.g. 1.0.26-rebuilt.1')
     args = parser.parse_args()
     if args.action == 'bootstrap' and not args.download_dependencies and not args.artifact_dir:
@@ -81,6 +83,21 @@ def main():
     if args.action == 'build' and not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9.-]+)?', args.version or ''):
         parser.error('Build requires an explicit --version')
     lock = json.loads((ROOT / 'pack/build-inputs.json').read_text())
+    references = {}
+    if args.curseforge:
+        if args.action != 'build':
+            parser.error('--curseforge applies only to build')
+        references = json.loads((ROOT / 'pack/component-files.json').read_text())
+        projects = json.loads((ROOT / 'projects.json').read_text())['projects']
+        for component, project in projects.items():
+            if project['kind'] != 'mod':
+                continue
+            ref = references.get(component, {})
+            if ref.get('lastObservedStatus') != 'Approved' or ref.get('version') != project['version']:
+                parser.error('CurseForge approval missing for current component: ' + component)
+        for row in lock['artifacts']:
+            if 'client' in row['sides'] and not row.get('fileID'):
+                parser.error('CurseForge file reference missing: ' + row['filename'])
     runtime = json.loads((ROOT / 'pack/client-runtime.json').read_text())
     # The runtime metadata uses downloadUrl; the other pinned inputs use url.
     libraries = [{**r, 'url': r['downloadUrl']} for r in runtime['libraries']]
@@ -117,13 +134,20 @@ def main():
         checksum = jar.with_suffix('.jar.sha256').read_text().split()[0]
         if digest(data) != checksum:
             raise ValueError('Built JAR checksum differs: ' + component)
+        if args.curseforge:
+            ref = references[component]
+            if ref['filename'] != jar.name or ref['sha256'] != checksum:
+                raise ValueError('CurseForge artifact differs from local build: ' + component)
         with zipfile.ZipFile(jar) as archive:
             metadata = tomllib.loads(archive.read('META-INF/neoforge.mods.toml').decode())
         if metadata['mods'][0]['version'] != project['version']:
             raise ValueError('Built JAR version differs: ' + component)
         sides = ['client', 'server'] if project['side'] == 'both' else [project['side']]
         if 'client' in sides:
-            client['mods/' + jar.name] = data
+            if args.curseforge:
+                files.append({'projectID': ref['projectID'], 'fileID': ref['fileID'], 'required': True})
+            else:
+                client['mods/' + jar.name] = data
         if 'server' in sides:
             server['mods/' + jar.name] = data
         inventory.append({'filename': jar.name, 'sha256': digest(data), 'sides': sides})
@@ -146,7 +170,7 @@ def main():
         'version': args.version, 'author': 'Gregstead', 'files': files, 'overrides': 'overrides'}
     payload = {'overrides/' + name: data for name, data in client.items()}
     payload['manifest.json'] = json.dumps(manifest, indent=2).encode() + b'\n'
-    output = ROOT / 'dist/pack' / args.version
+    output = ROOT / ('dist/curseforge' if args.curseforge else 'dist/pack') / args.version
     output.mkdir(parents=True, exist_ok=True)
     write_zip(output / ('gregstead-client-' + args.version + '-mc' + lock['minecraft'] + '.zip'), payload)
     write_zip(output / ('gregstead-server-' + args.version + '-mc' + lock['minecraft'] + '.zip'), server)
