@@ -131,12 +131,22 @@ For scripted verification, write one command to `.test-client/probe-command.txt`
 and wait for `.test-client/probe-result.txt` before the next command. Supported
 commands are `capture NAME` (a bounded screenshot filename), `sign X Y Z`,
 `text TEXT`, `close`, `use X Y Z`, `emi on`, `emi off`, `server COMMAND` and
-`stop`. Commands affect this isolated profile only. Use `stop` for a graceful
+`status` (records the actual strict GPU validation flag) and `stop`. Commands
+affect this isolated profile only. Use `stop` for a graceful
 save and shutdown; retain test text and fixtures for the next release.
 
-The 8.0.10 baseline was verified in this world: rubber/treated sign bodies and
-editors, rubber wall/hanging editors, text persistence after graceful restart,
-and a single EMI alpha-0x77 slot overlay (157,118,88 → 84,63,47). The development
-client used shaders disabled because Iris/Complementary shadow rendering
-crashed in this environment; shader-enabled behavior remains unverified.
+The regression launcher sets `-Dneoforge.disableBlaze3DValidation=true`.
+NeoForge 26.3.0.77 enables its strict GPU validator only in development clients
+(`SharedConstants.IS_RUNNING_IN_IDE`). Its `FrontendRenderPass.validateDraw`
+loops over 16 vertex slots and indexes `boundPipeline.vertexFormats()` even
+when Iris provides a one-entry list, causing an index-1/length-1 exception in
+the shadow pass. The supported flag makes this development-only check match
+packaged clients; it does not disable shaders or change release JARs.
+
+The 8.0.10 baseline was verified in this world with shaders disabled:
+rubber/treated sign bodies and editors, rubber wall/hanging editors, text
+persistence after graceful restart, and a single EMI alpha-0x77 slot overlay
+(157,118,88 → 84,63,47). The same checks for sign bodies/editors and a single EMI overlay also passed
+with Iris 1.11.7+mc26.3 and Complementary Reimagined r5.9.3 enabled. World and
+shadow rendering remained stable.
 Local screenshots and detailed results stay in `.test-client`.

@@ -71,6 +71,9 @@ def main():
     p.neoForge.mods.create('gregstead_regression_probe') { sourceSet(probe) }
     p.neoForge.runs.create('regressionClient') {
         client()
+        // Match packaged clients: NeoForge's IDE-only GPU validator has a
+        // fixed-16-slot loop that indexes past Iris' one-entry format list.
+        jvmArguments.add('-Dneoforge.disableBlaze3DValidation=true')
         gameDirectory = p.file('''+json.dumps(str(PROFILE))+''')
         programArguments.addAll('--username', 'GregsteadTest')
     }

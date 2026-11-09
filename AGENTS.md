@@ -30,3 +30,4 @@ it in public GitHub or CurseForge releases or distributable modpacks.
 - .test-client is persistent local state, not build output. Build cleanup must never delete it. Do not publish it. Disable automatic world backups and snapshots in this profile.
 - Close the game before updating mods. Track the release baseline, exact mod versions/hashes, candidate builds and test results in .test-client/test-state.json. Replace outdated JARs for the same mod; do not load duplicate versions.
 - Keep tests within the persistent fixture area; avoid unnecessary exploration/chunk generation. Do not modify Mushroom, production worlds or the user's ordinary client profile.
+- Verify rendering fixes with the pack's pinned shader pack enabled as well as disabled before release. Shader-disabled success alone does not complete rendering verification. See BUILDING.md for development-client GPU validation settings.
