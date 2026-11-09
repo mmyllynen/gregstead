@@ -1,12 +1,12 @@
 {
   "gregtech": {
     "projectID": 1768748,
-    "fileID": 9523642,
-    "version": "8.0.9",
-    "filename": "gregstead-8.0.9-mc26.3.jar",
-    "lastObservedStatus": "Under Manual Review",
-    "sourceCommit": "0ef4310b",
-    "sha256": "f1c27391f2131e3958ab3507cddc9bc454443e4f95a8d7953baa7cc02a89c241"
+    "fileID": 9525441,
+    "version": "8.0.10",
+    "filename": "gregstead-8.0.10-mc26.3.jar",
+    "lastObservedStatus": "Processing",
+    "sourceCommit": "35cc69c1",
+    "sha256": "e8ab342f176496047c6cfdcd879001cd3d53d0d23710f3d80965a2e4d6cdbe3e"
   },
   "emi": {
     "projectID": 1768750,
