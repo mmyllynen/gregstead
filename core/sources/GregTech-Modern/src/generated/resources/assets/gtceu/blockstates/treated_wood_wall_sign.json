@@ -1,7 +1,19 @@
 {
-    "variants": {
-        "": {
-            "model": "gtceu:block/treated_wood_sign"
-        }
+  "variants": {
+    "facing=east": {
+      "model": "gtceu:block/treated_wood_wall_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "gtceu:block/treated_wood_wall_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "gtceu:block/treated_wood_wall_sign"
+    },
+    "facing=west": {
+      "model": "gtceu:block/treated_wood_wall_sign",
+      "y": 90
     }
+  }
 }

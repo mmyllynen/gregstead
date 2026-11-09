@@ -1,14 +1,11 @@
 package com.lowdragmc.lowdraglib.gui.modular;
 
-import com.lowdragmc.lowdraglib.LDLib;
 import com.lowdragmc.lowdraglib.Platform;
 import com.lowdragmc.lowdraglib.gui.texture.IGuiTexture;
 import com.lowdragmc.lowdraglib.gui.util.DrawerHelper;
 import com.lowdragmc.lowdraglib.gui.widget.Widget;
 import com.lowdragmc.lowdraglib.networking.s2c.SPacketUIWidgetUpdate;
 import com.lowdragmc.lowdraglib.utils.ByteBufUtil;
-import dev.emi.emi.runtime.EmiDrawContext;
-import dev.emi.emi.screen.EmiScreenManager;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.minecraft.ChatFormatting;
@@ -124,9 +121,7 @@ public class ModularUIGuiContainer extends AbstractContainerScreen<ModularUICont
         this.extractBackground(graphics, mouseX, mouseY, partialTicks);
         NeoForge.EVENT_BUS.post(new ScreenEvent.Render.Background(this, graphics, mouseX, mouseY, partialTicks));
         modularUI.mainGroup.drawInBackground(graphics, mouseX, mouseY, partialTicks);
-        if (LDLib.isEmiLoaded()) {
-            EmiScreenManager.render(EmiDrawContext.wrap(graphics), mouseX, mouseY, partialTicks);
-        }
+        // Foreground event below owns EMI rendering; a direct call would draw slot overlays twice.
         graphics.nextStratum();
         com.lowdragmc.lowdraglib.transfer.client.GuiOverlays.render(graphics, () -> modularUI.mainGroup.drawInForeground(graphics, mouseX, mouseY, partialTicks));
         if (draggingElement != null) {
@@ -135,10 +130,7 @@ public class ModularUIGuiContainer extends AbstractContainerScreen<ModularUICont
         NeoForge.EVENT_BUS.post(new ScreenEvent.Render.Foreground(this, graphics, mouseX, mouseY, partialTicks));
         // Native carried extraction owns quick-craft counts, cursor offsets and foreground stratum.
         super.extractCarriedItem(graphics, mouseX, mouseY);
-        if (LDLib.isEmiLoaded()) {
-            graphics.nextStratum();
-            EmiScreenManager.drawForeground(EmiDrawContext.wrap(graphics), mouseX, mouseY, partialTicks);
-        }
+        // NeoForge Render.Post owns EMI tooltips and dragged stacks.
         if (draggingElement == null && tooltipTexts != null && !tooltipTexts.isEmpty()) {
             DrawerHelper.drawTooltip(graphics, mouseX, mouseY, tooltipTexts, tooltipStack, tooltipComponent,
                     tooltipFont == null ? Minecraft.getInstance().font : tooltipFont);

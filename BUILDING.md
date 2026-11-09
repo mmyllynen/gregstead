@@ -90,3 +90,53 @@ unapproved component versions, changed JARs and missing client file references.
 Client mods are referenced in manifest.json instead of bundled into overrides.
 The ordinary `build` command produces a local test pack under `dist/pack/`; that
 pack is not the CurseForge submission artifact. Neither command submits files.
+
+## Sign resources
+
+After running game datagen, run `python3 tools/generate_sign_assets.py`
+(with Pillow installed). This restores the Minecraft 26.3 sign model layouts
+and derives the GUI/block sprites from Gregstead wood palettes. Normal builds
+consume the checked-in results.
+
+## Persistent regression client
+
+Use only `.test-client/saves/Gregstead-Regression`. This is persistent state,
+never a build/cache directory. See AGENTS.md for the one-world policy.
+
+Prepare this profile with `python3 tools/prepare_test_client.py` after building
+components. It verifies pinned inputs, installs the current client mod set,
+preserves existing configuration and refuses extra worlds or unmanaged JARs.
+Close the client before preparing it again or rebuilding components. Both
+commands refuse to proceed while the regression profile holds its session lock. The source candidate is loaded by
+NeoForge's development launcher; installed dependency JAR hashes and the release
+candidate hash are recorded in `.test-client/test-state.json`.
+
+With Java 25 installed, launch from the repository root:
+
+```sh
+JAVA_HOME=/usr/lib/jvm/java-25-openjdk \
+GRADLE_USER_HOME="$PWD/.build/gradle-home" \
+JAVA_TOOL_OPTIONS=-XX:ActiveProcessorCount=4 \
+bash core/sources/GregTech-Modern/gradlew -p core/sources/GregTech-Modern \
+  -I "$PWD/.build/regression-client.init.gradle" runRegressionClient --offline --no-daemon
+```
+
+The local-only `tools/regression_probe` mod opens the existing world, or creates
+it once when neither its save nor the creation marker exists. A warning-only
+NeoForge screen may be continued automatically; loading errors are never
+bypassed. The probe installs fixtures once near (0,160,0), leaving them intact
+on subsequent launches. It is not part of release JARs or modpacks.
+
+For scripted verification, write one command to `.test-client/probe-command.txt`
+and wait for `.test-client/probe-result.txt` before the next command. Supported
+commands are `capture NAME` (a bounded screenshot filename), `sign X Y Z`,
+`text TEXT`, `close`, `use X Y Z`, `emi on`, `emi off`, `server COMMAND` and
+`stop`. Commands affect this isolated profile only. Use `stop` for a graceful
+save and shutdown; retain test text and fixtures for the next release.
+
+The 8.0.10 baseline was verified in this world: rubber/treated sign bodies and
+editors, rubber wall/hanging editors, text persistence after graceful restart,
+and a single EMI alpha-0x77 slot overlay (157,118,88 → 84,63,47). The development
+client used shaders disabled because Iris/Complementary shadow rendering
+crashed in this environment; shader-enabled behavior remains unverified.
+Local screenshots and detailed results stay in `.test-client`.

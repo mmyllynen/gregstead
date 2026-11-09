@@ -1,5 +1,12 @@
 # Changelog
 
+## Gregstead 8.0.10
+
+- Draw EMI slot overlays, tooltips and dragged stacks once in GregTech/LDLib screens instead of twice.
+- Restore rubber and treated wood sign geometry for Minecraft 26.3.
+- Restore sign editor backgrounds using the corresponding wood textures.
+- Preserve existing block IDs, sign text and save data.
+
 ## 1.0.27 — CurseForge submission preparation
 
 ### GregTech 8.0.9 (since 8.0.7)

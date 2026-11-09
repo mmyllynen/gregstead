@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """MIT licensed public-source builder. No install, upload, or game launch."""
 import argparse
+import fcntl
 import hashlib
 import json
 import os
@@ -93,6 +94,16 @@ def main():
         parser.error('Online preparation requires --download-dependencies')
     if args.action == 'build' and args.download_dependencies:
         parser.error('Use bootstrap for network preparation')
+    # Development clients load classes lazily from build output. Never clean it
+    # while the persistent regression profile is running.
+    session_lock_path = ROOT / '.test-client/session.lock'
+    session_lock = None
+    if session_lock_path.exists():
+        session_lock = session_lock_path.open('a+')
+        try:
+            fcntl.lockf(session_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise SystemExit('Close the regression client before building components')
     prepare_minecraft(online)
     for row in sorted(json.loads((ROOT / 'dependencies.json').read_text()), key=lambda r: bool(r.get('extractFrom'))):
         if args.component not in row['components']:

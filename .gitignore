@@ -24,3 +24,5 @@ core/dependencies/
 
 # Keep the explicitly requested private-component exception versioned.
 !/AGENTS.md
+
+/.test-client/

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_0",
+  "textures": {
+    "all": "gtceu:block/treated_wood_sign",
+    "particle": "gtceu:block/treated_wood_planks"
+  }
+}

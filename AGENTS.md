@@ -22,3 +22,11 @@ it in public GitHub or CurseForge releases or distributable modpacks.
 - Other components: gregstead-<component>-<version>-mc<Minecraft-version>.jar.
 - Modpacks: gregstead-client-<version>-mc<Minecraft-version>.zip and gregstead-server-<version>-mc<Minecraft-version>.zip.
 - Repackaging an already published component uses a new patch version (or port revision), with an explicit packaging-only changelog.
+
+# Persistent regression world
+
+- Use only .test-client/saves/Gregstead-Regression for every world-based test. Create it once in creative mode; never create parallel, disposable, copied or replacement worlds.
+- Preserve the world, player progress and test fixtures across releases. Never reset or roll it back after a test. If it disappears or fails to open after initial creation, investigate instead of recreating it.
+- .test-client is persistent local state, not build output. Build cleanup must never delete it. Do not publish it. Disable automatic world backups and snapshots in this profile.
+- Close the game before updating mods. Track the release baseline, exact mod versions/hashes, candidate builds and test results in .test-client/test-state.json. Replace outdated JARs for the same mod; do not load duplicate versions.
+- Keep tests within the persistent fixture area; avoid unnecessary exploration/chunk generation. Do not modify Mushroom, production worlds or the user's ordinary client profile.
