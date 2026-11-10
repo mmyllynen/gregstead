@@ -4,7 +4,7 @@
     "fileID": 9525441,
     "version": "8.0.10",
     "filename": "gregstead-8.0.10-mc26.3.jar",
-    "lastObservedStatus": "Processing",
+    "lastObservedStatus": "Under Manual Review",
     "sourceCommit": "35cc69c1",
     "sha256": "e8ab342f176496047c6cfdcd879001cd3d53d0d23710f3d80965a2e4d6cdbe3e"
   },
@@ -75,7 +75,7 @@
     "projectID": 1793667,
     "fileID": 9523877,
     "version": "0.1.0",
-    "lastObservedStatus": "Processing",
+    "lastObservedStatus": "Under Review",
     "sourceCommit": "0ef4310b",
     "filename": "gregstead-ae2-fixes-0.1.0-mc26.3.jar",
     "sha256": "cea3e766212baa8b6636c7b3c8c0d75a7d8384dafffc4212d4bcdcfb32cb92e2"
@@ -84,7 +84,7 @@
     "projectID": 1793668,
     "fileID": 9523878,
     "version": "0.1.2",
-    "lastObservedStatus": "Processing",
+    "lastObservedStatus": "Under Review",
     "sourceCommit": "0ef4310b",
     "filename": "gregstead-toolbelt-slot-0.1.2-mc26.3.jar",
     "sha256": "aad01fa4a7f429b542d5d25f7bd1cd38c5a3ae70d6dd53304fbe40c62d4ed5d4"

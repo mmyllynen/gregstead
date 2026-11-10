@@ -1,6 +1,6 @@
 # Release queue
 
-## 1.0.28 — GitHub release ready; CurseForge approval pending
+## 1.0.28 — GitHub published; CurseForge approval pending
 
 Completed:
 - PRs #4–#6 closed; their changes were already released in 1.0.27.
@@ -16,10 +16,18 @@ Completed:
 - Public full import and nine-own-mod update candidates are built under
   dist/github/1.0.28 with checksums. Private server additions are excluded.
 
+Publication evidence:
+- GitHub publication COMPLETE: https://github.com/mmyllynen/gregstead/releases/tag/v1.0.28
+  Sources: tag v1.0.28 at 78cef6fb641e360a79d8a98224becb19b798c981.
+  Full client, nine-own-mod update and SHA256SUMS are uploaded; all remote
+  asset SHA-256 digests match the locally verified candidates.
+
 Remaining:
-- Publish matching GitHub source tag and both archives (authorized; in progress).
-- Recheck CurseForge approvals for GregTech, AE2 Fixes, Toolbelt Slot and new EMI
-  Defaults. Do not build/submit the CurseForge pack until all are approved.
+- CurseForge blockers verified on 2026-11-10: GregTech 8.0.10 (9525441)
+  Under Manual Review; AE2 Fixes 0.1.0 (9523877), Toolbelt Slot 0.1.2
+  (9523878), and EMI Defaults 0.1.3 (9538176) Under Review.
+  The approval-gated build was exercised and correctly refused the pack.
+  Recheck approvals before building/submitting the CurseForge pack.
 - Submit client and linked server packs to Gregstead (project 1768761), then
   report actual moderation status. Token stays in KWallet and process memory.
 - User's fresh CurseForge import and Mushroom join test remains pending.
