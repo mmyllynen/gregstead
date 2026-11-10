@@ -1,0 +1,27 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
+def projectInfo = new groovy.json.JsonSlurper().parse(file('../../projects.json')).projects['opac-bluemap']
+version = projectInfo.version
+group = 'fi.gregstead'
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+neoForge { version = '26.3.0.77'; mods { opac_bluemap_integration { sourceSet sourceSets.main } } }
+dependencies {
+    compileOnly files('../../.build/pack-inputs/open-parties-and-claims-neoforge-26.3-0.33.0.jar')
+    compileOnly fileTree('../../.build/opac-bluemap-inputs') { include '*.jar' }
+}
+processResources { inputs.property 'version', project.version; filesMatching('META-INF/neoforge.mods.toml') { expand version: project.version } }
+tasks.withType(JavaCompile).configureEach { options.release = 25; options.encoding = 'UTF-8' }
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+jar { from('LICENSE') { into 'META-INF' }; archiveFileName = "gregstead-opac-bluemap-${project.version}-mc26.3.jar" }
+
+
+
+tasks.register('verifyCompileInputs') {
+    doLast {
+        new groovy.json.JsonSlurper().parse(file('compile-inputs.json')).each { input ->
+            def jar = file('../../' + input.path)
+            def actual = java.security.MessageDigest.getInstance('SHA-256').digest(jar.bytes).encodeHex().toString()
+            if (actual != input.sha256) throw new GradleException('Compile input checksum mismatch: ' + input.path)
+        }
+    }
+}
+tasks.named('compileJava') { dependsOn 'verifyCompileInputs' }

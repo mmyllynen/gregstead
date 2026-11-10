@@ -55,12 +55,12 @@
   },
   "emi-defaults": {
     "projectID": 1768770,
-    "fileID": 9523677,
-    "version": "0.1.2",
-    "lastObservedStatus": "Approved",
-    "sourceCommit": "0ef4310b",
-    "filename": "gregstead-emi-defaults-0.1.2-mc26.3.jar",
-    "sha256": "de8dac18dfe769d9839c62c553fed2dfb2899c11ddbf1122067de096cf672b22"
+    "fileID": 9538176,
+    "filename": "gregstead-emi-defaults-0.1.3-mc26.3.jar",
+    "sha256": "b0d117a51e5108cd796389609c011e9b0f1c75045c5431f02abb3bf1d0f6b454",
+    "version": "0.1.3",
+    "lastObservedStatus": "Under Review",
+    "sourceCommit": "v1.0.28"
   },
   "ui-fixes": {
     "projectID": 1768759,

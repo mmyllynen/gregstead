@@ -1788,18 +1788,6 @@
     "biomesoplenty:willow_wood": [
       "item:biomesoplenty:willow_wood"
     ],
-    "chunkloaders:advanced_chunk_loader": [
-      "item:chunkloaders:advanced_chunk_loader"
-    ],
-    "chunkloaders:basic_chunk_loader": [
-      "item:chunkloaders:basic_chunk_loader"
-    ],
-    "chunkloaders:single_chunk_loader": [
-      "item:chunkloaders:single_chunk_loader"
-    ],
-    "chunkloaders:ultimate_chunk_loader": [
-      "item:chunkloaders:ultimate_chunk_loader"
-    ],
     "effortlessbuilding:randomizer_tool": [
       "item:effortlessbuilding:randomizer_tool"
     ],

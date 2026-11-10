@@ -38,3 +38,11 @@ The original LDLib JetBrains Mono font is retained unchanged, including the
 SIL Open Font License 1.1 text in `licenses/JetBrainsMono-OFL-1.1.txt` and the
 rebuilt JAR notices. Editor layouts, compass XML and other resource formats are
 source assets, not disposable build artifacts.
+
+## Optional OPAC BlueMap integration
+
+The opt-in server integration in `mods/opac-bluemap` is derived from
+Gaming32/DreamyLynn's integration and alexiokay's NeoForge fork:
+https://github.com/alexiokay/opac-bluemap-1.21.1-neoforge.
+It is MIT licensed; the upstream license and exact source revision are retained
+in that component. It is not included in normal modpack distributions.

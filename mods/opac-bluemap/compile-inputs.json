@@ -1,0 +1,14 @@
+[
+  {
+    "path": ".build/pack-inputs/open-parties-and-claims-neoforge-26.3-0.33.0.jar",
+    "sha256": "d97fca4a38c6ebbf2a1eeb2cc7ed5e49692c59018313f6887040a03a97981406"
+  },
+  {
+    "path": ".build/opac-bluemap-inputs/bluemap-5.29-neoforge.jar",
+    "sha256": "8938f4453af4b53970c86e43d0bd26b4a88980e4e6639f818fa770d0f61c43df"
+  },
+  {
+    "path": ".build/opac-bluemap-inputs/flow-math-1.0.3.jar",
+    "sha256": "dea201031f7660ebcc76041365d78d74b9bfb36faec70d3ea0dcfc503d3dc674"
+  }
+]

@@ -97,5 +97,16 @@
     }
   },
   "snapshotSha256": "da787e82e031e41e6445f20e86683d12c504351b1f2b92d793b686d437418ee5",
-  "defaultsSha256": "11dc4dc6849ed54e8921498b9a23daf9c89da5d027e12f27e552330a3118b96f"
+  "defaultsSha256": "c67a879e7eea5a88121428764ab77c1f6e6ccf483843ec966dbf2ebbec3979d6",
+  "postProcessing": {
+    "change": "Remove defaults for removed Chunk Loaders mod",
+    "removedKeys": [
+      "chunkloaders:advanced_chunk_loader",
+      "chunkloaders:basic_chunk_loader",
+      "chunkloaders:single_chunk_loader",
+      "chunkloaders:ultimate_chunk_loader"
+    ],
+    "baseSnapshotRetained": true,
+    "baseDefaultsSha256": "11dc4dc6849ed54e8921498b9a23daf9c89da5d027e12f27e552330a3118b96f"
+  }
 }

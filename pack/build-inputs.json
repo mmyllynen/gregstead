@@ -373,19 +373,6 @@
       "url": "https://edge.forgecdn.net/files/9060/721/chat_heads-1.3.2-neoforge-26.3.jar"
     },
     {
-      "filename": "chunkloaders-1.2.9-neoforge-mc26.3.jar",
-      "sha256": "3cd72199a8a7f8389a2e7b7f177ec2e0e6f8344b755c360b4a1c4edaee727be1",
-      "sides": [
-        "client",
-        "server"
-      ],
-      "kind": "mod",
-      "modId": "chunkloaders",
-      "projectID": 402924,
-      "fileID": 8888067,
-      "url": "https://edge.forgecdn.net/files/8888/67/chunkloaders-1.2.9-neoforge-mc26.3.jar"
-    },
-    {
       "filename": "cloth-config-neoforge-26.3.159.jar",
       "sha256": "24adcf323c6a439226aced11d2cd4f8e6e629b82de6f1c7d71a7b9ba37ebf81d",
       "sides": [

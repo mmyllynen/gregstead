@@ -57,7 +57,7 @@ def main():
     for row in runtime['libraries']:
         dest=PROFILE/row['relativePath'];dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/'.build/pack-inputs'/row['filename'],dest)
     state['candidateSha256']=hashlib.sha256((ROOT/'dist/gregtech'/artifact_filename('gregtech')).read_bytes()).hexdigest()
-    state.update(baseline='1.0.27',candidate=artifact_filename('gregtech'),automaticBackups=False,managedMods={n:hashlib.sha256(p.read_bytes()).hexdigest() for n,p in inputs.items()})
+    state.update(baseline=projects['pack']['version'],candidate=artifact_filename('gregtech'),automaticBackups=False,managedMods={n:hashlib.sha256(p.read_bytes()).hexdigest() for n,p in inputs.items()})
     statepath.write_text(json.dumps(state,indent=2)+'\n')
     init=ROOT/'.build/regression-client.init.gradle'
     init.write_text('''gradle.beforeProject { p ->

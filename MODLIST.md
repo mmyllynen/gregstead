@@ -15,7 +15,6 @@
 | BetterThanMending | Client and server |
 | Biomes O' Plenty | Client and server |
 | Chat Heads | Client |
-| Chunk Loaders | Client and server |
 | Chunky | Client and server |
 | Cloth Config v26.3 API | Client |
 | Clumps | Client and server |

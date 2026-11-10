@@ -1,0 +1,4 @@
+[serverConfig.claims]
+partyOwnedClaims = true
+maxPlayerClaimForceloads = 100
+forceloadBonusPerPartyMember = 100

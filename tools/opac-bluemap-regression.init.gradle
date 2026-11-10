@@ -1,0 +1,14 @@
+// Use after .build/regression-client.init.gradle; local probe is never shipped.
+gradle.beforeProject { p ->
+  if (p.path == ':') p.afterEvaluate {
+    def probe = p.sourceSets.findByName('regressionProbe')
+    if (probe != null) {
+      probe.java.srcDir(p.file('../../../tools/opac_bluemap_probe'))
+      probe.compileClasspath += p.files(
+        p.file('../../../.test-client/mods/bluemap-5.29-neoforge.jar'),
+        p.file('../../../.test-client/mods/open-parties-and-claims-neoforge-26.3-0.33.0.jar'),
+        p.file('../../../mods/opac-bluemap/build/classes/java/main'),
+        p.file('../../../.build/opac-bluemap-inputs/flow-math-1.0.3.jar'))
+    }
+  }
+}

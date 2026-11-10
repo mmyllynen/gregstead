@@ -154,3 +154,19 @@ Local screenshots and detailed results stay in `.test-client`.
 ## GitHub client distributions
 
 Run `python3 build_pack.py build --github --version 1.0.27`. Outputs are under `dist/github/1.0.27/`: full CurseForge-format client import and own-client-mods-only update. GitHub mode bundles own mods without requiring CurseForge approval; external mods retain manifest references. No server archive is produced in this mode.
+
+## Optional OPAC BlueMap integration
+
+`opac-bluemap` is an opt-in server add-on and is excluded from normal `all`
+builds and modpack distributions. See `mods/opac-bluemap/README.md` for the
+pinned public compile inputs and persistent-world probe. Once those inputs
+are present, build with `python3 release.py build opac-bluemap` using JDK 25.
+Server-specific BlueMap configuration remains outside this repository.
+
+## CurseForge uploads
+
+`tools/curseforge_upload.py` uses the documented author Upload API and requires
+Python requests plus kwallet-query. It reads the token from KWallet into memory,
+uses version/environment names and records successful uploads without secrets.
+Use an explicit receipt path; never retry an uncertain POST before checking the
+author dashboard. Package construction still requires approved component IDs.

@@ -41,6 +41,7 @@ public class RegressionProbe {
    String command=Files.readString(commandFile).strip();Files.delete(commandFile);
    String[] parts=command.split(" ",2);String arg=parts.length>1?parts[1]:"";
    switch(parts[0]){
+    case "opac" -> {var server=mc.getSingleplayerServer();server.execute(()->{try{Class.forName("regression.OpacBlueMapProbe").getMethod("run",net.minecraft.server.MinecraftServer.class).invoke(null,server);}catch(Exception ex){throw new RuntimeException(ex);}});}
     case "status" -> Files.writeString(mc.gameDirectory.toPath().resolve("probe-render-status.txt"),"strictValidation="+com.mojang.renderpearl.frontend.FrontendGpuDevice.STRICT_VALIDATION+"\n");
     case "stop" -> mc.stop();
     case "capture" -> Screenshot.grab(mc.gameDirectory,arg+".png",mc.gameRenderer.mainRenderTarget(),1,c->{});

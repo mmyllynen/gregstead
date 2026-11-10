@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.28
+
+- Remove Chunk Loaders; use OPAC forceload with 100 chunks per player and party scaling.
+- Remove obsolete Chunk Loaders EMI defaults (EMI Defaults 0.1.3).
+- Align Mushroom server components with the pinned public pack.
+
+
 ## Gregstead 8.0.10
 
 - Draw EMI slot overlays, tooltips and dragged stacks once in GregTech/LDLib screens instead of twice.
