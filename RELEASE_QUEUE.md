@@ -16,6 +16,9 @@ Completed:
 - Public full import and nine-own-mod update candidates are built under
   dist/github/1.0.28 with checksums. Private server additions are excluded.
 
+- User confirmed on 2026-11-10: fresh CurseForge import AND mods-only update
+  both successfully joined Mushroom using the published 1.0.28 packages.
+
 Publication evidence:
 - GitHub publication COMPLETE: https://github.com/mmyllynen/gregstead/releases/tag/v1.0.28
   Sources: tag v1.0.28 at 78cef6fb641e360a79d8a98224becb19b798c981.
@@ -30,7 +33,6 @@ Remaining:
   Recheck approvals before building/submitting the CurseForge pack.
 - Submit client and linked server packs to Gregstead (project 1768761), then
   report actual moderation status. Token stays in KWallet and process memory.
-- User's fresh CurseForge import and Mushroom join test remains pending.
 
 The user's ordinary client was not modified. The older deployment notes below
 are historical evidence; their 'future release' tasks are included in 1.0.28.
