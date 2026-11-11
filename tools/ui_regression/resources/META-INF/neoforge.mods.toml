@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+[[mods]]
+modId="gregstead_ui_regression"
+version="1.0.0"
+displayName="Local UI Regression"

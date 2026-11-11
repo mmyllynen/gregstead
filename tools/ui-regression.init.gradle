@@ -1,0 +1,38 @@
+gradle.beforeProject { p ->
+ if(p.path == ':' ) p.plugins.withId('net.neoforged.moddev') {
+  p.tasks.matching { it.name == 'downloadAssets' }.configureEach { javaExecutable = System.getenv('JAVA_HOME') + '/bin/java' }
+  def probe=p.sourceSets.create('uiRegression')
+  probe.java.srcDir(p.file('../../../tools/ui_regression/java'))
+  probe.resources.srcDir(p.file('../../../tools/ui_regression/resources'))
+  probe.compileClasspath += p.sourceSets.main.compileClasspath + p.sourceSets.main.output
+  probe.runtimeClasspath += probe.compileClasspath
+  p.neoForge.mods.create('gregstead_ui_regression') { sourceSet(probe) }
+  p.neoForge.runs.create('uiRegressionClient') {
+   client()
+   gameDirectory=p.file('../../../.test-client')
+   jvmArguments.add('-Dneoforge.disableBlaze3DValidation=true')
+   programArguments.addAll('--username','GregsteadTest')
+  }
+  p.neoForge.runs.create('uiRegressionServer') {
+   server()
+   gameDirectory=p.file('../../../.build/lathe-server')
+   programArguments.add('--nogui')
+  }
+ }
+}
+
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.tasks.named('runUiRegressionServer').configure {
+  doFirst {
+   def world=p.file('../../../.test-client/saves/Gregstead-Regression')
+   if(!new File(world,'level.dat').isFile())throw new GradleException('Persistent world missing; refusing to create a replacement')
+   def profile=p.file('../../../.build/lathe-server')
+   def properties=new Properties()
+   new File(profile,'server.properties').withInputStream {properties.load(it)}
+   if(properties.getProperty('level-name')!=world.canonicalPath)throw new GradleException('Server must use the sole persistent world')
+   if(properties.getProperty('server-ip')!='127.0.0.1')throw new GradleException('Regression server must bind to loopback')
+   if(new File(profile,'mods').listFiles().any {it.name.toLowerCase().contains('simplebackups')})throw new GradleException('Automatic world backups must be disabled in the regression profile')
+  }
+ }
+}

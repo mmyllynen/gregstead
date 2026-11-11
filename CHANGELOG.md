@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.29 / Gregstead 8.0.11
+
+- Fix legacy machine UI child loading and Basic Lathe dedicated-server disconnects.
+- Preserve Calm 2.2.4 and all other component versions from 1.0.28.
+- Verify slot parity, transfers, recipe completion, reload/reconnect and shaders on/off.
+
+
 ## 1.0.28
 
 - Remove Chunk Loaders; use OPAC forceload with 100 chunks per player and party scaling.
