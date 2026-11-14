@@ -1,5 +1,10 @@
 # Changelog
 
+## Gregstead 8.0.13
+
+- Route barrel and drum tool interactions through server-side handling when no fluid-container interaction occurs, completing the 8.0.12 automatic fluid output fix.
+
+
 ## Gregstead 8.0.12
 
 - Fix screwdriver toggling of automatic downward fluid output for wooden barrels and metal drums.

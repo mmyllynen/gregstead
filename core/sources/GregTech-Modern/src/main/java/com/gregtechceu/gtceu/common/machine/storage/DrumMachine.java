@@ -124,7 +124,6 @@ public class DrumMachine extends MetaMachine {
             if (FluidUtil.interactWithFluidHandler(context.getPlayer(), context.getHand(), getBlockPos(), NativeFluidViews.require(cache), null)) {
                 return InteractionResult.SUCCESS;
             }
-            return InteractionResult.PASS;
         }
         return super.onUseWithItem(context);
     }
