@@ -1,0 +1,1 @@
+{"required":true,"package":"io.github.mmyllynen.sleepwear.mixin","compatibilityLevel":"JAVA_25","mixins":["DarknessMixin","ClockMixin"],"injectors":{"defaultRequire":1}}

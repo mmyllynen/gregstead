@@ -1,5 +1,13 @@
 # Changelog
 
+## Gregstead 1.0.30
+
+- Add standalone Sleepwear 0.1.0: dyeable pajamas and event-driven automatic sleeping in nearby beds.
+- Include Gregstead 8.0.13, completing barrel/drum automatic fluid-output fixes.
+- Keep Calm 2.2.4 and all third-party pack inputs unchanged. Mobs Be Calm 3.0.0 is not included.
+- Publish full client, ten-own-mod update and server distributions together.
+
+
 ## Gregstead 8.0.13
 
 - Route barrel and drum tool interactions through server-side handling when no fluid-container interaction occurs, completing the 8.0.12 automatic fluid output fix.

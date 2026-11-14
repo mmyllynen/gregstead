@@ -75,7 +75,7 @@ def main():
     parser.add_argument('--curseforge', action='store_true',
                         help='Require approved component files and use manifest references')
     parser.add_argument('--version', help='Explicit local pack version, e.g. 1.0.26-rebuilt.1')
-    parser.add_argument('--github', action='store_true', help='Build GitHub client distributions')
+    parser.add_argument('--github', action='store_true', help='Build GitHub client and server distributions')
     args = parser.parse_args()
     if args.github and (args.curseforge or args.action != 'build'):
         parser.error('--github requires build and excludes --curseforge')
@@ -182,7 +182,7 @@ def main():
         source = ('Matching source: https://github.com/mmyllynen/gregstead/tree/v' + args.version + '\nBuild instructions: BUILDING.md in that source tree.\n').encode()
         payload['overrides/Gregstead_Info/THIRD_PARTY_NOTICES.md'] = notices
         payload['overrides/Gregstead_Info/SOURCE.txt'] = source
-        instructions = ('Close Minecraft. This archive updates ONLY Gregstead-owned client mods in an existing Gregstead installation.\nRemove chunkloaders-*.jar (Chunk Loaders) from previous packs; use OPAC forceload instead. Keep all other third-party mods and all configuration files. Do not replace the entire mods directory.\nRemove previous JARs for the following components before copying mods/ into your instance:\nGregTech (gtceu-* or gregstead-VERSION-*), EMI (emi-native-* or emi-VERSION-*),\nAdditional Placements (additionalplacements-* or additional-placements-*),\nCalm, Altar (altarofabundance-*), UI Fixes, EMI Defaults, AE2 Fixes, Toolbelt Slot.\nFor the latter components remove their previous gregstead-COMPONENT-* JARs.\nDo not remove unrelated mods. Never load two versions of the same mod.\nNo graphics settings, bookmarks, keybindings, worlds, shaders or runtime files are included or replaced.\nRequires the existing Gregstead third-party mod set, Minecraft 26.3, NeoForge 26.3.0.77 and Java 25.\nFor a fresh installation import the full client ZIP into a NEW profile.\n').encode()
+        instructions = ('Close Minecraft. This archive updates ONLY Gregstead-owned client mods in an existing Gregstead installation.\nRemove chunkloaders-*.jar (Chunk Loaders) from previous packs; use OPAC forceload instead. Keep all other third-party mods and all configuration files. Do not replace the entire mods directory.\nRemove previous JARs for the following components before copying mods/ into your instance:\nGregTech (gtceu-* or gregstead-VERSION-*), EMI (emi-native-* or emi-VERSION-*),\nAdditional Placements (additionalplacements-* or additional-placements-*),\nCalm, Altar (altarofabundance-*), UI Fixes, EMI Defaults, AE2 Fixes, Toolbelt Slot, Sleepwear (sleepwear-*).\nFor the latter components remove their previous gregstead-COMPONENT-* JARs.\nDo not remove unrelated mods. Never load two versions of the same mod.\nNo graphics settings, bookmarks, keybindings, worlds, shaders or runtime files are included or replaced.\nRequires the existing Gregstead third-party mod set, Minecraft 26.3, NeoForge 26.3.0.77 and Java 25.\nFor a fresh installation import the full client ZIP into a NEW profile.\n').encode()
         own_mods['INSTALL.txt'] = instructions
         own_mods['THIRD_PARTY_NOTICES.md'] = notices
         own_mods['SOURCE.txt'] = source
@@ -192,6 +192,7 @@ def main():
         own_mods['SHA256SUMS'] = ''.join(digest(d) + '  ' + n + '\n' for n,d in sorted(own_mods.items()) if n.startswith('mods/')).encode()
         write_zip(output / ('gregstead-client-' + args.version + '-mc26.3.zip'), payload)
         write_zip(output / ('gregstead-client-mods-only-' + args.version + '-mc26.3.zip'), own_mods)
+        write_zip(output / ('gregstead-server-' + args.version + '-mc26.3.zip'), server)
         return
     output = ROOT / ('dist/curseforge' if args.curseforge else 'dist/pack') / args.version
     output.mkdir(parents=True, exist_ok=True)

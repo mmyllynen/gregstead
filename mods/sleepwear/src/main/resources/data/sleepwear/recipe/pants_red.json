@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"equipment","pattern":["XXX","X X","X X"],"key":{"X":"minecraft:red_wool"},"result":{"id":"sleepwear:pajama_pants","components":{"sleepwear:design":"solid_red_red","minecraft:item_model":"sleepwear:pants/solid_red_red","minecraft:equippable":{"slot":"legs","asset_id":"sleepwear:solid_red_red","damage_on_hurt":false}}}}

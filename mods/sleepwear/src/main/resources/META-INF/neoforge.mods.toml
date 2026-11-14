@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[12,)"
+license="MIT"
+[[mods]]
+modId="sleepwear"
+version="0.1.0"
+displayName="Sleepwear"
+description="Dyeable pajamas for automatic sleeping in nearby beds."
+[[dependencies.sleepwear]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.77]"
+side="BOTH"
+[[dependencies.sleepwear]]
+modId="minecraft"
+type="required"
+versionRange="[26.3]"
+side="BOTH"
+
+[[mixins]]
+config="sleepwear.mixins.json"

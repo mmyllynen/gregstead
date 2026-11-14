@@ -1,0 +1,6 @@
+{
+  "item.sleepwear.pajama_shirt": "Pajama Shirt",
+  "item.sleepwear.pajama_pants": "Pajama Pants",
+  "sleepwear.hint.sleep": "Wear both pieces to sleep automatically in a nearby bed.",
+  "sleepwear.hint.dye": "Dye: one = solid; above/below = split; left/right = stripes."
+}

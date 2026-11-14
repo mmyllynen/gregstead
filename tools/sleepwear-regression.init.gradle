@@ -1,0 +1,20 @@
+gradle.beforeProject { p ->
+ if(p.path==':')p.plugins.withId('net.neoforged.moddev') {
+  p.tasks.matching {it.name=='downloadAssets'}.configureEach {javaExecutable=System.getenv('JAVA_HOME')+'/bin/java'}
+  def test=p.sourceSets.create('sleepwearRegression')
+  test.java.srcDir(p.file('../../tools/sleepwear_regression/java'))
+  test.resources.srcDir(p.file('../../tools/sleepwear_regression/resources'))
+  test.compileClasspath+=p.sourceSets.main.compileClasspath+p.sourceSets.main.output
+  test.runtimeClasspath+=test.compileClasspath
+  p.neoForge.mods.create('sleepwear_regression'){sourceSet(test)}
+  if(p.hasProperty('sleepwearPackaged'))p.afterEvaluate { p.neoForge.mods.remove(p.neoForge.mods.getByName('sleepwear')) }
+  p.neoForge.runs.create('sleepwearClient') {
+   client();gameDirectory=p.file('/home/myllymik/Projects/gregstead/.test-client')
+   jvmArguments.add('-Dneoforge.disableBlaze3DValidation=true')
+   programArguments.addAll('--username','GregsteadTest')
+  }
+  p.neoForge.runs.create('sleepwearServer') {
+   server();gameDirectory=p.file('/home/myllymik/Projects/gregstead/.build/lathe-server');programArguments.add('--nogui')
+  }
+ }
+}

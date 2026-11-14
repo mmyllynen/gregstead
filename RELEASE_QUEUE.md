@@ -1,5 +1,18 @@
 # Release queue
 
+## 1.0.30 — local regression candidate
+
+- Sleepwear 0.1.0 and Gregstead 8.0.13; Calm remains 2.2.4.
+- Mobs Be Calm 3.0.0 and related changes excluded.
+- GitHub publication and local client/Mushroom deployment follow successful game tests.
+
+## Already published since the historical queue below
+
+- GitHub pack 1.0.28 and 1.0.29 are published; 1.0.29 is deployed to local NeoGreg and Mushroom.
+- Gregstead 8.0.12 and 8.0.13 are separately published; both targets currently use 8.0.13.
+- Historical GitHub-publication and OPAC pack tasks below are completed; CurseForge approval remains separate.
+
+
 ## 1.0.28 — GitHub release ready; CurseForge approval pending
 
 Completed:

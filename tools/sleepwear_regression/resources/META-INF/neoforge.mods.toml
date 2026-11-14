@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[12,)"
+license="MIT"
+[[mods]]
+modId="sleepwear_regression"
+version="1.0.0"
+displayName="Local Sleepwear Regression Probe"

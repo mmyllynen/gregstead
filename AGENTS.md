@@ -34,4 +34,6 @@ it in public GitHub or CurseForge releases or distributable modpacks.
 
 # GitHub pack distribution
 
-Publish full client import and own-client-mods-only ZIPs together with checksums and matching tagged sources. Mods-only contains nine own client mods, never settings or server-only mods. Document removal of previous versions including legacy names; preserve third-party mods and player configuration. Keep CurseForge approval checks separate and intact.
+Publish full client import and own-client-mods-only ZIPs together with checksums and matching tagged sources. Mods-only contains ten own client mods, never settings or server-only mods. Document removal of previous versions including legacy names; preserve third-party mods and player configuration. Keep CurseForge approval checks separate and intact.
+
+- Sleepwear is independent: its JAR uses sleepwear-<version>-mc<Minecraft-version>.jar without the Gregstead prefix.

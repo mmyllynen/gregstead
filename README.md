@@ -48,7 +48,7 @@ Some highlights:
 | Technology and storage | GregTech, Applied Energistics 2, Storage Drawers, Sophisticated Backpacks |
 | Quality of life | EMI, Jade, Inventory Profiles Next, Mouse Tweaks, Crafting Tweaks, Corpse and Corpse Persistence |
 | Building | Macaw's Bridges, Doors, Furniture, Roofs, Windows and more; Rechiseled; Effortless Building |
-| Equipment | Curios, Traveler Tool Belt, Hellim's Elytra Slot |
+| Equipment | Curios, Traveler Tool Belt, Hellim's Elytra Slot, Sleepwear |
 | Graphics | Sodium, Iris; Complementary Reimagined, BSL, Bliss and MakeUp Ultra Fast shader packs |
 | Custom additions | Calm Crystals and Amulet, Altar of Abundance, EMI Defaults and UI compatibility fixes |
 
@@ -84,4 +84,4 @@ Changes are recorded separately in [CHANGELOG.md](CHANGELOG.md).
 
 ## Client distribution 1.0.27
 
-Download the full client ZIP from GitHub Releases for a fresh import into a new profile. Existing players can use the client-mods-only ZIP: close the game, remove previous versions of the nine listed Gregstead client mods, then copy the new JARs into mods/. Keep third-party mods and all settings. Follow INSTALL.txt, including legacy filenames. The small ZIP is not a standalone installation.
+Download the full client ZIP from GitHub Releases for a fresh import into a new profile. Existing players can use the client-mods-only ZIP: close the game, remove previous versions of the ten listed Gregstead client mods, then copy the new JARs into mods/. Keep third-party mods and all settings. Follow INSTALL.txt, including legacy filenames. The small ZIP is not a standalone installation.

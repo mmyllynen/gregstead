@@ -78,6 +78,7 @@
 | ServerCore | Client and server |
 | ShulkerBoxTooltip | Client and server |
 | Simple Backups | Server |
+| Sleepwear | Client and server |
 | Sodium | Client |
 | Sophisticated Backpacks | Client and server |
 | Sophisticated Core | Client and server |

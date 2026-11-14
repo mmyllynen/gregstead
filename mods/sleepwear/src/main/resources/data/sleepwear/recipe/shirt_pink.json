@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"equipment","pattern":["X X","XXX","XXX"],"key":{"X":"minecraft:pink_wool"},"result":{"id":"sleepwear:pajama_shirt","components":{"sleepwear:design":"solid_pink_pink","minecraft:item_model":"sleepwear:shirt/solid_pink_pink","minecraft:equippable":{"slot":"chest","asset_id":"sleepwear:solid_pink_pink","damage_on_hurt":false}}}}

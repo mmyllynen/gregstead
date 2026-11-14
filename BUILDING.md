@@ -153,7 +153,7 @@ Local screenshots and detailed results stay in `.test-client`.
 
 ## GitHub client distributions
 
-Run `python3 build_pack.py build --github --version 1.0.27`. Outputs are under `dist/github/1.0.27/`: full CurseForge-format client import and own-client-mods-only update. GitHub mode bundles own mods without requiring CurseForge approval; external mods retain manifest references. No server archive is produced in this mode.
+Run `python3 build_pack.py build --github --version 1.0.27`. Outputs are under `dist/github/1.0.27/`: full CurseForge-format client import and own-client-mods-only update. GitHub mode bundles own mods without requiring CurseForge approval; external mods retain manifest references. A matching server ZIP is also produced.
 
 ## Optional OPAC BlueMap integration
 

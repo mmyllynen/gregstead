@@ -77,7 +77,7 @@
     "pack": {
       "name": "Gregstead",
       "kind": "modpack",
-      "version": "1.0.29"
+      "version": "1.0.30"
     },
     "ae2-fixes": {
       "name": "Gregstead AE2 Fixes",
@@ -109,6 +109,13 @@
         "bluemap"
       ],
       "artifactStem": "gregstead-opac-bluemap"
+    },
+    "sleepwear": {
+      "name": "Sleepwear",
+      "kind": "mod",
+      "version": "0.1.0",
+      "side": "both",
+      "artifactStem": "sleepwear"
     }
   }
 }

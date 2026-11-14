@@ -46,3 +46,5 @@ Gaming32/DreamyLynn's integration and alexiokay's NeoForge fork:
 https://github.com/alexiokay/opac-bluemap-1.21.1-neoforge.
 It is MIT licensed; the upstream license and exact source revision are retained
 in that component. It is not included in normal modpack distributions.
+
+Sleepwear: original mod code and generated pixel-art resources, MIT; see mods/sleepwear/LICENSE.
