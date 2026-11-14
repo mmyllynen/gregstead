@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class MEOutputBusPartMachine extends MEBusPartMachine {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private KeyStorage internalBuffer; // Do not use KeyCounter, use our simple implementation
 
     public MEOutputBusPartMachine(BlockEntityCreationInfo info) {
@@ -47,13 +47,9 @@ public class MEOutputBusPartMachine extends MEBusPartMachine {
 
     @Override
     public void onMachineDestroyed() {
-        var grid = getMainNode().getGrid();
-        if (grid != null && !internalBuffer.isEmpty()) {
-            for (var entry : internalBuffer) {
-                grid.getStorageService().getInventory().insert(entry.getKey(), entry.getLongValue(),
-                        Actionable.MODULATE, actionSource);
-            }
-        }
+        // Contents travel in MACHINE_ITEM_DATA. Returning them to ME here would
+        // duplicate the buffer already captured by the loot-table callback.
+        super.onMachineDestroyed();
     }
 
     /////////////////////////////////

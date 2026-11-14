@@ -44,7 +44,7 @@ public class WorkableElectricMultiblockMachine extends WorkableMultiblockMachine
     protected EnergyContainerList energyContainer;
     @Getter
     protected int tier;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected boolean batchEnabled;
 

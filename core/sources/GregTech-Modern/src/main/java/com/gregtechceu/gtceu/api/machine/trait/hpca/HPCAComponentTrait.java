@@ -22,7 +22,7 @@ public class HPCAComponentTrait extends MachineTrait {
     private final int upkeepEUt, maxEUt;
     @Getter
     private final boolean canBeDamaged, allowBridging;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     @Getter

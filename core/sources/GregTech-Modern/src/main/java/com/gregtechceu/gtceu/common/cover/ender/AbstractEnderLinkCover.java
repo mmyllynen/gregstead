@@ -53,22 +53,22 @@ public abstract class AbstractEnderLinkCover<T extends VirtualEntry> extends Cov
 
     protected final ConditionalSubscriptionHandler subscriptionHandler;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected String colorStr = VirtualEntry.DEFAULT_COLOR;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected Permissions permission = Permissions.PUBLIC;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected boolean isWorkingEnabled = true;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected ManualIOMode manualIOMode = ManualIOMode.DISABLED;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected IO io = IO.OUT;

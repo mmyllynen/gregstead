@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public class ExportOnlyAEItemList extends NotifiableItemStackHandler implements IConfigurableSlotList {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected ExportOnlyAEItemSlot[] inventory;
 
@@ -44,6 +44,24 @@ public class ExportOnlyAEItemList extends NotifiableItemStackHandler implements 
             this.itemHandler = new ItemStackHandlerDelegate(inventory);
         }
         return itemHandler;
+    }
+
+    @Override
+    public net.minecraft.nbt.CompoundTag writeItemState(net.minecraft.core.HolderLookup.Provider lookup) {
+        return portableSlots(getSyncDataHolder().serializeItemNBT(lookup));
+    }
+
+    @Override
+    public void readItemState(net.minecraft.core.HolderLookup.Provider lookup, net.minecraft.nbt.CompoundTag tag) {
+        getSyncDataHolder().deserializeItemNBT(lookup, portableSlots(tag.copy()));
+    }
+
+    private net.minecraft.nbt.CompoundTag portableSlots(net.minecraft.nbt.CompoundTag tag) {
+        // Stocking slots are views into ME, whereas normal import slots own real resources.
+        if (isStocking() && tag.get("inventory") instanceof net.minecraft.nbt.ListTag slots) {
+            for (var slot : slots) if (slot instanceof net.minecraft.nbt.CompoundTag entry) entry.remove("stock");
+        }
+        return tag;
     }
 
     @Override

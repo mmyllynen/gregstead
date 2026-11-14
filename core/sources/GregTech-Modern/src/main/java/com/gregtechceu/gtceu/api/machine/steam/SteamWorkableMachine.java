@@ -51,11 +51,11 @@ public abstract class SteamWorkableMachine extends SteamMachine
     @Getter
     @Setter
     public int activeRecipeType;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected Direction outputFacing;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     @Setter

@@ -30,12 +30,12 @@ import org.jetbrains.annotations.Nullable;
 public class FluidFilterCover extends CoverBehavior implements IUICover {
 
     protected FluidFilter fluidFilter;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected FilterMode filterMode = FilterMode.FILTER_INSERT;
     private FilteredFluidHandlerWrapper fluidFilterWrapper;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Setter
     @Getter
     protected ManualIOMode allowFlow = ManualIOMode.DISABLED;

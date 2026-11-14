@@ -26,7 +26,7 @@ import lombok.Getter;
 public class CreativeChestMachine extends QuantumChestMachine {
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int itemsPerCycle, ticksPerCycle = 1;
 
     public CreativeChestMachine(BlockEntityCreationInfo info) {

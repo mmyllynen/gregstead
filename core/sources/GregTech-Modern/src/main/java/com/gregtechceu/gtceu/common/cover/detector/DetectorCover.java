@@ -21,13 +21,13 @@ import lombok.Setter;
 
 public abstract class DetectorCover extends CoverBehavior implements IControllable {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     protected boolean isWorkingEnabled = true;
     protected TickableSubscription subscription;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private boolean isInverted;

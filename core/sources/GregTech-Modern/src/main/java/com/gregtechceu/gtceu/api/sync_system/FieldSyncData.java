@@ -18,6 +18,7 @@ import java.util.List;
 public final class FieldSyncData {
 
     public final String fieldName, nbtSaveKey;
+    public final SaveField.ItemSave itemSave;
     public final VarHandle handle;
     public final boolean triggerClientRerender, isSyncManaged;
     @Setter
@@ -29,6 +30,7 @@ public final class FieldSyncData {
                          List<MethodHandle> changeListenerHandles) {
         fieldName = field.getName();
         SaveField saveField = field.getAnnotation(SaveField.class);
+        this.itemSave = saveField == null ? SaveField.ItemSave.NONE : saveField.item();
         this.nbtSaveKey = (saveField != null && !saveField.nbtKey().isBlank()) ? saveField.nbtKey() : fieldName;
         this.isSyncManaged = ISyncManaged.class.isAssignableFrom(field.getType());
         this.handle = handle;

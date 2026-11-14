@@ -33,12 +33,12 @@ import org.jetbrains.annotations.Nullable;
 public class ItemFilterCover extends CoverBehavior implements IUICover {
 
     protected ItemFilter itemFilter;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected FilterMode filterMode = FilterMode.FILTER_INSERT;
     private FilteredItemHandlerWrapper itemFilterWrapper;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Setter
     @Getter
     protected ManualIOMode allowFlow = ManualIOMode.DISABLED;

@@ -61,30 +61,30 @@ public class ConveyorCover extends CoverBehavior implements IIOCover, IUICover, 
 
     public final int tier;
     public final int maxItemTransferRate;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected int transferRate;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     @RerenderOnChanged
     protected IO io;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected DistributionMode distributionMode;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected ManualIOMode manualIOMode = ManualIOMode.DISABLED;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected boolean isWorkingEnabled = true;
     protected int itemsLeftToTransferLastSecond;
     private Widget ioModeSwitch;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @Getter
     protected final FilterHandler<ItemStack, ItemFilter> filterHandler;

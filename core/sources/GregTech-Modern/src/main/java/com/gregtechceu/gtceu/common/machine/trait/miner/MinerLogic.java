@@ -67,7 +67,9 @@ public class MinerLogic extends RecipeLogic implements IRecipeCapabilityHolder {
     private final int maximumRadius;
     @Getter
     public ItemStack pickaxeTool;
+    @SaveField
     private final LinkedList<BlockPos> blocksToMine = new LinkedList<>();
+    @SaveField
     private int blocksToMineOriginalCount = 0;
     @Getter
     @SaveField
@@ -108,13 +110,18 @@ public class MinerLogic extends RecipeLogic implements IRecipeCapabilityHolder {
     private int pipeLength = 0;
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int currentRadius;
     @Getter
     @SaveField
     private boolean isDone;
     @Getter
     private boolean isInventoryFull;
+    // Version 1 saves the pending batch. Version 0 worlds must rescan once, since
+    // their cursor may already have advanced past a batch which was never saved.
+    @SaveField
+    private int miningStateVersion;
+
     @Getter
     private final Map<IO, List<RecipeHandlerList>> capabilitiesProxy;
     @Getter
@@ -163,6 +170,23 @@ public class MinerLogic extends RecipeLogic implements IRecipeCapabilityHolder {
         if (getMachine().getLevel() != null) {
             var registry = getMachine().getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
             this.pickaxeTool.enchant(registry.getOrThrow(Enchantments.FORTUNE), fortune);
+            if (!getMachine().getLevel().isClientSide()) {
+                BlockPos origin = getMiningPos();
+                boolean hasOrigin = startX != Integer.MAX_VALUE && startZ != Integer.MAX_VALUE;
+                boolean moved = hasOrigin && (startX != origin.getX() - currentRadius ||
+                        startZ != origin.getZ() - currentRadius || startY != origin.getY());
+                if (hasOrigin && (miningStateVersion == 0 || moved)) {
+                    boolean enabled = isWorkingEnabled();
+                    blocksToMine.clear();
+                    blocksToMineOriginalCount = 0;
+                    resetArea(false);
+                    setWorkingEnabled(enabled);
+                }
+                if (miningStateVersion != 1 || moved) {
+                    miningStateVersion = 1;
+                    getMachine().setChanged();
+                }
+            }
         }
     }
 

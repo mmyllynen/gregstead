@@ -40,7 +40,7 @@ public class NotifiableFluidTank extends NotifiableRecipeHandlerTrait<SizedFluid
     public final IO handlerIO;
     @Getter
     public final IO capabilityIO;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected final CustomFluidTank[] storages;
     @Getter
@@ -48,7 +48,7 @@ public class NotifiableFluidTank extends NotifiableRecipeHandlerTrait<SizedFluid
                                        // while creating tanks.
     private Boolean isEmpty;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected final CustomFluidTank lockedFluid = new CustomFluidTank(FluidType.BUCKET_VOLUME);

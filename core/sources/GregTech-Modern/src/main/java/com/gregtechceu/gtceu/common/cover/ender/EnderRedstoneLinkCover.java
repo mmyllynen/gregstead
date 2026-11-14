@@ -23,7 +23,7 @@ public class EnderRedstoneLinkCover extends AbstractEnderLinkCover<VirtualRedsto
     @Getter
     protected final SyncDataHolder syncDataHolder = new SyncDataHolder(this);
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     private VirtualRedstone storage;
     @SaveField

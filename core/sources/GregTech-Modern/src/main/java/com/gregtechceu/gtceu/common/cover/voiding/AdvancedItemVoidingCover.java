@@ -25,12 +25,12 @@ import java.util.Map;
 
 public class AdvancedItemVoidingCover extends ItemVoidingCover {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private VoidingMode voidingMode = VoidingMode.VOID_ANY;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected int globalVoidingLimit = 1;
 

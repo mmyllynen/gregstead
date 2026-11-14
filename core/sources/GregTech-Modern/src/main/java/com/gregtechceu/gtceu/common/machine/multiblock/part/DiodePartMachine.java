@@ -66,7 +66,7 @@ public class DiodePartMachine extends TieredIOPartMachine {
 
     @Getter
     @SyncToClient
-    @SaveField(nbtKey = "amp_mode")
+    @SaveField(nbtKey = "amp_mode", item = SaveField.ItemSave.VALUE)
     private int amps;
 
     public DiodePartMachine(BlockEntityCreationInfo info, int tier) {

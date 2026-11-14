@@ -29,16 +29,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class AdvancedFluidVoidingCover extends FluidVoidingCover {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private VoidingMode voidingMode = VoidingMode.VOID_ANY;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected int globalTransferSizeMillibuckets = 1;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private BucketMode transferBucketMode = BucketMode.MILLI_BUCKET;

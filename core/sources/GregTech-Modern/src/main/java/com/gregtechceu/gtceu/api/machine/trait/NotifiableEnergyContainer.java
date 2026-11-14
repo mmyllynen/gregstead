@@ -48,7 +48,7 @@ public class NotifiableEnergyContainer extends NotifiableRecipeHandlerTrait<Ener
     @Getter
     protected IO handlerIO;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected long energyStored;
     @Getter

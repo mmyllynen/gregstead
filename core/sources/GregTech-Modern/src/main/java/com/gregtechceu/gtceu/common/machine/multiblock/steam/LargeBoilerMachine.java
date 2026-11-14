@@ -52,7 +52,7 @@ public class LargeBoilerMachine extends WorkableMultiblockMachine implements IDi
 
     @Getter
     public final int maxTemperature, heatSpeed;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private int currentTemperature, throttle;
     @Nullable

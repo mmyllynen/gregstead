@@ -68,7 +68,7 @@ public class ItemCollectorMachine extends TieredEnergyMachine
     @Getter
     @SaveField
     protected final CustomItemStackHandler chargerInventory;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected final CustomItemStackHandler filterInventory;
 
     @Nullable
@@ -81,7 +81,7 @@ public class ItemCollectorMachine extends TieredEnergyMachine
 
     private AABB aabb;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @SyncToClient
     private int range;
@@ -91,7 +91,7 @@ public class ItemCollectorMachine extends TieredEnergyMachine
     private final int maxRange;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isWorkingEnabled = true;
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.32 / Gregstead 8.0.15
+
+- Preserve miner pending ore queues and batch counts across world reloads (#8).
+- Separate machine item resources/settings from world runtime state: relocated miners start a new area instead of retaining Done and old coordinates (#37).
+- Migrate legacy machine items and rescan old miners once without replaying mined blocks.
+- Preserve fluids, energy, operating settings and storage contents; physical inventories and covers drop or pack exactly once.
+- Preserve real AE2 buffers while excluding virtual stocking views and network identities.
+- Keep all other components and third-party pack inputs unchanged from 1.0.31.
+
 ## 1.0.31 / Gregstead 8.0.14
 
 - Scoop 1000 mB of compatible source fluids into barrels and drums; sneak to place.

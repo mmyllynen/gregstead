@@ -33,7 +33,7 @@ public abstract class WorkableTieredMachine extends TieredEnergyMachine implemen
     private GTRecipeType[] recipeTypes;
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     public int activeRecipeType;
     @Getter
     protected final CleanroomReceiverTrait cleanroomReceiver;
@@ -47,11 +47,11 @@ public abstract class WorkableTieredMachine extends TieredEnergyMachine implemen
     protected final Map<IO, List<RecipeHandlerList>> capabilitiesProxy;
     @Getter
     protected final Map<IO, Map<RecipeCapability<?>, List<IRecipeHandler<?>>>> capabilitiesFlat;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected int overclockTier;
     protected final List<ISubscription> traitSubscriptions;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected boolean isMuffled;

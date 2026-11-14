@@ -133,13 +133,13 @@ public class MEPatternBufferPartMachine extends MEBusPartMachine
     protected final NotifiableFluidTank shareTank;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected final InternalSlot[] internalInventory = new InternalSlot[MAX_PATTERN_COUNT];
 
     private final BiMap<IPatternDetails, InternalSlot> detailsSlotMap = HashBiMap.create(MAX_PATTERN_COUNT);
 
     @SyncToClient
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private String customName = "";
 
     private boolean needPatternSync;
@@ -428,6 +428,7 @@ public class MEPatternBufferPartMachine extends MEBusPartMachine
 
     @Override
     public void onMachineDestroyed() {
+        super.onMachineDestroyed();
         patternInventory.dropInventoryInWorld(getLevel(), getBlockPos());
         shareInventory.dropInventoryInWorld();
     }

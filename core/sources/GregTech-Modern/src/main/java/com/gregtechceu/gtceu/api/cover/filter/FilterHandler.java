@@ -30,7 +30,7 @@ public abstract class FilterHandler<T, F extends Filter<T, F>> implements ISyncM
 
     private final ISyncManaged container;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private ItemStack filterItem = ItemStack.EMPTY;

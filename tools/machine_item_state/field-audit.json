@@ -1,0 +1,2045 @@
+[
+  {
+    "class": "api/blockentity/PipeBlockEntity.java",
+    "fields": [
+      "coverContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/blockentity/PipeBlockEntity.java",
+    "fields": [
+      "connections"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/blockentity/PipeBlockEntity.java",
+    "fields": [
+      "blockedConnections"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/blockentity/PipeBlockEntity.java",
+    "fields": [
+      "paintingColor"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/blockentity/PipeBlockEntity.java",
+    "fields": [
+      "frameMaterial"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/cover/CoverBehavior.java",
+    "fields": [
+      "attachItem"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/cover/CoverBehavior.java",
+    "fields": [
+      "redstoneSignalOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/cover/filter/FilterHandler.java",
+    "fields": [
+      "filterItem"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/MachineCoverContainer.java",
+    "fields": [
+      "up",
+      "down",
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/MetaMachine.java",
+    "fields": [
+      "ownerUUID"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "api/machine/MetaMachine.java",
+    "fields": [
+      "coverContainer"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "api/machine/MetaMachine.java",
+    "fields": [
+      "paintingColor"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/MetaMachine.java",
+    "fields": [
+      "renderState"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "api/machine/SimpleTieredMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/SimpleTieredMachine.java",
+    "fields": [
+      "circuitInventory"
+    ],
+    "policy": "GHOST_CIRCUIT"
+  },
+  {
+    "class": "api/machine/SimpleTieredMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/TieredEnergyMachine.java",
+    "fields": [
+      "energyContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "recipeLogic"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "activeRecipeType"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "importItems",
+      "exportItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "importFluids",
+      "exportFluids"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "importComputation",
+      "exportComputation"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "overclockTier"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/WorkableTieredMachine.java",
+    "fields": [
+      "isMuffled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/MultiblockControllerMachine.java",
+    "fields": [
+      "isFormed"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/multiblock/MultiblockControllerMachine.java",
+    "fields": [
+      "isFlipped"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/TieredWorkableElectricMultiblockMachine.java",
+    "fields": [
+      "overclockTier"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/WorkableElectricMultiblockMachine.java",
+    "fields": [
+      "batchEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/WorkableMultiblockMachine.java",
+    "fields": [
+      "recipeLogic"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/multiblock/WorkableMultiblockMachine.java",
+    "fields": [
+      "activeRecipeType"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/WorkableMultiblockMachine.java",
+    "fields": [
+      "isMuffled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/WorkableMultiblockMachine.java",
+    "fields": [
+      "voidingMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/multiblock/part/TieredIOPartMachine.java",
+    "fields": [
+      "workingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/steam/SimpleSteamMachine.java",
+    "fields": [
+      "importItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/steam/SimpleSteamMachine.java",
+    "fields": [
+      "exportItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/steam/SteamBoilerMachine.java",
+    "fields": [
+      "waterTank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/steam/SteamBoilerMachine.java",
+    "fields": [
+      "currentTemperature"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/steam/SteamBoilerMachine.java",
+    "fields": [
+      "timeBeforeCoolingDown"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/steam/SteamMachine.java",
+    "fields": [
+      "steamTank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/steam/SteamWorkableMachine.java",
+    "fields": [
+      "recipeLogic"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/steam/SteamWorkableMachine.java",
+    "fields": [
+      "outputFacing"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/steam/SteamWorkableMachine.java",
+    "fields": [
+      "isMuffled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/AutoOutputTrait.java",
+    "fields": [
+      "itemOutputDirection",
+      "fluidOutputDirection"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/AutoOutputTrait.java",
+    "fields": [
+      "autoOutputItems"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/AutoOutputTrait.java",
+    "fields": [
+      "autoOutputFluids"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/AutoOutputTrait.java",
+    "fields": [
+      "allowItemInputFromOutputSide"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/AutoOutputTrait.java",
+    "fields": [
+      "allowFluidInputFromOutputSide"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/ExhaustVentMachineTrait.java",
+    "fields": [
+      "needsVenting"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/NotifiableEnergyContainer.java",
+    "fields": [
+      "energyStored"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/NotifiableFluidTank.java",
+    "fields": [
+      "storages"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/NotifiableFluidTank.java",
+    "fields": [
+      "lockedFluid"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/NotifiableItemStackHandler.java",
+    "fields": [
+      "storage"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/NotifiableRecipeHandlerTrait.java",
+    "fields": [
+      "isDistinct"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "status"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "isActive"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "waitingReason"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "lastRecipe"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "consecutiveRecipes"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "lastOriginRecipe"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "progress"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "duration"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "totalContinuousRunningTime"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "suspendAfterFinish"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/RecipeLogic.java",
+    "fields": [
+      "chanceCaches"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "api/machine/trait/hpca/HPCAComponentTrait.java",
+    "fields": [
+      "isDamaged"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "api/pipenet/PipeCoverContainer.java",
+    "fields": [
+      "up",
+      "down",
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/blockentity/CableBlockEntity.java",
+    "fields": [
+      "temperature"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/blockentity/FluidPipeBlockEntity.java",
+    "fields": [
+      "fluidTanks"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "formatStringArgs"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "formatStringLines"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "text"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "itemStackHandler"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "updateInterval"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "ticksSincePlaced"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "createDisplayTargetBuffer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "computerCraftTextBuffer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/ComputerMonitorCover.java",
+    "fields": [
+      "placeholderUUID"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "transferRate"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "io"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "distributionMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "manualIOMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ConveyorCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/FacadeCover.java",
+    "fields": [
+      "facadeState"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/FluidFilterCover.java",
+    "fields": [
+      "filterMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/FluidFilterCover.java",
+    "fields": [
+      "allowFlow"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/FluidRegulatorCover.java",
+    "fields": [
+      "transferMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/FluidRegulatorCover.java",
+    "fields": [
+      "transferBucketMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/FluidRegulatorCover.java",
+    "fields": [
+      "globalTransferLimit"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ItemFilterCover.java",
+    "fields": [
+      "filterMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ItemFilterCover.java",
+    "fields": [
+      "allowFlow"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/MachineControllerCover.java",
+    "fields": [
+      "isInverted"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/MachineControllerCover.java",
+    "fields": [
+      "minRedstoneStrength"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/MachineControllerCover.java",
+    "fields": [
+      "controllerMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/MachineControllerCover.java",
+    "fields": [
+      "preventPowerFail"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "transferRate"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "io"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "bucketMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "manualIOMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/PumpCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/RobotArmCover.java",
+    "fields": [
+      "transferMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/RobotArmCover.java",
+    "fields": [
+      "globalTransferLimit"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ShutterCover.java",
+    "fields": [
+      "workingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/StorageCover.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedEnergyDetectorCover.java",
+    "fields": [
+      "minValue",
+      "maxValue"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedEnergyDetectorCover.java",
+    "fields": [
+      "usePercent"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedFluidDetectorCover.java",
+    "fields": [
+      "minValue",
+      "maxValue"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedFluidDetectorCover.java",
+    "fields": [
+      "isLatched"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedFluidDetectorCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedItemDetectorCover.java",
+    "fields": [
+      "minValue",
+      "maxValue"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedItemDetectorCover.java",
+    "fields": [
+      "isLatched"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/detector/AdvancedItemDetectorCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/detector/DetectorCover.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/detector/DetectorCover.java",
+    "fields": [
+      "isInverted"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/AbstractEnderLinkCover.java",
+    "fields": [
+      "colorStr"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/AbstractEnderLinkCover.java",
+    "fields": [
+      "permission"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/AbstractEnderLinkCover.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/AbstractEnderLinkCover.java",
+    "fields": [
+      "manualIOMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/AbstractEnderLinkCover.java",
+    "fields": [
+      "io"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/ender/EnderFluidLinkCover.java",
+    "fields": [
+      "visualTank"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ender/EnderFluidLinkCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ender/EnderItemLinkCover.java",
+    "fields": [
+      "storage"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ender/EnderItemLinkCover.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ender/EnderRedstoneLinkCover.java",
+    "fields": [
+      "storage"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/cover/ender/EnderRedstoneLinkCover.java",
+    "fields": [
+      "uuid"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/cover/voiding/AdvancedFluidVoidingCover.java",
+    "fields": [
+      "voidingMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/voiding/AdvancedFluidVoidingCover.java",
+    "fields": [
+      "globalTransferSizeMillibuckets"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/voiding/AdvancedFluidVoidingCover.java",
+    "fields": [
+      "transferBucketMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/voiding/AdvancedItemVoidingCover.java",
+    "fields": [
+      "voidingMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/cover/voiding/AdvancedItemVoidingCover.java",
+    "fields": [
+      "globalVoidingLimit"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/BatteryBufferMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/BatteryBufferMachine.java",
+    "fields": [
+      "batteryInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/BlockBreakerMachine.java",
+    "fields": [
+      "cache"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/BlockBreakerMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/BlockBreakerMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/BlockBreakerMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/ChargerMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/ChargerMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "cache"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "allowInputFromOutputSideItems"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "baitHandler"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "progress"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "active"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "junkEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/FisherMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/HullMachine.java",
+    "fields": [
+      "gridNodeHost"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/HullMachine.java",
+    "fields": [
+      "energyContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "output"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "filterInventory"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "range"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "active"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/ItemCollectorMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/MinerMachine.java",
+    "fields": [
+      "chargerInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/MinerMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/PumpMachine.java",
+    "fields": [
+      "pumpHeadY"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/PumpMachine.java",
+    "fields": [
+      "cache"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/PumpMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/electric/TransformerMachine.java",
+    "fields": [
+      "isTransformUp"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/TransformerMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/WorldAcceleratorMachine.java",
+    "fields": [
+      "isWorkingEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/WorldAcceleratorMachine.java",
+    "fields": [
+      "isRandomTickMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/electric/WorldAcceleratorMachine.java",
+    "fields": [
+      "active"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/AssemblyLineMachine.java",
+    "fields": [
+      "allowCircuitSlots"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/electric/CentralMonitorMachine.java",
+    "fields": [
+      "leftDist"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/CentralMonitorMachine.java",
+    "fields": [
+      "monitorGroups"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/CleanroomMachine.java",
+    "fields": [
+      "lDist"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/CleanroomMachine.java",
+    "fields": [
+      "cleanAmount"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/DistillationTowerMachine.java",
+    "fields": [
+      "workingRecipe"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/FusionReactorMachine.java",
+    "fields": [
+      "heat"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/electric/FusionReactorMachine.java",
+    "fields": [
+      "energyContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/MultiblockTankMachine.java",
+    "fields": [
+      "tank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/PowerSubstationMachine.java",
+    "fields": [
+      "energyBank"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/electric/research/HPCAMachine.java",
+    "fields": [
+      "hpcaHandler"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/electric/research/HPCAMachine.java",
+    "fields": [
+      "temperature"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/DataAccessHatchMachine.java",
+    "fields": [
+      "importItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/DiodePartMachine.java",
+    "fields": [
+      "energyContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/DiodePartMachine.java",
+    "fields": [
+      "amps"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/DualHatchPartMachine.java",
+    "fields": [
+      "tank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/EnergyHatchPartMachine.java",
+    "fields": [
+      "energyContainer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/FluidHatchPartMachine.java",
+    "fields": [
+      "tank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/FluidHatchPartMachine.java",
+    "fields": [
+      "circuitSlotEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/FluidHatchPartMachine.java",
+    "fields": [
+      "circuitInventory"
+    ],
+    "policy": "GHOST_CIRCUIT"
+  },
+  {
+    "class": "common/machine/multiblock/part/ItemBusPartMachine.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/ItemBusPartMachine.java",
+    "fields": [
+      "circuitSlotEnabled"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/ItemBusPartMachine.java",
+    "fields": [
+      "circuitInventory"
+    ],
+    "policy": "GHOST_CIRCUIT"
+  },
+  {
+    "class": "common/machine/multiblock/part/ItemBusPartMachine.java",
+    "fields": [
+      "isDistinct"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/ItemBusPartMachine.java",
+    "fields": [
+      "filterHandler"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/LaserHatchPartMachine.java",
+    "fields": [
+      "buffer"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/MaintenanceHatchPartMachine.java",
+    "fields": [
+      "itemStackHandler"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/MaintenanceHatchPartMachine.java",
+    "fields": [
+      "isTaped"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/MaintenanceHatchPartMachine.java",
+    "fields": [
+      "timeActive"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/MaintenanceHatchPartMachine.java",
+    "fields": [
+      "maintenanceProblems"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/MaintenanceHatchPartMachine.java",
+    "fields": [
+      "durationMultiplier"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/MufflerPartMachine.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/ObjectHolderMachine.java",
+    "fields": [
+      "heldItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/ObjectHolderMachine.java",
+    "fields": [
+      "isLocked"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/ParallelHatchPartMachine.java",
+    "fields": [
+      "currentParallel"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/part/RotorHolderPartMachine.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/RotorHolderPartMachine.java",
+    "fields": [
+      "rotorSpeed"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/RotorHolderPartMachine.java",
+    "fields": [
+      "rotorMaterial"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/monitor/AdvancedMonitorPartMachine.java",
+    "fields": [
+      "clickPosX"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/monitor/AdvancedMonitorPartMachine.java",
+    "fields": [
+      "clickPosY"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/monitor/AdvancedMonitorPartMachine.java",
+    "fields": [
+      "clicked"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/part/monitor/AdvancedMonitorPartMachine.java",
+    "fields": [
+      "resetClickedNextTick"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/primitive/PrimitiveWorkableMachine.java",
+    "fields": [
+      "importItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/primitive/PrimitiveWorkableMachine.java",
+    "fields": [
+      "exportItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/primitive/PrimitiveWorkableMachine.java",
+    "fields": [
+      "importFluids"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/primitive/PrimitiveWorkableMachine.java",
+    "fields": [
+      "exportFluids"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/multiblock/steam/LargeBoilerMachine.java",
+    "fields": [
+      "currentTemperature",
+      "throttle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/multiblock/steam/LargeBoilerMachine.java",
+    "fields": [
+      "currentThrottle"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/steam/SteamLiquidBoilerMachine.java",
+    "fields": [
+      "fuelTank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/steam/SteamMinerMachine.java",
+    "fields": [
+      "importItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/steam/SteamMinerMachine.java",
+    "fields": [
+      "exportItems"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/steam/SteamSolidBoilerMachine.java",
+    "fields": [
+      "fuelHandler",
+      "ashHandler"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/BufferMachine.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/BufferMachine.java",
+    "fields": [
+      "tank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/BufferMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/CrateMachine.java",
+    "fields": [
+      "isTaped"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/CrateMachine.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/machine/storage/CreativeChestMachine.java",
+    "fields": [
+      "itemsPerCycle",
+      "ticksPerCycle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeComputationProviderMachine.java",
+    "fields": [
+      "maxCWUt"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeComputationProviderMachine.java",
+    "fields": [
+      "active"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "voltage"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "amps"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "setTier"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "active"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "source"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeEnergyContainerMachine.java",
+    "fields": [
+      "energyIOPerSec"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/CreativeTankMachine.java",
+    "fields": [
+      "mBPerCycle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/CreativeTankMachine.java",
+    "fields": [
+      "ticksPerCycle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/DrumMachine.java",
+    "fields": [
+      "cache"
+    ],
+    "policy": "NONE"
+  },
+  {
+    "class": "common/machine/storage/DrumMachine.java",
+    "fields": [
+      "stored"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/DrumMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/LongDistanceEndpointMachine.java",
+    "fields": [
+      "ioType"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/QuantumChestMachine.java",
+    "fields": [
+      "isVoiding"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/QuantumChestMachine.java",
+    "fields": [
+      "lockedItem"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/QuantumChestMachine.java",
+    "fields": [
+      "stored"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/QuantumChestMachine.java",
+    "fields": [
+      "storedAmount"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/QuantumChestMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/QuantumTankMachine.java",
+    "fields": [
+      "isVoiding"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/QuantumTankMachine.java",
+    "fields": [
+      "lockedFluid"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/storage/QuantumTankMachine.java",
+    "fields": [
+      "stored"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/QuantumTankMachine.java",
+    "fields": [
+      "storedAmount"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/storage/QuantumTankMachine.java",
+    "fields": [
+      "autoOutput"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/CleanroomLogic.java",
+    "fields": [
+      "isActiveAndNeedsUpdate"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/ConverterTrait.java",
+    "fields": [
+      "feToEu"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/trait/miner/LargeMinerLogic.java",
+    "fields": [
+      "isChunkMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/trait/miner/LargeMinerLogic.java",
+    "fields": [
+      "isSilkTouchMode"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "blocksToMine"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "blocksToMineOriginalCount"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "x"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "y"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "z"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "startX"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "startZ"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "startY"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "pipeY"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "mineX"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "mineZ"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "mineY"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "pipeLength"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "currentRadius"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "isDone"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "common/machine/trait/miner/MinerLogic.java",
+    "fields": [
+      "miningStateVersion"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEBusPartMachine.java",
+    "fields": [
+      "nodeHolder"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEHatchPartMachine.java",
+    "fields": [
+      "nodeHolder"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEOutputBusPartMachine.java",
+    "fields": [
+      "internalBuffer"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEOutputHatchPartMachine.java",
+    "fields": [
+      "internalBuffer"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "patternInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "shareInventory"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "shareTank"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "internalInventory"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "customName"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferPartMachine.java",
+    "fields": [
+      "proxies"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/machine/MEPatternBufferProxyPartMachine.java",
+    "fields": [
+      "bufferPos"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingBusPartMachine.java",
+    "fields": [
+      "autoPull"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingBusPartMachine.java",
+    "fields": [
+      "minStackSize"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingBusPartMachine.java",
+    "fields": [
+      "ticksPerCycle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingHatchPartMachine.java",
+    "fields": [
+      "autoPull"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingHatchPartMachine.java",
+    "fields": [
+      "minStackSize"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/MEStockingHatchPartMachine.java",
+    "fields": [
+      "ticksPerCycle"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/machine/trait/GridNodeHolder.java",
+    "fields": [
+      "mainNode"
+    ],
+    "policy": "CHILDREN"
+  },
+  {
+    "class": "integration/ae2/slot/ExportOnlyAEFluidList.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "VALUE"
+  },
+  {
+    "class": "integration/ae2/slot/ExportOnlyAEItemList.java",
+    "fields": [
+      "inventory"
+    ],
+    "policy": "VALUE"
+  }
+]

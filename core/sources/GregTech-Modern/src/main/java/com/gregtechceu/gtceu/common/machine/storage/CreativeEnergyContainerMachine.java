@@ -28,15 +28,15 @@ import java.util.Arrays;
 
 public class CreativeEnergyContainerMachine extends TieredMachine implements ILaserContainer, IUIMachine {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private long voltage = 0;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int amps = 1;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int setTier = 0;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean active = false;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean source = true;
     @SaveField
     private long energyIOPerSec = 0;

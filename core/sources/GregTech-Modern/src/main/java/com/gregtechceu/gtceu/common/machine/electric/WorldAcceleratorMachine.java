@@ -71,11 +71,11 @@ public class WorldAcceleratorMachine extends TieredEnergyMachine implements ICon
     private final int successLimit;
     private final int randRange;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isWorkingEnabled = true;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isRandomTickMode = true;
     @Getter

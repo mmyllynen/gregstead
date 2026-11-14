@@ -7,7 +7,7 @@
     "gregtech": {
       "name": "GregTech CEu - Gregstead Port",
       "kind": "mod",
-      "version": "8.0.14",
+      "version": "8.0.15",
       "side": "both",
       "artifactStem": "gregstead"
     },
@@ -77,7 +77,7 @@
     "pack": {
       "name": "Gregstead",
       "kind": "modpack",
-      "version": "1.0.31"
+      "version": "1.0.32"
     },
     "ae2-fixes": {
       "name": "Gregstead AE2 Fixes",

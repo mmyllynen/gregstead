@@ -46,7 +46,7 @@ public abstract class WorkableMultiblockMachine extends MultiblockControllerMach
     private GTRecipeType[] recipeTypes;
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int activeRecipeType;
     @Getter
     protected final Map<IO, List<RecipeHandlerList>> capabilitiesProxy;
@@ -54,7 +54,7 @@ public abstract class WorkableMultiblockMachine extends MultiblockControllerMach
     protected final Map<IO, Map<RecipeCapability<?>, List<IRecipeHandler<?>>>> capabilitiesFlat;
     protected final List<ISubscription> traitSubscriptions;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected boolean isMuffled;
     protected boolean previouslyMuffled = true;
@@ -63,7 +63,7 @@ public abstract class WorkableMultiblockMachine extends MultiblockControllerMach
     protected LongSet activeBlocks;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected VoidingMode voidingMode = VoidingMode.VOID_NONE;
 

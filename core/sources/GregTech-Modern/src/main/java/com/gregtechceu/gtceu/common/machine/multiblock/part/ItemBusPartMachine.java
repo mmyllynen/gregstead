@@ -56,14 +56,14 @@ public class ItemBusPartMachine extends TieredIOPartMachine
     @Getter(AccessLevel.PROTECTED)
     private boolean hasCircuitSlot = true;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected boolean circuitSlotEnabled;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.GHOST_CIRCUIT)
     protected final NotifiableItemStackHandler circuitInventory;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isDistinct = false;
     @SaveField

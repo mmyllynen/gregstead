@@ -103,6 +103,9 @@ public abstract class CoverBehavior implements ISyncManaged, IToolGridHighlight,
     public void onAttached(ItemStack itemStack, @Nullable ServerPlayer player) {
         attachItem = itemStack.copy();
         attachItem.setCount(1);
+        var portable = itemStack.get(com.gregtechceu.gtceu.common.data.item.GTDataComponents.COVER_ITEM_DATA);
+        if (portable != null) syncDataHolder.deserializeItemNBT(coverHolder.getLevel().registryAccess(), portable.copyTag());
+        attachItem.remove(com.gregtechceu.gtceu.common.data.item.GTDataComponents.COVER_ITEM_DATA);
         syncDataHolder.markClientSyncFieldDirty("attachItem");
     }
 
@@ -114,7 +117,11 @@ public abstract class CoverBehavior implements ISyncManaged, IToolGridHighlight,
     // ********** Misc ***********//
     //////////////////////////////////////
     public ItemStack getPickItem() {
-        return attachItem;
+        var stack = attachItem.copy();
+        var data = syncDataHolder.serializeItemNBT(coverHolder.getLevel().registryAccess());
+        if (!data.isEmpty()) stack.set(com.gregtechceu.gtceu.common.data.item.GTDataComponents.COVER_ITEM_DATA,
+                net.minecraft.world.item.component.CustomData.of(data));
+        return stack;
     }
 
     /**

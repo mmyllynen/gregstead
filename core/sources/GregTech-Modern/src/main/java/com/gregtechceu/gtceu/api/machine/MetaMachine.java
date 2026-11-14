@@ -99,24 +99,24 @@ public class MetaMachine extends ManagedSyncBlockEntity implements IGregtechBloc
     protected final SyncDataHolder syncDataHolder = new SyncDataHolder(this);
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @Nullable
     private UUID ownerUUID;
 
     @Getter
     @SyncToClient
-    @SaveField(nbtKey = "cover")
+    @SaveField(nbtKey = "cover", item = SaveField.ItemSave.NONE)
     protected final MachineCoverContainer coverContainer;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     private int paintingColor = -1;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @RerenderOnChanged
     private MachineRenderState renderState;
@@ -145,7 +145,8 @@ public class MetaMachine extends ManagedSyncBlockEntity implements IGregtechBloc
     @Override
     protected void loadManagedTag(CompoundTag tag, HolderLookup.Provider registries) {
         TagCompatibilityFixer.fixMachineAutoOutputTag(tag);
-        super.loadManagedTag(tag, registries);
+        if (MachineItemState.isItemPlacement(this)) MachineItemState.restoreLegacy(this, tag, registries);
+        else super.loadManagedTag(tag, registries);
     }
 
     @MustBeInvokedByOverriders
@@ -202,14 +203,26 @@ public class MetaMachine extends ManagedSyncBlockEntity implements IGregtechBloc
      * 
      * @param componentInput Component Input
      */
-    protected void applyImplicitComponents(DataComponentGetter componentInput) {}
+    protected void applyImplicitComponents(DataComponentGetter componentInput) {
+        var data = componentInput.get(com.gregtechceu.gtceu.common.data.item.GTDataComponents.MACHINE_ITEM_DATA);
+        if (data != null) MachineItemState.restore(this, data.copyTag(), getLevel().registryAccess());
+    }
+
+    public void saveToItem(ItemStack stack, HolderLookup.Provider registries) {
+        stack.remove(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA);
+        stack.applyComponents(collectComponents());
+    }
 
     /**
      * Saves this machine's data to item stack components.
      * 
      * @param components Component Builder
      */
-    public void collectImplicitComponents(DataComponentMap.Builder components) {}
+    public void collectImplicitComponents(DataComponentMap.Builder components) {
+        var data = MachineItemState.collect(this, getLevel().registryAccess());
+        if (!data.isEmpty()) components.set(com.gregtechceu.gtceu.common.data.item.GTDataComponents.MACHINE_ITEM_DATA,
+                net.minecraft.world.item.component.CustomData.of(data));
+    }
 
     //////////////////////////////////////
     // ***** Tickable Manager ****//

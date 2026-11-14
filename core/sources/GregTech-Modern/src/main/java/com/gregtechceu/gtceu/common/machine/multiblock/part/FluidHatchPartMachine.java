@@ -63,11 +63,11 @@ public class FluidHatchPartMachine extends TieredIOPartMachine implements IHasCi
     @Nullable
     protected ISubscription tankSubs;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected boolean circuitSlotEnabled;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.GHOST_CIRCUIT)
     protected final NotifiableItemStackHandler circuitInventory;
 
     public FluidHatchPartMachine(BlockEntityCreationInfo info, int tier, IO io, int initialCapacity, int slots) {

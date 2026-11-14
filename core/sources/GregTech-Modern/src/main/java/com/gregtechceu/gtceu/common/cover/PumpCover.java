@@ -55,31 +55,31 @@ public class PumpCover extends CoverBehavior implements IIOCover, IUICover, ICon
 
     public final int tier;
     public final int maxFluidTransferRate;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected int transferRate;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     @RerenderOnChanged
     protected IO io = IO.OUT;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected BucketMode bucketMode = BucketMode.MILLI_BUCKET;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected ManualIOMode manualIOMode = ManualIOMode.DISABLED;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected boolean isWorkingEnabled = true;
     protected int mBLeftToTransferLastSecond;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     protected final FilterHandler<FluidStack, FluidFilter> filterHandler;
     protected final ConditionalSubscriptionHandler subscriptionHandler;

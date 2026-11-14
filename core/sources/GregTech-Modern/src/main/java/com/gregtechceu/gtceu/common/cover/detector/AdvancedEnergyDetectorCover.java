@@ -34,12 +34,12 @@ public class AdvancedEnergyDetectorCover extends EnergyDetectorCover implements 
     private static final int DEFAULT_MIN_PERCENT = 33;
     private static final int DEFAULT_MAX_PERCENT = 66;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     public long minValue, maxValue;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private boolean usePercent;
 

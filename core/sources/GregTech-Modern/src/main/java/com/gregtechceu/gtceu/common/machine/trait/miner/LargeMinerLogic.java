@@ -41,10 +41,10 @@ public class LargeMinerLogic extends MinerLogic {
     private int overclockAmount = 0;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean isChunkMode;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean isSilkTouchMode;
 
     private LootItemFunction dropMultiplier;

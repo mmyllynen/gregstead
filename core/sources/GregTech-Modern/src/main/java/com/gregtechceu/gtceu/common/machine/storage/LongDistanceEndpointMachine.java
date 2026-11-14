@@ -33,7 +33,7 @@ public abstract class LongDistanceEndpointMachine extends MetaMachine implements
     @NotNull
     @Getter
     private final LongDistancePipeType pipeType;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     private IO ioType = IO.NONE;

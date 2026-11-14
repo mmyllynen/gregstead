@@ -64,7 +64,7 @@ public class FisherMachine extends TieredEnergyMachine
     protected final NotifiableItemStackHandler cache;
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected boolean allowInputFromOutputSideItems;
     @SaveField
     protected final NotifiableItemStackHandler baitHandler;
@@ -88,7 +88,7 @@ public class FisherMachine extends TieredEnergyMachine
     private int progress = 0;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isWorkingEnabled = true;
 
@@ -101,7 +101,7 @@ public class FisherMachine extends TieredEnergyMachine
     private boolean hasWater = false;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected boolean junkEnabled = true;
     @SaveField

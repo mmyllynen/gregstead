@@ -237,8 +237,7 @@ public class MetaMachineBlock extends Block implements EntityBlock, com.lowdragm
             machine.modifyDrops(drops);
             for (ItemStack drop : drops) {
                 if (drop.getItem() instanceof MetaMachineItem item && item.getBlock() == this) {
-                    com.lowdragmc.lowdraglib.transfer.persistence.BlockEntityItems.save(
-                            machine, drop, be.getLevel().registryAccess());
+                    machine.saveToItem(drop, be.getLevel().registryAccess());
                     // break here to not dupe contents if a machine drops multiple of itself for whatever reason.
                     break;
                 }

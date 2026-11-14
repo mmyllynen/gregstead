@@ -57,19 +57,19 @@ public class MaintenanceHatchPartMachine extends TieredPartMachine
     @SaveField
     private final NotifiableItemStackHandler itemStackHandler;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isTaped;
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected int timeActive;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected byte maintenanceProblems = startProblems();
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private float durationMultiplier = 1f;
     @Nullable
     protected TickableSubscription maintenanceSubs;

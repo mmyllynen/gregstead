@@ -59,7 +59,7 @@ public class ChargerMachine extends TieredEnergyMachine implements IControllable
 
     public static final EnumProperty<ChargerMachine.State> STATE_PROPERTY = GTMachineModelProperties.CHARGER_STATE;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     private boolean isWorkingEnabled;

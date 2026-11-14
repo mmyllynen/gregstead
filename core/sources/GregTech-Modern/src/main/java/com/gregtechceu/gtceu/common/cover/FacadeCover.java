@@ -22,7 +22,7 @@ public class FacadeCover extends CoverBehavior {
 
     @Getter
     @SyncToClient
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @RerenderOnChanged
     private BlockState facadeState = Blocks.STONE.defaultBlockState();
 

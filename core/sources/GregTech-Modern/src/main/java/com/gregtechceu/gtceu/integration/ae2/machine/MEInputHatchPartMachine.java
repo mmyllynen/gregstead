@@ -46,8 +46,9 @@ public class MEInputHatchPartMachine extends MEHatchPartMachine
 
     @Override
     public void onMachineDestroyed() {
+        // Real stock travels with the item; virtual stocking views carry only config.
+        // Do not also insert these resources into ME after loot has captured them.
         super.onMachineDestroyed();
-        flushInventory();
     }
 
     @Override

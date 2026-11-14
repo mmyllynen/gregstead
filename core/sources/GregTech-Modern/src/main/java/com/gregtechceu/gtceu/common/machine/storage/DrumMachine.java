@@ -37,7 +37,7 @@ public class DrumMachine extends MetaMachine {
 
     @Getter
     private final int maxStoredFluids;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     protected final NotifiableFluidTank cache;
     @Nullable
     protected ISubscription exportFluidSubs;

@@ -40,7 +40,7 @@ public class BatteryBufferMachine extends TieredEnergyMachine
 
     public static final long AMPS_PER_BATTERY = 2L;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private boolean isWorkingEnabled;
     @Getter

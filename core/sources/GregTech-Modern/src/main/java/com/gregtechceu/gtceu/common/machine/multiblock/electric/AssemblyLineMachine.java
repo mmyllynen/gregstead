@@ -40,7 +40,7 @@ public class AssemblyLineMachine extends WorkableElectricMultiblockMachine {
 
     @Accessors(fluent = true)
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected boolean allowCircuitSlots;
 
     public AssemblyLineMachine(BlockEntityCreationInfo info, boolean allowCircuitSlots) {

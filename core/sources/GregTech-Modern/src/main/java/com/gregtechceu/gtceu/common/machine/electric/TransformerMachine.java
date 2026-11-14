@@ -22,11 +22,11 @@ public class TransformerMachine extends TieredEnergyMachine implements IControll
 
     public static final BooleanProperty TRANSFORM_UP_PROPERTY = GTMachineModelProperties.IS_TRANSFORM_UP;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private boolean isTransformUp;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     private boolean isWorkingEnabled;

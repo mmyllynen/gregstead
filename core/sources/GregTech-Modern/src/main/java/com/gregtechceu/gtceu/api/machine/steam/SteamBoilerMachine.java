@@ -58,11 +58,11 @@ public abstract class SteamBoilerMachine extends SteamWorkableMachine
 
     @SaveField
     public final NotifiableFluidTank waterTank;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private int currentTemperature;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private int timeBeforeCoolingDown;
     @Getter

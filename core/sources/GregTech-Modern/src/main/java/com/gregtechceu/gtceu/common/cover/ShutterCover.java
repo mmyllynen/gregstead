@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ShutterCover extends CoverBehavior implements IControllable {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     private boolean workingEnabled = true;

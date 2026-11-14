@@ -47,7 +47,7 @@ public class MufflerPartMachine extends TieredPartMachine implements IUIMachine 
     @Getter
     private final int recoveryChance;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private final CustomItemStackHandler inventory;
 
     private TickableSubscription snowSubscription;

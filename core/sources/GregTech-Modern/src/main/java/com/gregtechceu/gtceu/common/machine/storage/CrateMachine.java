@@ -43,7 +43,7 @@ public class CrateMachine extends MetaMachine implements IUIMachine {
     @SyncToClient
     private boolean isTaped;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     public final NotifiableItemStackHandler inventory;
 
     public CrateMachine(BlockEntityCreationInfo info, Material material, int inventorySize) {

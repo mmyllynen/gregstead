@@ -481,6 +481,23 @@ public class RecipeLogic extends MachineTrait implements IWorkable, IFancyToolti
         return status == Status.SUSPEND;
     }
 
+    @Override
+    public net.minecraft.nbt.CompoundTag writeItemState(net.minecraft.core.HolderLookup.Provider lookup) {
+        var tag = getSyncDataHolder().serializeItemNBT(lookup);
+        tag.putBoolean("workingEnabled", isWorkingEnabled());
+        return tag;
+    }
+
+    @Override
+    public void readItemState(net.minecraft.core.HolderLookup.Provider lookup, net.minecraft.nbt.CompoundTag tag) {
+        getSyncDataHolder().deserializeItemNBT(lookup, tag);
+        boolean enabled = tag.contains("workingEnabled") ? tag.getBooleanOr("workingEnabled", true) :
+                !tag.getBooleanOr("suspendAfterFinish", false) &&
+                        !tag.getStringOr("status", "").equalsIgnoreCase("SUSPEND");
+        setWorkingEnabled(enabled);
+    }
+
+    @Override
     public boolean isWorkingEnabled() {
         return !isSuspend() && !isSuspendAfterFinish();
     }

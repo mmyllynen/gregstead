@@ -27,11 +27,11 @@ import java.util.Collection;
 public class CreativeComputationProviderMachine extends MetaMachine
                                                 implements IUIMachine, IOpticalComputationProvider {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int maxCWUt;
     private int lastRequestedCWUt;
     private int requestedCWUPerSec;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private boolean active;
     @Nullable

@@ -1,5 +1,14 @@
 # Release queue
 
+## 1.0.32 — machine persistence fixes
+
+- Gregstead 8.0.15; other components unchanged from 1.0.31.
+- Issues #8 and #37: world queue persistence and explicit portable machine resources/settings.
+- Verified 1,234 machine variants, 92 cover types, inventory/resource conservation, real world restart, legacy migration and actual mining. Client synchronization checked with pinned shaders enabled and disabled; prior drum regression passed.
+- All 2,290 release main-class files match the tested classes; ZIP CRC, checksums, ten-mod update bundle and unchanged other-mod hashes verified.
+- Regression probes and field-policy audit: `tools/machine_item_state/README.md`.
+- Publication/deployment verification is recorded separately from the historical queue below.
+
 ## 1.0.31 — verified source-fluid pickup release sources
 
 - Gregstead 8.0.14; other components unchanged from 1.0.30.

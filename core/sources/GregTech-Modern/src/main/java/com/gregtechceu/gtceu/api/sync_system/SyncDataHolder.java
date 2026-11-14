@@ -69,6 +69,43 @@ public class SyncDataHolder {
         return tag;
     }
 
+    /** Deliberately excludes runtime fields unless a field explicitly opts in. */
+    public CompoundTag serializeItemNBT(HolderLookup.Provider registries) {
+        CompoundTag result = new CompoundTag();
+        for (var field : syncData.getServerSaveFields()) {
+            Object value = field.handle.get(holder);
+            if (itemValueAllowed(field)) {
+                result.put(field.nbtSaveKey, serializeField(registries, holder, field, false, false));
+            } else if (field.itemSave == com.gregtechceu.gtceu.api.sync_system.annotations.SaveField.ItemSave.CHILDREN &&
+                    value instanceof ISyncManaged managed) {
+                var child = managed.writeItemState(registries);
+                if (!child.isEmpty()) result.put(field.nbtSaveKey, child);
+            }
+        }
+        return result;
+    }
+
+    /** Used for both new components and legacy full-NBT item migration. */
+    public void deserializeItemNBT(HolderLookup.Provider registries, CompoundTag tag) {
+        for (var field : syncData.getServerSaveFields()) {
+            Tag saved = tag.get(field.nbtSaveKey);
+            if (saved == null) continue;
+            if (itemValueAllowed(field)) {
+                deserializeField(registries, holder, field, saved, false);
+            } else if (field.itemSave == com.gregtechceu.gtceu.api.sync_system.annotations.SaveField.ItemSave.CHILDREN &&
+                    field.handle.get(holder) instanceof ISyncManaged managed && saved instanceof CompoundTag child) {
+                managed.readItemState(registries, child);
+            }
+        }
+        resyncAllFields();
+    }
+
+    private static boolean itemValueAllowed(FieldSyncData field) {
+        return field.itemSave == com.gregtechceu.gtceu.api.sync_system.annotations.SaveField.ItemSave.VALUE ||
+                (field.itemSave == com.gregtechceu.gtceu.api.sync_system.annotations.SaveField.ItemSave.GHOST_CIRCUIT &&
+                        com.gregtechceu.gtceu.config.ConfigHolder.INSTANCE.machines.ghostCircuit);
+    }
+
     private boolean shouldSerializeField(FieldSyncData field, boolean writeClient, boolean fullSync) {
         return !writeClient || fullSync || dirtySyncFields.contains(field.fieldName) || field.isSyncManaged;
     }

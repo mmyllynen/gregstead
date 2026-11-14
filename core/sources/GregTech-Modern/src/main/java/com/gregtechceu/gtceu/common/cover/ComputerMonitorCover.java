@@ -50,23 +50,23 @@ public class ComputerMonitorCover extends CoverBehavior
 
     private TickableSubscription subscription;
     private final CoverTextRenderer renderer;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private List<String> formatStringArgs = new ArrayList<>(8);
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private List<String> formatStringLines = new ArrayList<>(8);
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @Getter
     private List<MutableComponent> text = new ArrayList<>();
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     public CustomItemStackHandler itemStackHandler = new CustomItemStackHandler(8);
     @Setter
     private String placeholderSearch = "";
     @Setter
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int updateInterval = 100;
     @Getter
     @SaveField

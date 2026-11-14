@@ -29,7 +29,7 @@ import java.util.List;
 
 public class StorageCover extends CoverBehavior implements IUICover {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     public final CustomItemStackHandler inventory;
     private final int SIZE = 18;

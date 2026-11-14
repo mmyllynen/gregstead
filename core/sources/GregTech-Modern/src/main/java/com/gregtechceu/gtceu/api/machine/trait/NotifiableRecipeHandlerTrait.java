@@ -14,7 +14,7 @@ public abstract class NotifiableRecipeHandlerTrait<T> extends MachineTrait imple
 
     protected List<Runnable> listeners = new ArrayList<>();
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected boolean isDistinct;

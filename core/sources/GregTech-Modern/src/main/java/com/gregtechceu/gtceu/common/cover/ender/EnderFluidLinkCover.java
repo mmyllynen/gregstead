@@ -38,12 +38,12 @@ public class EnderFluidLinkCover extends AbstractEnderLinkCover<VirtualTank> {
 
     public static final int TRANSFER_RATE = 8000; // mB/t
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     protected VirtualTank visualTank;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     protected final FilterHandler<FluidStack, FluidFilter> filterHandler;
     protected int mBLeftToTransferLastSecond;

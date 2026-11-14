@@ -38,10 +38,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class CreativeTankMachine extends QuantumTankMachine {
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int mBPerCycle = 1000;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int ticksPerCycle = 1;
 
     public CreativeTankMachine(BlockEntityCreationInfo info) {

@@ -65,7 +65,7 @@ public class FusionReactorMachine extends WorkableElectricMultiblockMachine impl
     private final int tier;
     @Nullable
     protected EnergyContainerList inputEnergyContainers;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected long heat = 0;
     @SaveField
     protected final NotifiableEnergyContainer energyContainer;

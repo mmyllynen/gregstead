@@ -58,7 +58,7 @@ public class SimpleTieredMachine extends WorkableTieredMachine
     @SaveField
     protected final CustomItemStackHandler chargerInventory;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.GHOST_CIRCUIT)
     protected final NotifiableItemStackHandler circuitInventory;
     @Nullable
     protected TickableSubscription batterySubs;

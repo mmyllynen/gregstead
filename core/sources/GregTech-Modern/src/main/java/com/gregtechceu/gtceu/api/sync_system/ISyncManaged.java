@@ -22,6 +22,14 @@ public interface ISyncManaged {
 
     SyncDataHolder getSyncDataHolder();
 
+    default net.minecraft.nbt.CompoundTag writeItemState(net.minecraft.core.HolderLookup.Provider lookup) {
+        return getSyncDataHolder().serializeItemNBT(lookup);
+    }
+
+    default void readItemState(net.minecraft.core.HolderLookup.Provider lookup, net.minecraft.nbt.CompoundTag tag) {
+        getSyncDataHolder().deserializeItemNBT(lookup, tag);
+    }
+
     /**
      * Function called when a synced field requests a rerender
      */

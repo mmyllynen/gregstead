@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class ExportOnlyAEFluidList extends NotifiableFluidTank implements IConfigurableSlotList {
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected ExportOnlyAEFluidSlot[] inventory;
 
     public ExportOnlyAEFluidList(MetaMachine machine, int slots) {
@@ -31,6 +31,27 @@ public class ExportOnlyAEFluidList extends NotifiableFluidTank implements IConfi
             this.inventory[i].setOnContentsChanged(this::onContentsChanged);
             this.storages[i] = new FluidStorageDelegate(inventory[i]);
         }
+    }
+
+    @Override
+    public net.minecraft.nbt.CompoundTag writeItemState(net.minecraft.core.HolderLookup.Provider lookup) {
+        return portableSlots(getSyncDataHolder().serializeItemNBT(lookup));
+    }
+
+    @Override
+    public void readItemState(net.minecraft.core.HolderLookup.Provider lookup, net.minecraft.nbt.CompoundTag tag) {
+        getSyncDataHolder().deserializeItemNBT(lookup, portableSlots(tag.copy()));
+    }
+
+    private net.minecraft.nbt.CompoundTag portableSlots(net.minecraft.nbt.CompoundTag tag) {
+        // These are aliases of inventory slots, not an independent fluid store.
+        // Exclude both their duplicate real stock and their virtual stocking views.
+        tag.remove("storages");
+        // Stocking slots are views into ME, whereas normal import slots own real resources.
+        if (isStocking() && tag.get("inventory") instanceof net.minecraft.nbt.ListTag slots) {
+            for (var slot : slots) if (slot instanceof net.minecraft.nbt.CompoundTag entry) entry.remove("stock");
+        }
+        return tag;
     }
 
     @Override

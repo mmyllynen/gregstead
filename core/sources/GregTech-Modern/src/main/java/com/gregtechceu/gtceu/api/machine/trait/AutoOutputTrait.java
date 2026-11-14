@@ -52,25 +52,25 @@ public class AutoOutputTrait extends MachineTrait implements IRenderingTrait, II
     @Getter
     protected final List<IFluidHandler> fluidHandlers;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected @Nullable Direction itemOutputDirection, fluidOutputDirection;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected boolean autoOutputItems = false;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected boolean autoOutputFluids = false;
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected boolean allowItemInputFromOutputSide = false;
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     protected boolean allowFluidInputFromOutputSide = false;
 
     @Setter

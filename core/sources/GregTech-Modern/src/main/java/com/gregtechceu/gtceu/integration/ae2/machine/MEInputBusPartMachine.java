@@ -47,7 +47,9 @@ public class MEInputBusPartMachine extends MEBusPartMachine
 
     @Override
     public void onMachineDestroyed() {
-        flushInventory();
+        // Real stock travels with the item; virtual stocking views carry only config.
+        // Do not also insert these resources into ME after loot has captured them.
+        super.onMachineDestroyed();
     }
 
     @Override

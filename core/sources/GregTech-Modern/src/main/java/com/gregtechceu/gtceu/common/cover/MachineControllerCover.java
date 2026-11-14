@@ -46,15 +46,15 @@ public class MachineControllerCover extends CoverBehavior implements IUICover {
     private CustomItemStackHandler sideCoverSlot;
     private ButtonWidget modeButton;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private boolean isInverted = false;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private int minRedstoneStrength = 1;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     @Nullable
@@ -62,7 +62,7 @@ public class MachineControllerCover extends CoverBehavior implements IUICover {
 
     @Getter
     @Accessors(fluent = true)
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean preventPowerFail = false;
 
     public MachineControllerCover(CoverDefinition definition, ICoverable coverHolder, Direction attachedSide) {

@@ -17,7 +17,7 @@ public class TieredWorkableElectricMultiblockMachine extends WorkableElectricMul
                                                      implements ITieredMachine, IOverclockMachine {
 
     private final int tier;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     protected int overclockTier;
 

@@ -52,14 +52,14 @@ public class QuantumTankMachine extends TieredMachine implements IControllable,
         map.defaultReturnValue(-1L);
     });
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean isVoiding;
 
     @Getter
     private final long maxAmount;
     protected final FluidCache cache;
     @SyncToClient
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private final CustomFluidTank lockedFluid;
 
     @Getter

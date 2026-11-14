@@ -61,7 +61,7 @@ public class MultiblockControllerMachine extends MetaMachine {
     @RerenderOnChanged
     protected boolean isFormed;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     protected boolean isFlipped;
 

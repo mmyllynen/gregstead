@@ -27,7 +27,7 @@ public class ConverterTrait extends NotifiableEnergyContainer {
      * If FALSE, the front facing of the machine will OUTPUT FE, other sides INPUT EU.
      */
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     private boolean feToEu;

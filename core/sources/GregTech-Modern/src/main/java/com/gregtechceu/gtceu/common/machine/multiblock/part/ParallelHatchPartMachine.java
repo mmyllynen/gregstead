@@ -22,7 +22,7 @@ public class ParallelHatchPartMachine extends TieredPartMachine implements IFanc
 
     private final int maxParallel;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private int currentParallel = 1;
 

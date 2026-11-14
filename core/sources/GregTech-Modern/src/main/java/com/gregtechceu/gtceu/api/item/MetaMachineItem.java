@@ -24,6 +24,17 @@ public class MetaMachineItem extends BlockItem {
     }
 
     @Override
+    public net.minecraft.world.InteractionResult place(BlockPlaceContext context) {
+        var previous = com.gregtechceu.gtceu.api.machine.MachineItemState.beginPlacement(
+                context.getLevel(), context.getClickedPos());
+        try {
+            return super.place(context);
+        } finally {
+            com.gregtechceu.gtceu.api.machine.MachineItemState.endPlacement(previous);
+        }
+    }
+
+    @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
     protected boolean placeBlock(BlockPlaceContext context, BlockState state) {
         Level level = context.getLevel();

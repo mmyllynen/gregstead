@@ -34,15 +34,15 @@ public class AdvancedItemDetectorCover extends ItemDetectorCover implements IUIC
 
     private static final int DEFAULT_MIN = 64;
     private static final int DEFAULT_MAX = 512;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private int minValue, maxValue;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @Getter
     private boolean isLatched;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     @Getter
     protected final FilterHandler<ItemStack, ItemFilter> filterHandler;

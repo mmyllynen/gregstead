@@ -84,7 +84,7 @@ public class HPCAMachine extends WorkableElectricMultiblockMachine
 
     private boolean hasNotEnoughEnergy;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private double temperature = IDLE_TEMPERATURE; // start at idle temperature
 
     private final TimedProgressSupplier progressSupplier;

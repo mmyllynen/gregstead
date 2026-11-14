@@ -29,16 +29,16 @@ public class FluidRegulatorCover extends PumpCover {
 
     private static final int MAX_STACK_SIZE = 2_048_000_000; // Capacity of quantum tank IX
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private TransferMode transferMode = TransferMode.TRANSFER_ANY;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     private BucketMode transferBucketMode = BucketMode.MILLI_BUCKET;
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected int globalTransferLimit;

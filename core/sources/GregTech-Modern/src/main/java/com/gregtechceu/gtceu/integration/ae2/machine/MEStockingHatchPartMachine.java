@@ -46,18 +46,18 @@ public class MEStockingHatchPartMachine extends MEInputHatchPartMachine implemen
     private static final int CONFIG_SIZE = 16;
 
     @SyncToClient
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     private boolean autoPull;
 
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int minStackSize = 1;
 
     @Getter
     @Setter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private int ticksPerCycle = 40;
 
     @Setter

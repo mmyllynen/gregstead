@@ -18,7 +18,7 @@ public class TieredIOPartMachine extends TieredPartMachine implements IControlla
      * AUTO IO working?
      */
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @RerenderOnChanged
     protected boolean workingEnabled;

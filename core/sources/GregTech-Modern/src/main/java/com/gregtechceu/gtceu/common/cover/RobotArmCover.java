@@ -29,12 +29,12 @@ import java.util.Map;
 
 public class RobotArmCover extends ConveyorCover {
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     @Getter
     protected TransferMode transferMode;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @Setter
     protected int globalTransferLimit;

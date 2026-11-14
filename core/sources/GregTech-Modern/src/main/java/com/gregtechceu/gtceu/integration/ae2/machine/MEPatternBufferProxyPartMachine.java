@@ -31,7 +31,7 @@ public class MEPatternBufferProxyPartMachine extends TieredIOPartMachine impleme
     @Getter
     private final ProxySlotRecipeHandler proxySlotRecipeHandler;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @Getter
     @SyncToClient
     private @Nullable BlockPos bufferPos;

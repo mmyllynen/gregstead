@@ -37,12 +37,12 @@ public class EnderItemLinkCover extends AbstractEnderLinkCover<VirtualItemStorag
 
     protected static final int TRANSFER_RATE = 8;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     protected VirtualItemStorage storage;
     protected int itemsLeftToTransferLastSecond;
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.NONE)
     @SyncToClient
     protected FilterHandler<ItemStack, ItemFilter> filterHandler;
 

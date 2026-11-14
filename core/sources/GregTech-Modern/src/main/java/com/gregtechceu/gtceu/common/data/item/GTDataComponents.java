@@ -38,6 +38,15 @@ public class GTDataComponents {
     public static final DeferredRegister.DataComponents DATA_COMPONENTS = DeferredRegister
             .createDataComponents(Registries.DATA_COMPONENT_TYPE, GTCEu.MOD_ID);
 
+    /** Portable machine configuration/resources only; never complete world/job NBT. */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> MACHINE_ITEM_DATA = DATA_COMPONENTS
+            .registerComponentType("machine_item_data", builder -> builder.persistent(CustomData.CODEC)
+                    .networkSynchronized(CustomData.STREAM_CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> COVER_ITEM_DATA = DATA_COMPONENTS
+            .registerComponentType("cover_item_data", builder -> builder.persistent(CustomData.CODEC)
+                    .networkSynchronized(CustomData.STREAM_CODEC));
+
     // Tool-related
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<GTTool>> GT_TOOL = DATA_COMPONENTS
             .registerComponentType("gt_tool",

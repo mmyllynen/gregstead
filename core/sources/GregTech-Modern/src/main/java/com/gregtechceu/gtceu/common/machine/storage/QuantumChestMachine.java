@@ -63,13 +63,13 @@ public class QuantumChestMachine extends TieredMachine implements IControllable,
      */
     public static final Object2LongOpenHashMap<UUID> INTERACTION_LOGGER = new Object2LongOpenHashMap<>();
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private boolean isVoiding;
 
     private final long maxAmount;
     protected final ItemCache cache;
     @SyncToClient
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private final CustomItemStackHandler lockedItem;
 
     @Getter

@@ -41,6 +41,15 @@ public class RegressionProbe {
    String command=Files.readString(commandFile).strip();Files.delete(commandFile);
    String[] parts=command.split(" ",2);String arg=parts.length>1?parts[1]:"";
    switch(parts[0]){
+    case "machine-client-prepare" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineClientProbe.prepare(server));}
+    case "machine-client-verify" -> MachineClientProbe.verify(mc,arg);
+    case "shaders" -> MachineClientProbe.shaders(Boolean.parseBoolean(arg));
+    case "machine-storage" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineStorageProbe.run(server));}
+    case "miner-active-start" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineActiveMinerProbe.start(server));}
+    case "miner-active-verify" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineActiveMinerProbe.verify(server));}
+    case "machine-resources" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineConservationProbe.run(server));}
+    case "machines" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineStateProbe.run(server));}
+    case "machines-persist" -> {var server=mc.getSingleplayerServer();server.execute(()->MachineStateProbe.verify(server));}
     case "drums-persist" -> {var server=mc.getSingleplayerServer();server.execute(()->DrumProbe.verifyPersistence(server));}
     case "drums" -> {var server=mc.getSingleplayerServer();server.execute(()->DrumProbe.run(server));}
     case "opac" -> {var server=mc.getSingleplayerServer();server.execute(()->{try{Class.forName("regression.OpacBlueMapProbe").getMethod("run",net.minecraft.server.MinecraftServer.class).invoke(null,server);}catch(Exception ex){throw new RuntimeException(ex);}});}

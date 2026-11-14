@@ -69,7 +69,7 @@ public class BlockBreakerMachine extends TieredEnergyMachine
     public final AutoOutputTrait autoOutput;
 
     @Getter
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     @SyncToClient
     private boolean isWorkingEnabled = true;
 

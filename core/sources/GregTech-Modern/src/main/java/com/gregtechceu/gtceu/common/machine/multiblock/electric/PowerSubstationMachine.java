@@ -72,7 +72,7 @@ public class PowerSubstationMachine extends WorkableMultiblockMachine
 
     private IMaintenanceMachine maintenance;
 
-    @SaveField
+    @SaveField(item = SaveField.ItemSave.VALUE)
     private PowerStationEnergyBank energyBank;
 
     private EnergyContainerList inputHatches;
