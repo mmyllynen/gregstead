@@ -1,5 +1,13 @@
 # Release queue
 
+## 1.0.31 — verified source-fluid pickup release sources
+
+- Gregstead 8.0.14; other components unchanged from 1.0.30.
+- 21 in-game checks passed in the persistent regression world with the pinned shader enabled, including restart persistence and inventory overflow.
+- Source tags: v1.0.31 and gregstead-8.0.14. Full client, ten-own-client-mod update and server ZIPs have matching sources and checksums.
+- No private Mushroom components are distributed. Deployment receipts remain local and under Mushroom ops.
+
+
 ## 1.0.30 — local regression candidate
 
 - Sleepwear 0.1.0 and Gregstead 8.0.13; Calm remains 2.2.4.

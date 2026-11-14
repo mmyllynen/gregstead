@@ -37,10 +37,12 @@ public class RegressionProbe {
    }
   }
   Path commandFile=mc.gameDirectory.toPath().resolve("probe-command.txt");
-  if(Files.exists(commandFile)&&mc.level!=null&&mc.player!=null){
+  if(Files.exists(commandFile)&&mc.level!=null&&mc.player!=null&&mc.player.tickCount>120){
    String command=Files.readString(commandFile).strip();Files.delete(commandFile);
    String[] parts=command.split(" ",2);String arg=parts.length>1?parts[1]:"";
    switch(parts[0]){
+    case "drums-persist" -> {var server=mc.getSingleplayerServer();server.execute(()->DrumProbe.verifyPersistence(server));}
+    case "drums" -> {var server=mc.getSingleplayerServer();server.execute(()->DrumProbe.run(server));}
     case "opac" -> {var server=mc.getSingleplayerServer();server.execute(()->{try{Class.forName("regression.OpacBlueMapProbe").getMethod("run",net.minecraft.server.MinecraftServer.class).invoke(null,server);}catch(Exception ex){throw new RuntimeException(ex);}});}
     case "status" -> Files.writeString(mc.gameDirectory.toPath().resolve("probe-render-status.txt"),"strictValidation="+com.mojang.renderpearl.frontend.FrontendGpuDevice.STRICT_VALIDATION+"\n");
     case "stop" -> mc.stop();

@@ -528,6 +528,7 @@ public class GTMachineUtils {
                         pipeprops.appendTooltips(list, false, true);
                     }
                 })
+                .tooltips(Component.translatable("gtceu.drum.scoop_water"))
                 .tooltips(Component.translatable("gtceu.machine.quantum_tank.tooltip"),
                         Component.translatable("gtceu.universal.tooltip.fluid_storage_capacity",
                                 FormattingUtil.formatNumbers(capacity)))

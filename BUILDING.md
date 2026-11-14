@@ -170,3 +170,5 @@ Python requests plus kwallet-query. It reads the token from KWallet into memory,
 uses version/environment names and records successful uploads without secrets.
 Use an explicit receipt path; never retry an uncertain POST before checking the
 author dashboard. Package construction still requires approved component IDs.
+
+Source-fluid pickup regression: see `tools/regression_probe/DRUM_TESTS.md`. GitHub mods-only updates contain ten own client mods, including Sleepwear.

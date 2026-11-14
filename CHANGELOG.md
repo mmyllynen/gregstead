@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.31 / Gregstead 8.0.14
+
+- Scoop 1000 mB of compatible source fluids into barrels and drums; sneak to place.
+- Scooping lava into an empty wooden barrel destroys one barrel and burns the player, preserving the source.
+
+
 ## Gregstead 1.0.30
 
 - Add standalone Sleepwear 0.1.0: dyeable pajamas and event-driven automatic sleeping in nearby beds.

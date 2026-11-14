@@ -7,6 +7,8 @@ import static com.gregtechceu.gtceu.data.lang.LangHandler.*;
 public class MachineLang {
 
     protected static void init(RegistrateLangProvider provider) {
+        provider.add("gtceu.drum.scoop_water", "Collect 1000 mB from fluid sources; sneak to place. Lava destroys an empty wooden barrel and burns you!");
+
         // Custom machine names
         replace(provider, "block.gtceu.steam_large_turbine", "Large Steam Turbine");
         replace(provider, "block.gtceu.gas_large_turbine", "Large Gas Turbine");
