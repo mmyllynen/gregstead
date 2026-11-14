@@ -1,10 +1,18 @@
 # Release queue
 
-## 1.0.30 — local regression candidate
+## 1.0.30 — GitHub published; Mushroom and local client updated
 
 - Sleepwear 0.1.0 and Gregstead 8.0.13; Calm remains 2.2.4.
 - Mobs Be Calm 3.0.0 and related changes excluded.
-- GitHub publication and local client/Mushroom deployment follow successful game tests.
+- GitHub: https://github.com/mmyllynen/gregstead/releases/tag/v1.0.30
+- Standalone mod: https://github.com/mmyllynen/gregstead/releases/tag/sleepwear-0.1.0
+- Full client, ten-own-mod update, server ZIP, standalone JAR and SHA256SUMS published; all remote digests verified.
+- Exact packaged JAR passed dedicated-server, integrated-world, recipe/dye, idle-counter, clock/weather, obstruction/monster/occupied/nearest-bed, reconnect and shader-on/off checks.
+- Local NeoGreg client updated while closed; all previous mod hashes unchanged.
+- Mushroom updated after controller-managed development backup; startup, Minecraft port and BlueMap verified. Other mods and server configuration preserved.
+- Receipts: .build/local-client-1.0.30-deployment.json and Mushroom ops/release-1.0.30-deployment.json.
+- Full verification: .build/release-1.0.30-verification.json; mod validation: mods/sleepwear/VALIDATION.md.
+- CurseForge publication remains separate and approval-gated.
 
 ## Already published since the historical queue below
 
