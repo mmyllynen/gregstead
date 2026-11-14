@@ -1,5 +1,10 @@
 # Changelog
 
+## Gregstead 8.0.12
+
+- Fix screwdriver toggling of automatic downward fluid output for wooden barrels and metal drums.
+- Enables barrel-to-pipe water supply without a pump when automatic output is enabled.
+
 ## 1.0.29 / Gregstead 8.0.11
 
 - Fix legacy machine UI child loading and Basic Lathe dedicated-server disconnects.
