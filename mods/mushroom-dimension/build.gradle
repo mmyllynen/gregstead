@@ -46,9 +46,14 @@ tasks.named('jar', Jar) {
     archiveFileName = "${component.artifactStem}-${component.version}-mc${manifest.minecraft}.jar"
 }
 
-// Multiplayer players receive dimension and biome data from the server.
+// A server can send only the IDs of registry entries supplied by a known pack.
 tasks.register('clientJar', Jar) {
     dependsOn classes
-    from(sourceSets.main.output) { exclude 'data/**' }
+    from(sourceSets.main.output) {
+        include 'assets/**', 'META-INF/**', 'fi/**', 'gregstead-mushroom.mixins.json'
+        include 'data/gregstead_mushroom/dimension_type/**'
+        include 'data/gregstead_mushroom/worldgen/biome/**'
+        include 'data/gregstead_mushroom/worldgen/block_state_provider/**'
+    }
     archiveFileName = "${component.artifactStem}-client-${component.version}-mc${manifest.minecraft}.jar"
 }

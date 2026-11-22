@@ -12,7 +12,7 @@ while players use the dimension.
 
 ## Mushroom update
 
-Mushroom multiplayer clients use `gregstead-mushroom-dimension-client-0.1.0-mc26.3.jar`
+Mushroom multiplayer clients use `gregstead-mushroom-dimension-client-0.1.1-mc26.3.jar`
 and `gregstead-8.0.16-mc26.3.jar`. Close the game, remove the older GregTech
 JAR and any previous Mushroom Dimension JAR, then add both files alongside
 the other installed mods. Check both SHA-256 digests against the Mushroom
@@ -20,8 +20,8 @@ update. Existing settings and third-party mods stay with the instance.
 
 Dedicated servers and singleplayer worlds use
 `gregstead-mushroom-dimension-0.1.0-mc26.3.jar` and
-`gregstead-8.0.16-mc26.3.jar`. The dedicated server supplies multiplayer
-world-generation data.
+`gregstead-8.0.16-mc26.3.jar`. The 0.1.1 client works with Mushroom’s 0.1.0 server addon. The client includes
+the registry definitions it can be asked to load during the multiplayer handshake.
 
 The addon is a `pack-addon` excluded from the public pack builder. Build it
 with `python3 release.py build mushroom-dimension`. For a clean checkout, run
