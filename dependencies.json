@@ -1,5 +1,15 @@
 [
   {
+    "path": ".build/pack-inputs/open-parties-and-claims-neoforge-26.3-0.33.0.jar",
+    "components": [
+      "mushroom-dimension"
+    ],
+    "sha256": "d97fca4a38c6ebbf2a1eeb2cc7ed5e49692c59018313f6887040a03a97981406",
+    "url": "https://mediafilez.forgecdn.net/files/9222/174/open-parties-and-claims-neoforge-26.3-0.33.0.jar",
+    "source": "https://www.curseforge.com/minecraft/mc-mods/open-parties-and-claims",
+    "redistributed": false
+  },
+  {
     "path": "mods/calm/libs/curios-neoforge-17.0.0-beta.3+26.3.jar",
     "components": [
       "calm"

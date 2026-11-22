@@ -1,7 +1,11 @@
 package com.gregtechceu.gtceu.core.mixins;
 
+import com.gregtechceu.gtceu.core.interop.OreFeatureTargets;
+
+import com.gregtechceu.gtceu.api.data.worldgen.VanillaOreDimension;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.BlockReplacement;
@@ -10,12 +14,13 @@ import net.minecraft.world.level.levelgen.feature.AbstractOreFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
 @Mixin(AbstractOreFeature.class)
-public class OreConfigurationMixin {
+public class OreConfigurationMixin implements OreFeatureTargets {
 
     @Unique
     private static final List<Block> EXCLUDED_BLOCKS = List.of(
@@ -29,13 +34,20 @@ public class OreConfigurationMixin {
             Blocks.REDSTONE_ORE, Blocks.DEEPSLATE_REDSTONE_ORE,
             Blocks.NETHER_QUARTZ_ORE);
 
-    @ModifyVariable(method = "<init>(Ljava/util/List;IF)V", at = @At("HEAD"), index = 1, argsOnly = true)
-    private static List<BlockReplacement> gtceu$init(List<BlockReplacement> targetStates) {
-        if (ConfigHolder.INSTANCE == null || !ConfigHolder.INSTANCE.worldgen.oreVeins.removeVanillaOreGen)
-            return targetStates;
+    @Unique
+    private List<BlockReplacement> gtceu$filteredTargets;
 
-        return targetStates.stream()
-                .filter(targetState -> !EXCLUDED_BLOCKS.contains(targetState.state().getBlock()))
+    @Inject(method = "<init>(Ljava/util/List;IF)V", at = @At("RETURN"))
+    private void gtceu$cacheAllowedTargets(List<BlockReplacement> targets, int size, float chance, CallbackInfo ci) {
+        gtceu$filteredTargets = targets.stream()
+                .filter(target -> !EXCLUDED_BLOCKS.contains(target.state().getBlock()))
                 .toList();
+    }
+
+    @Override
+    public List<BlockReplacement> gtceu$targetsFor(WorldGenLevel level, List<BlockReplacement> vanilla) {
+        if (ConfigHolder.INSTANCE == null || !ConfigHolder.INSTANCE.worldgen.oreVeins.removeVanillaOreGen
+                || VanillaOreDimension.matches(level.getLevel().dimension())) return vanilla;
+        return gtceu$filteredTargets;
     }
 }

@@ -4,6 +4,7 @@ import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.worldgen.GTOreDefinition;
 import com.gregtechceu.gtceu.api.data.worldgen.IWorldGenLayer;
 import com.gregtechceu.gtceu.api.data.worldgen.WorldGeneratorUtils;
+import com.gregtechceu.gtceu.api.data.worldgen.VanillaOreDimension;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.integration.map.cache.server.ServerCache;
 import com.gregtechceu.gtceu.utils.GTUtil;
@@ -57,6 +58,7 @@ public class OreGenerator {
 
     public List<GeneratedIndicators> generateIndicators(WorldGenLevel level, List<GeneratedVeinMetadata> metadata,
                                                         ChunkPos chunkPos) {
+        if (VanillaOreDimension.matches(level.getLevel().dimension())) return List.of();
         return metadata.stream()
                 .map(data -> new VeinConfiguration(data,
                         new XoroshiroRandomSource(level.getSeed() ^ chunkPos.pack())))
@@ -128,7 +130,7 @@ public class OreGenerator {
     private Stream<Holder<GTOreDefinition>> getEntries(WorldGenLevel level, BlockPos veinCenter,
                                                        XoroshiroRandomSource random) {
         return WorldGeneratorUtils.WORLD_GEN_LAYERS.values().stream()
-                .filter(layer -> layer.isApplicableForLevel(level.getLevel().dimension()))
+                .filter(layer -> layer.isApplicableForLevel(VanillaOreDimension.veinDimension(level.getLevel().dimension())))
                 .map(layer -> {
                     int quartX = QuartPos.fromBlock(veinCenter.getX());
                     int quartY = QuartPos.fromBlock(veinCenter.getY());

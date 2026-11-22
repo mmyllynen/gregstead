@@ -1,5 +1,6 @@
 package com.gregtechceu.gtceu.core.mixins;
 
+import com.gregtechceu.gtceu.core.interop.VanillaOreRuleContext;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
 import net.minecraft.world.level.levelgen.material.rule.OreVeinRule;
@@ -16,7 +17,8 @@ public class OreVeinifierMixin {
 
     @Inject(method = "compile", at = @At("HEAD"), cancellable = true)
     private void gtceu$compile(MaterialRuleContext context, CallbackInfoReturnable<RuleEvaluator> cir) {
-        if (ConfigHolder.INSTANCE != null && ConfigHolder.INSTANCE.worldgen.oreVeins.removeVanillaLargeOreVeins)
+        if (ConfigHolder.INSTANCE != null && ConfigHolder.INSTANCE.worldgen.oreVeins.removeVanillaLargeOreVeins
+                && !((VanillaOreRuleContext) ((MaterialRuleContextAccessor) (Object) context).gtceu$worldContext()).gtceu$keepVanillaOres())
             cir.setReturnValue((x, y, z) -> null);
     }
 }

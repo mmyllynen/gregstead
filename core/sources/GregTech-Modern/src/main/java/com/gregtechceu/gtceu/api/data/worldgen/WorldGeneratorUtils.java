@@ -62,7 +62,7 @@ public class WorldGeneratorUtils {
             this.worldVeins = level.registryAccess().lookupOrThrow(GTRegistries.ORE_VEIN_REGISTRY).listElements()
                     .filter(vein -> !(vein.value().veinGenerator() instanceof NoopVeinGenerator))
                     .filter(entry -> entry.value().dimensionFilter().stream()
-                            .anyMatch(dim -> WorldGeneratorUtils.isSameDimension(dim, level.dimension())))
+                            .anyMatch(dim -> WorldGeneratorUtils.isSameDimension(dim, VanillaOreDimension.veinDimension(level.dimension()))))
                     .collect(Collectors.toList());
         }
 
@@ -79,7 +79,7 @@ public class WorldGeneratorUtils {
     }
 
     public static List<WeightedVein> getCachedBiomeVeins(ServerLevel level, Holder<Biome> biome) {
-        return oreVeinCache.computeIfAbsent(level, WorldOreVeinCache::new).getEntry(biome);
+        return oreVeinCache.computeIfAbsent(level, WorldOreVeinCache::new).getEntry(VanillaOreDimension.veinBiome(level, biome));
     }
 
     public static Optional<String> getWorldGenLayerKey(IWorldGenLayer layer) {

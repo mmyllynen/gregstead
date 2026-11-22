@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[12,)"
+license="MIT"
+[[mods]]
+modId="gregstead_mushroom"
+version="${version}"
+displayName="Gregstead Mushroom Dimension"
+description="A portal to vanilla Overworld terrain with GregTech ore veins."
+[[mixins]]
+config="gregstead-mushroom.mixins.json"
+[[dependencies.gregstead_mushroom]]
+modId="minecraft"
+type="required"
+versionRange="[${minecraft}]"
+side="BOTH"
+[[dependencies.gregstead_mushroom]]
+modId="neoforge"
+type="required"
+versionRange="[${neoforge}]"
+side="BOTH"
+[[dependencies.gregstead_mushroom]]
+modId="gtceu"
+type="required"
+versionRange="[${gregtech}]"
+side="BOTH"
+[[dependencies.gregstead_mushroom]]
+modId="openpartiesandclaims"
+type="optional"
+versionRange="[0.33.0,)"
+ordering="AFTER"
+side="BOTH"

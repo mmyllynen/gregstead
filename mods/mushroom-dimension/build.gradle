@@ -1,0 +1,54 @@
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+def manifest = new JsonSlurper().parse(file('../../projects.json'))
+def component = manifest.projects['mushroom-dimension']
+group = 'fi.gregstead'
+version = component.version
+java.toolchain.languageVersion = JavaLanguageVersion.of(manifest.java)
+neoForge {
+    version = manifest.neoforge
+    mods { gregstead_mushroom { sourceSet sourceSets.main } }
+}
+
+def opac = new JsonSlurper().parse(file('../../pack/build-inputs.json')).artifacts.find { it.modId == 'openpartiesandclaims' }
+dependencies {
+    compileOnly files("../../.build/pack-inputs/${opac.filename}")
+}
+
+def generatedResources = layout.buildDirectory.dir('generated/mushroom-resources')
+def generateWorldgen = tasks.register('generateWorldgen', Exec) {
+    def client = file('../../.build/minecraft/client.jar')
+    def metadata = file('../../.build/minecraft/26.3-official.json')
+    inputs.files('generate_resources.py', client, metadata)
+    outputs.dir(generatedResources)
+    doFirst { delete(generatedResources) }
+    commandLine 'python3', 'generate_resources.py', client, metadata, generatedResources.get().asFile
+}
+
+processResources {
+    from(generateWorldgen)
+    def versions = [version: component.version, gregtech: manifest.projects.gregtech.version,
+                    minecraft: manifest.minecraft, neoforge: manifest.neoforge]
+    inputs.properties versions
+    filesMatching('META-INF/neoforge.mods.toml') { expand versions }
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+tasks.named('jar', Jar) {
+    archiveFileName = "${component.artifactStem}-${component.version}-mc${manifest.minecraft}.jar"
+}
+
+// Multiplayer players receive dimension and biome data from the server.
+tasks.register('clientJar', Jar) {
+    dependsOn classes
+    from(sourceSets.main.output) { exclude 'data/**' }
+    archiveFileName = "${component.artifactStem}-client-${component.version}-mc${manifest.minecraft}.jar"
+}

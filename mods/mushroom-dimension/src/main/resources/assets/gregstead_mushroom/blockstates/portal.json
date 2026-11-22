@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "gregstead_mushroom:block/portal" },
+    "axis=z": { "model": "gregstead_mushroom:block/portal", "y": 90 }
+  }
+}

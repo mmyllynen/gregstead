@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "fi.gregstead.mushroom.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["FirePortalMixin", "NoiseSeedMixin", "PortalShapeAccess", "NetherPortalAccess"],
+  "client": ["client.PortalOverlayMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

@@ -158,7 +158,7 @@ def main():
     env['JAVA_TOOL_OPTIONS'] = '-XX:ActiveProcessorCount=4'
     project = ROOT / ('core/sources/GregTech-Modern' if args.component == 'gregtech' else
                       'core/sources/EMI-native' if args.component == 'emi' else 'mods/' + args.component)
-    wrapper = ROOT / 'core/sources/GregTech-Modern/gradlew' if args.component in ['gregtech', 'emi'] else project / 'gradlew'
+    wrapper = ROOT / 'core/sources/GregTech-Modern/gradlew' if args.component in ['gregtech', 'emi', 'mushroom-dimension'] else project / 'gradlew'
     command = ['bash', str(wrapper), '-p', str(project), 'clean', 'jar',
                '--no-daemon', '--no-build-cache', '--console=plain']
     if not online:
